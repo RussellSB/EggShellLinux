@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/TinyShell.dir/main.c.o CMakeFiles/TinyShell.dir/CLI.c.o CMakeFiles/TinyShell.dir/linenoise.c.o  -o TinyShell 

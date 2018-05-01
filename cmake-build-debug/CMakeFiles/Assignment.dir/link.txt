@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Assignment.dir/main.c.o CMakeFiles/Assignment.dir/tinyshell.c.o  -o Assignment 

@@ -1,0 +1,3 @@
+/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir
