@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CLI.c" "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir/CLI.c.o"
+  "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmdController.c" "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir/cmdController.c.o"
+  "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.c" "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir/eggshell.c.o"
   "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.c" "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir/linenoise.c.o"
-  "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/main.c" "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles/EggShell.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

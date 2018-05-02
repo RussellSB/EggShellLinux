@@ -57,52 +57,52 @@ include CMakeFiles/EggShell.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/EggShell.dir/flags.make
 
-CMakeFiles/EggShell.dir/main.c.o: CMakeFiles/EggShell.dir/flags.make
-CMakeFiles/EggShell.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EggShell.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/main.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/main.c"
+CMakeFiles/EggShell.dir/eggshell.c.o: CMakeFiles/EggShell.dir/flags.make
+CMakeFiles/EggShell.dir/eggshell.c.o: ../eggshell.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EggShell.dir/eggshell.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/eggshell.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.c"
 
-CMakeFiles/EggShell.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/main.c" > CMakeFiles/EggShell.dir/main.c.i
+CMakeFiles/EggShell.dir/eggshell.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/eggshell.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.c" > CMakeFiles/EggShell.dir/eggshell.c.i
 
-CMakeFiles/EggShell.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/main.c" -o CMakeFiles/EggShell.dir/main.c.s
+CMakeFiles/EggShell.dir/eggshell.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/eggshell.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.c" -o CMakeFiles/EggShell.dir/eggshell.c.s
 
-CMakeFiles/EggShell.dir/main.c.o.requires:
+CMakeFiles/EggShell.dir/eggshell.c.o.requires:
 
-.PHONY : CMakeFiles/EggShell.dir/main.c.o.requires
+.PHONY : CMakeFiles/EggShell.dir/eggshell.c.o.requires
 
-CMakeFiles/EggShell.dir/main.c.o.provides: CMakeFiles/EggShell.dir/main.c.o.requires
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/main.c.o.provides.build
-.PHONY : CMakeFiles/EggShell.dir/main.c.o.provides
+CMakeFiles/EggShell.dir/eggshell.c.o.provides: CMakeFiles/EggShell.dir/eggshell.c.o.requires
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.o.provides.build
+.PHONY : CMakeFiles/EggShell.dir/eggshell.c.o.provides
 
-CMakeFiles/EggShell.dir/main.c.o.provides.build: CMakeFiles/EggShell.dir/main.c.o
+CMakeFiles/EggShell.dir/eggshell.c.o.provides.build: CMakeFiles/EggShell.dir/eggshell.c.o
 
 
-CMakeFiles/EggShell.dir/CLI.c.o: CMakeFiles/EggShell.dir/flags.make
-CMakeFiles/EggShell.dir/CLI.c.o: ../CLI.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EggShell.dir/CLI.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/CLI.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CLI.c"
+CMakeFiles/EggShell.dir/cmdController.c.o: CMakeFiles/EggShell.dir/flags.make
+CMakeFiles/EggShell.dir/cmdController.c.o: ../cmdController.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EggShell.dir/cmdController.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/cmdController.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmdController.c"
 
-CMakeFiles/EggShell.dir/CLI.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/CLI.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CLI.c" > CMakeFiles/EggShell.dir/CLI.c.i
+CMakeFiles/EggShell.dir/cmdController.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/cmdController.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmdController.c" > CMakeFiles/EggShell.dir/cmdController.c.i
 
-CMakeFiles/EggShell.dir/CLI.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/CLI.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CLI.c" -o CMakeFiles/EggShell.dir/CLI.c.s
+CMakeFiles/EggShell.dir/cmdController.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/cmdController.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmdController.c" -o CMakeFiles/EggShell.dir/cmdController.c.s
 
-CMakeFiles/EggShell.dir/CLI.c.o.requires:
+CMakeFiles/EggShell.dir/cmdController.c.o.requires:
 
-.PHONY : CMakeFiles/EggShell.dir/CLI.c.o.requires
+.PHONY : CMakeFiles/EggShell.dir/cmdController.c.o.requires
 
-CMakeFiles/EggShell.dir/CLI.c.o.provides: CMakeFiles/EggShell.dir/CLI.c.o.requires
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/CLI.c.o.provides.build
-.PHONY : CMakeFiles/EggShell.dir/CLI.c.o.provides
+CMakeFiles/EggShell.dir/cmdController.c.o.provides: CMakeFiles/EggShell.dir/cmdController.c.o.requires
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/cmdController.c.o.provides.build
+.PHONY : CMakeFiles/EggShell.dir/cmdController.c.o.provides
 
-CMakeFiles/EggShell.dir/CLI.c.o.provides.build: CMakeFiles/EggShell.dir/CLI.c.o
+CMakeFiles/EggShell.dir/cmdController.c.o.provides.build: CMakeFiles/EggShell.dir/cmdController.c.o
 
 
 CMakeFiles/EggShell.dir/linenoise.c.o: CMakeFiles/EggShell.dir/flags.make
@@ -131,15 +131,15 @@ CMakeFiles/EggShell.dir/linenoise.c.o.provides.build: CMakeFiles/EggShell.dir/li
 
 # Object files for target EggShell
 EggShell_OBJECTS = \
-"CMakeFiles/EggShell.dir/main.c.o" \
-"CMakeFiles/EggShell.dir/CLI.c.o" \
+"CMakeFiles/EggShell.dir/eggshell.c.o" \
+"CMakeFiles/EggShell.dir/cmdController.c.o" \
 "CMakeFiles/EggShell.dir/linenoise.c.o"
 
 # External object files for target EggShell
 EggShell_EXTERNAL_OBJECTS =
 
-EggShell: CMakeFiles/EggShell.dir/main.c.o
-EggShell: CMakeFiles/EggShell.dir/CLI.c.o
+EggShell: CMakeFiles/EggShell.dir/eggshell.c.o
+EggShell: CMakeFiles/EggShell.dir/cmdController.c.o
 EggShell: CMakeFiles/EggShell.dir/linenoise.c.o
 EggShell: CMakeFiles/EggShell.dir/build.make
 EggShell: CMakeFiles/EggShell.dir/link.txt
@@ -151,8 +151,8 @@ CMakeFiles/EggShell.dir/build: EggShell
 
 .PHONY : CMakeFiles/EggShell.dir/build
 
-CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/main.c.o.requires
-CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/CLI.c.o.requires
+CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/eggshell.c.o.requires
+CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/cmdController.c.o.requires
 CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/linenoise.c.o.requires
 
 .PHONY : CMakeFiles/EggShell.dir/requires

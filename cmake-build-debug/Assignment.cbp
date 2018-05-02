@@ -78,16 +78,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CLI.c">
+		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmdController.c">
+			<Option target="EggShell"/>
+		</Unit>
+		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.c">
+			<Option target="EggShell"/>
+		</Unit>
+		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.h">
 			<Option target="EggShell"/>
 		</Unit>
 		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.c">
 			<Option target="EggShell"/>
 		</Unit>
 		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.h">
-			<Option target="EggShell"/>
-		</Unit>
-		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/main.c">
 			<Option target="EggShell"/>
 		</Unit>
 		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CMakeLists.txt">

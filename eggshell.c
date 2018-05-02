@@ -7,7 +7,7 @@ int main(int argc, char **argv){
 
     if(pid == 0){
 
-        system("clear"); //clears terminal
+        system("clear");
         printf("Booting up the Egg Shell from main.......\n"); //prompts boot up
 
     }else if(pid>0) {
@@ -15,7 +15,8 @@ int main(int argc, char **argv){
         int returnStatus;
         wait(&returnStatus);  //parent process waits here for child to terminate.
         execEggShell(); //calls egg shell after clearing and prompt
-
+        printf("Exiting the Egg Shell.......\n");
+        system("clear");
 
     }else{
 
@@ -23,7 +24,6 @@ int main(int argc, char **argv){
 
     }
 
-    system("clear"); //clears terminal after exiting eggShell
-
     return 0;
+
 }

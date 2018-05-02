@@ -123,32 +123,59 @@ EggShell/fast:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/build
 .PHONY : EggShell/fast
 
-CLI.o: CLI.c.o
+cmdController.o: cmdController.c.o
 
-.PHONY : CLI.o
+.PHONY : cmdController.o
 
 # target to build an object file
-CLI.c.o:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/CLI.c.o
-.PHONY : CLI.c.o
+cmdController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/cmdController.c.o
+.PHONY : cmdController.c.o
 
-CLI.i: CLI.c.i
+cmdController.i: cmdController.c.i
 
-.PHONY : CLI.i
+.PHONY : cmdController.i
 
 # target to preprocess a source file
-CLI.c.i:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/CLI.c.i
-.PHONY : CLI.c.i
+cmdController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/cmdController.c.i
+.PHONY : cmdController.c.i
 
-CLI.s: CLI.c.s
+cmdController.s: cmdController.c.s
 
-.PHONY : CLI.s
+.PHONY : cmdController.s
 
 # target to generate assembly for a file
-CLI.c.s:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/CLI.c.s
-.PHONY : CLI.c.s
+cmdController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/cmdController.c.s
+.PHONY : cmdController.c.s
+
+eggshell.o: eggshell.c.o
+
+.PHONY : eggshell.o
+
+# target to build an object file
+eggshell.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.o
+.PHONY : eggshell.c.o
+
+eggshell.i: eggshell.c.i
+
+.PHONY : eggshell.i
+
+# target to preprocess a source file
+eggshell.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.i
+.PHONY : eggshell.c.i
+
+eggshell.s: eggshell.c.s
+
+.PHONY : eggshell.s
+
+# target to generate assembly for a file
+eggshell.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.s
+.PHONY : eggshell.c.s
 
 linenoise.o: linenoise.c.o
 
@@ -177,33 +204,6 @@ linenoise.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/linenoise.c.s
 .PHONY : linenoise.c.s
 
-main.o: main.c.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/main.c.s
-.PHONY : main.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... EggShell"
-	@echo "... CLI.o"
-	@echo "... CLI.i"
-	@echo "... CLI.s"
+	@echo "... cmdController.o"
+	@echo "... cmdController.i"
+	@echo "... cmdController.s"
+	@echo "... eggshell.o"
+	@echo "... eggshell.i"
+	@echo "... eggshell.s"
 	@echo "... linenoise.o"
 	@echo "... linenoise.i"
 	@echo "... linenoise.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 
