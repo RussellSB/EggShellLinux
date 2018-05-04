@@ -1,6 +1,7 @@
 #include "eggshell.h"
 
 
+//parses through recognised variable command from input command
 void parseVrblCmd(char * args[MAX_ARGS]){
 
     char * varName = NULL; //initialized to store variable name from variable cmd
@@ -39,13 +40,43 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
 }
 
+
+//parses through recognised print command from input command
+void parsePrintCmd(char * args[MAX_ARGS]){
+
+    if(args[1]==NULL){
+
+        printf("\n"); //prints blank line when nothing is to be echoed
+
+    }else{
+
+        //prints each argument one by one
+        for(int i = 1; args[i] != NULL; i++){
+
+            printf("%s ", args[i]);
+
+        }
+
+        printf("\n"); //prints blank line after everything is echoed
+
+    }
+
+}
+
 //parses through inputted command, understandable through String array "args"
 void parseCmd(char * args[MAX_ARGS]){
 
     //Recognises command as variable assignment command because first argument has an '=', and there's only one argument
     if(strstr(args[0], "=") && args[1] == NULL){
 
-        parseVrblCmd(args); //calls method for dealing with second level of parsing for variables
+        parseVrblCmd(args); //calls method for parsing variable declaration commands
+
+    }
+
+    //Recognises command as print command since first argument is print
+    else if(strcmp(args[0],"print") == 0){
+
+        parsePrintCmd(args); //calls method for parsing print commands
 
     }
 
