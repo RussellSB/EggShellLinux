@@ -14,7 +14,7 @@ typedef struct variableArray {
 } VarArr;
 
 
-/* Global variables */
+/* Global dynamic array "variables" */
 VarArr * variables;
 
 
@@ -84,7 +84,7 @@ void addVar(char * name, char * value) {
 
     if (validateVarName(name) != 0) { //used to catch just in case the variable name is not valid
 
-        printf("Error: Name \"%s\" should contain digits, letters and underscores only. Please try again.\n", name);
+        printf("Error: Variable \"%s\" should contain digits, letters and underscores only. Please try again.\n", name);
         return; //returns, to cancel adding variable
 
     }
@@ -120,7 +120,7 @@ void addVar(char * name, char * value) {
 }
 
 
-//adds initial shell variables to the global VarArr* variables array in this c file
+//initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
 
     //allocates memory for Variables Array which is just one item
@@ -155,23 +155,16 @@ void printAllVar(void){
     //traverses through storage of variables, printing out each one
     for(int i = 0; i < variables->amount; i++ ){
 
-        printf("%s = %s\n", variables->varArr[i]->name, variables->varArr[i]->value);
+        printf("%s=%s\n", variables->varArr[i]->name, variables->varArr[i]->value);
 
     }
 
 }
 
 
-//frees all the variables stored in the shell, if x == 1 it frees the dynamic array too
-void freeAllVar(int x){
+//frees all the variables stored in the shell by freeing dynamic array
+void freeAllVar(void){
 
-    //traverses through storage of variables, freeing each one
-    for(int i = 0; i < variables->amount; i++ ){
-        free(variables->varArr[i]);
-    }
-
-    if(x == 1) {
-        free(variables); //frees dynamic array variables, needs to be initialised again to be used
-    }
+    free(variables); //frees all variables and dynamic array that stores them
 
 }

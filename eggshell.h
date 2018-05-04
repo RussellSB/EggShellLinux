@@ -11,22 +11,28 @@
 #include "linenoise.h"
 #include <ctype.h>
 
-/* in vrblController.c */
+
+
+/* --in vrblController.c-- */
 
 //Struct Declarations
-typedef struct shellVariable Var;
-typedef struct variableArray VarArr;
+typedef struct shellVariable Var; //instance of a shell variable
+typedef struct variableArray VarArr; //stores multiple shell variables
 
 //Method Declarations
-int validateVarName(char* name);
-void addVar(char* name, char* content);
-char * getVarValue(const char * variableName);
-void initShellVariables(void);
-void printAllVar(void);
-void freeAllVar(int x);
+int validateVarName(char* name); //check inputted varName for validity
+void addVar(char* name, char* content); //adds variable to initialised variable storage
+char * getVarValue(const char * variableName); //gets the variable value by name
+void initShellVariables(void); //initialises variable storage and adds initial variables
+void printAllVar(void); //prints all the variables stored in the shell
+void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
-/* in cmdController.c */
+/* --in cmdController.c-- */
+
+/* Constants defined */
+#define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
 
 /* Methods Declarations */
-void execEggShell(void);
+void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
+void execEggShell(void); //executes the shell, considered as the main method of the eggShell
