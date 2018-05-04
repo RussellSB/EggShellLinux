@@ -2,6 +2,9 @@
   <dictionary name="russellsb">
     <words>
       <w>linenoise</w>
+      <w>struct</w>
+      <w>vararr</w>
+      <w>vrbl</w>
     </words>
   </dictionary>
 </component>

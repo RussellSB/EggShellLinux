@@ -14,7 +14,9 @@ int main(int argc, char **argv){
 
         int returnStatus;
         wait(&returnStatus);  //parent process waits here for child to terminate.
+
         execEggShell(); //calls egg shell after clearing and prompt
+
         printf("Exiting the Egg Shell.......\n");
         system("clear");
 

@@ -93,6 +93,9 @@
 		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.h">
 			<Option target="EggShell"/>
 		</Unit>
+		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/vrblController.c">
+			<Option target="EggShell"/>
+		</Unit>
 		<Unit filename="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

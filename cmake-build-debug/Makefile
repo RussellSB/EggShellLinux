@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/19/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/russellsb/clion-2018.1.2/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/19/bin/cmake/bin/cmake -E remove -f
+RM = /home/russellsb/clion-2018.1.2/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semest
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/19/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/russellsb/clion-2018.1.2/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/19/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/russellsb/clion-2018.1.2/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -204,6 +204,33 @@ linenoise.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/linenoise.c.s
 .PHONY : linenoise.c.s
 
+vrblController.o: vrblController.c.o
+
+.PHONY : vrblController.o
+
+# target to build an object file
+vrblController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/vrblController.c.o
+.PHONY : vrblController.c.o
+
+vrblController.i: vrblController.c.i
+
+.PHONY : vrblController.i
+
+# target to preprocess a source file
+vrblController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/vrblController.c.i
+.PHONY : vrblController.c.i
+
+vrblController.s: vrblController.c.s
+
+.PHONY : vrblController.s
+
+# target to generate assembly for a file
+vrblController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/vrblController.c.s
+.PHONY : vrblController.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... linenoise.o"
 	@echo "... linenoise.i"
 	@echo "... linenoise.s"
+	@echo "... vrblController.o"
+	@echo "... vrblController.i"
+	@echo "... vrblController.s"
 .PHONY : help
 
 
