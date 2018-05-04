@@ -79,25 +79,12 @@ int getVarIndex(const char * varName){
 }
 
 
-//prints all the variables stored in the shell
-void printAllVar(void){
-
-    //traverses through storage of variables, printing out each one
-    for(int i = 0; i < variables->amount; i++ ){
-
-        printf("%s = %s\n", variables->varArr[i]->name, variables->varArr[i]->value);
-
-    }
-
-}
-
-
 //method used for adding a shell variable and storing to a dynamic array of structs if doesn't already exist
 void addVar(char * name, char * value) {
 
     if (validateVarName(name) != 0) { //used to catch just in case the variable name is not valid
 
-        printf("Error: \"%s\" should contain digits, letters and underscores only\n", name);
+        printf("Error: Name \"%s\" should contain digits, letters and underscores only. Please try again.\n", name);
         return; //returns, to cancel adding variable
 
     }
@@ -162,3 +149,29 @@ void initShellVariables(void) {
 }
 
 
+//prints all the variables stored in the shell
+void printAllVar(void){
+
+    //traverses through storage of variables, printing out each one
+    for(int i = 0; i < variables->amount; i++ ){
+
+        printf("%s = %s\n", variables->varArr[i]->name, variables->varArr[i]->value);
+
+    }
+
+}
+
+
+//frees all the variables stored in the shell, if x == 1 it frees the dynamic array too
+void freeAllVar(int x){
+
+    //traverses through storage of variables, freeing each one
+    for(int i = 0; i < variables->amount; i++ ){
+        free(variables->varArr[i]);
+    }
+
+    if(x == 1) {
+        free(variables); //frees dynamic array variables, needs to be initialised again to be used
+    }
+
+}

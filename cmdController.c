@@ -1,6 +1,8 @@
 #include "eggshell.h"
 
-/* This method executes the Command Line Interpreter (CLI) of the eggshell*/
+#define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
+
+/* This method executes the Command Line Interpreter (CLI) of the eggshell and calls initializations*/
 void execEggShell(void){
 
     char* line;             //pointer to the current line
@@ -22,7 +24,7 @@ void execEggShell(void){
             break;
         }
 
-        //for loop for storing currToken in array and retrieving rest of the tokens
+        //for loop for storing currToken in array args and retrieving rest of the tokens
         for(i=0; currToken != NULL && i < MAX_ARGS-1; i++){
 
             args[i] = currToken;
@@ -34,6 +36,7 @@ void execEggShell(void){
 
     }
 
-    linenoiseFree(line); // Frees allocated memory
+    freeAllVar(1); //Frees all shell variables including the dynamic array that stores them
+    linenoiseFree(line); //Frees allocated memory
 
 }

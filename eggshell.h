@@ -11,9 +11,6 @@
 #include "linenoise.h"
 #include <ctype.h>
 
-/* Global Constant Declarations */
-#define MAX_ARGS 225
-
 /* in vrblController.c */
 
 //Struct Declarations
@@ -26,6 +23,8 @@ void addVar(char* name, char* content);
 char * getVarValue(const char * variableName);
 void initShellVariables(void);
 void printAllVar(void);
+void freeAllVar(int x);
+
 
 /* in cmdController.c */
 
