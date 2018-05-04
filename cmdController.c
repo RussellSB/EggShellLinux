@@ -12,7 +12,7 @@ void execEggShell(void){
     initShellVariables(); //initializes all the shell variables in vrblController.c
 
     //keeps looping for line input using linenoise
-    while ((line = linenoise("eggShell-lineInput~$> ")) != NULL)
+    while ((line = linenoise(getVarValue("PROMPT"))) != NULL)
     {
 
         currToken = strtok(line, " "); //retrieves first token

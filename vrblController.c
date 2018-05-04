@@ -48,8 +48,9 @@ char * getVarValue(const char * varName){
     for(int i = 0; i < variables->amount; i++ ){
 
         //if a match is found
-        if(variables->varArr[i]->name == varName){
-            return variables->varArr[i]->value; //return value when match is found
+        if(strcmp(variables->varArr[i]->name,varName) == 0){
+            char * v = variables->varArr[i]->value; //return value when match is found
+            return v;
         }
 
     }
@@ -67,7 +68,7 @@ int getVarIndex(const char * varName){
     for(int i = 0; i < variables->amount; i++ ){
 
         //if a match is found
-        if(variables->varArr[i]->name == varName){
+        if(strcmp(variables->varArr[i]->name,varName) == 0){
             return i; //return index when match is found
         }
 
@@ -111,10 +112,10 @@ void addVar(char * name, char * value) {
         //check if variable name is already stored in the variable storage
         if(i != -1){
 
-            variables->varArr[i]->value = value;
+            variables->varArr[i]->value = value; //since already stored just overwrites previous value with new one
             return; //returns to avoid unnecessary memory allocating
 
-        }else {
+        }else{
 
             //dynamically increases the varArr by one as adding a new variable
             variables->varArr = (Var **) realloc(variables->varArr, sizeof(Var) * v);
@@ -149,13 +150,11 @@ void initShellVariables(void) {
     addVar("PATH", getenv("PATH")); //path to external commands
     addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
 
-    //addVariable("CWD", ---, variables); //current working directory, file operations relative to this
+    //addVar("CWD", ---); //current working directory, file operations relative to this
 
     addVar("USER", getenv("USER")); //name of current user
     addVar("HOME", getenv("HOME")); //home directory of user
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
-
-    //addVariable("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
 
     //addVariable("SHELL", ---, variables); //absolute path of the eggshell binary
     //addVariable("EXITCODE", ---, variables); //exit code returned by the last program in the shell
