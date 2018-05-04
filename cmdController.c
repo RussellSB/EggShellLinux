@@ -18,10 +18,10 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
     }
 
-    //if the first letter of variable name is '$', prompt an error
+    //if the first letter of LHS variable name is '$', prompt an error
     if(*varName == '$'){
 
-        printf("Error: Variable name shouldn't contain a $ before it's name. ");
+        printf("Error: Right Hand Side Variable name shouldn't contain a $ before it's name. ");
         printf("Please input in the form VAR_NAME=var_value\n");
         return;
 
@@ -102,13 +102,13 @@ void execEggShell(void){
     //keeps looping for line input using linenoise
     while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)
     {
-        if(line == ""){
 
-        //TO DO: not make it return SIGSEGV when empty line is entered by user
+        //if no characters are inputted in the line, it's entered with no content
+        if(strcmp(line,"") == 0){
 
-        }else {
+            //Do nothing, go to next prompt iteration
 
-            printf("Line: ---[%s]----\n",line);
+        }else{ //else when line entered with actual content
 
             currToken = strtok(line, " "); //retrieves first token
 
