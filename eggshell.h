@@ -12,7 +12,6 @@
 #include <ctype.h>
 
 
-
 /* --in vrblController.c-- */
 
 //Struct Declarations

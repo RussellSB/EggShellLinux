@@ -55,7 +55,7 @@ char * getVarValue(const char * varName){
 
     }
 
-    printf("Error: requested Shell Variable doesn't exist");
+    printf("Error: Requested Shell Variable doesn't exist\n");
     return NULL; //return NULL when no match is found (variable doesn't exist)
 
 }

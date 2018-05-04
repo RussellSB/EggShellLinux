@@ -1,31 +1,51 @@
 #include "eggshell.h"
 
 
+void parseVrblCmd(char * args[MAX_ARGS]){
+
+    char * varName = NULL; //initialized to store variable name from variable cmd
+    char * varValue = NULL; //initialized to store variable value from variable cmd
+
+    varName = strtok(args[0], "="); //gets name before delim "="
+    varValue = strtok(NULL, "="); //gets value after delim "="
+
+    //if either of the entries before or after the "=" aren't filled, prompt an error
+    if(varName == NULL || varValue == NULL) {
+
+        printf("Error: Incorrect entry of a variable declaration command. ");
+        printf("Please input in the form VAR_NAME=var_value\n");
+        return;
+
+    }
+
+    //if the first letter of variable name is '$', prompt an error
+    if(*varName == '$'){
+
+        printf("Error: Variable name shouldn't contain a $ before it's name. ");
+        printf("Please input in the form VAR_NAME=var_value\n");
+        return;
+
+    }
+
+    //
+    if(*varValue == '$'){
+
+        char * varName2 = varValue + 1; //points to letter after $, for inputting to getVarValue()
+        varValue = getVarValue(varName2); //sets variable value as the value of the variable requested
+
+    }
+
+    addVar(varName, varValue); //adds variable to variables storage, or modifies value of existing variable
+
+}
+
 //parses through inputted command, understandable through String array "args"
 void parseCmd(char * args[MAX_ARGS]){
 
-    //Recognising variable command, first argument has an '=', and there's only one argument
+    //Recognises command as variable assignment command because first argument has an '=', and there's only one argument
     if(strstr(args[0], "=") && args[1] == NULL){
 
-        char * varName = NULL; //initialized to store variable name from variable cmd
-        char * varValue = NULL; //initialized to store variable value from variable cmd
-
-        varName = strtok(args[0], "="); //gets name before delim "="
-        varValue = strtok(NULL, "="); //gets value after delim "="
-
-        printf("%s = %s\n", varName, varValue);
-
-        //if either of the entries before or after the delim aren't filled, prompt an error
-        if(varName == NULL || varValue == NULL){
-
-            printf("Error: Incorrect entry of a variable declaration command. ");
-            printf("Please input in the form VAR_NAME=var_value\n");
-            return;
-
-        }
-
-        addVar(varName, varValue); //adds variable to variables storage, or modifies values
-        //freeAllVar(0);
+        parseVrblCmd(args); //calls method for dealing with second level of parsing for variables
 
     }
 
