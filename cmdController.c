@@ -7,8 +7,8 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     char * varName = NULL; //initialized to store variable name from variable cmd
     char * varValue = NULL; //initialized to store variable value from variable cmd
 
-    varName = strtok(args[0], "="); //gets name before delim "="
-    varValue = strtok(NULL, "="); //gets value after delim "="
+    varName = strsep(&args[0], "="); //gets name before first delim "="
+    varValue = args[0]; //gets whole string after first delim "="
 
     //if either of the entries before or after the "=" aren't filled, prompt an error
     if(varName == NULL || varValue == NULL) {
@@ -28,11 +28,11 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
     }
 
-    //
+    //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
     if(*varValue == '$'){
 
-        char * varName2 = varValue + 1; //points to letter after $, for inputting to getVarValue()
-        varValue = getVarValue(varName2); //sets variable value as the value of the variable requested
+        char * varNameRHS = varValue + 1; //points to letter after $, for inputting to getVarValue()
+        varValue = getVarValue(varNameRHS); //sets variable value as the value of the variable requested
 
     }
 
@@ -53,7 +53,15 @@ void parsePrintCmd(char * args[MAX_ARGS]){
         //prints each argument one by one
         for(int i = 1; args[i] != NULL; i++){
 
-            printf("%s ", args[i]);
+            //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
+            if(*args[i] == '$'){
+
+                char * varNameRHS = args[i] + 1; //points to letter after $, for inputting to getVarValue()s
+                args[i] = getVarValue(varNameRHS); //sets argument as the value of the variable requested
+
+            }
+
+            printf("%s ", args[i]); //prints the current argument
 
         }
 
@@ -100,7 +108,7 @@ void execEggShell(void){
 
         currToken = strtok(line, " "); //retrieves first token
 
-        //if first token is set to "exit" quit the line input loop
+        //if first token is set to "exit" quit the line input loop (considered a special command case)
         if(strcmp(currToken,"exit") == 0){
             break;
         }
