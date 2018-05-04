@@ -1,6 +1,5 @@
 #include "eggshell.h"
 
-
 //parses through recognised variable command from input command
 void parseVrblCmd(char * args[MAX_ARGS]){
 
@@ -31,8 +30,7 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
     if(*varValue == '$'){
 
-        char * varNameRHS = varValue + 1; //points to letter after $, for inputting to getVarValue()
-        varValue = getVarValue(varNameRHS); //sets variable value as the value of the variable requested
+        varValue = getVarValue(varValue); //gets value of requested variable with dollar sign
 
     }
 
@@ -56,8 +54,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
             //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
             if(*args[i] == '$'){
 
-                char * varNameRHS = args[i] + 1; //points to letter after $, for inputting to getVarValue()s
-                args[i] = getVarValue(varNameRHS); //sets argument as the value of the variable requested
+                args[i] = getVarValue(args[i]); //gets value of requested variable with dollar sign
 
             }
 
@@ -103,26 +100,35 @@ void execEggShell(void){
     initShellVariables(); //initializes all the shell variables in vrblController.c
 
     //keeps looping for line input using linenoise
-    while ((line = linenoise(getVarValue("PROMPT"))) != NULL)
+    while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)
     {
+        if(line == ""){
 
-        currToken = strtok(line, " "); //retrieves first token
+        //TO DO: not make it return SIGSEGV when empty line is entered by user
 
-        //if first token is set to "exit" quit the line input loop (considered a special command case)
-        if(strcmp(currToken,"exit") == 0){
-            break;
+        }else {
+
+            printf("Line: ---[%s]----\n",line);
+
+            currToken = strtok(line, " "); //retrieves first token
+
+            //if first token is set to "exit" quit the line input loop (considered a special command case)
+            if (strcmp(currToken, "exit") == 0) {
+                break;
+            }
+
+            //for loop for storing currToken in array args and retrieving rest of the tokens
+            for (i = 0; currToken != NULL && i < MAX_ARGS - 1; i++) {
+
+                args[i] = currToken;
+                currToken = strtok(NULL, " ");
+
+            }
+
+            args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
+            parseCmd(args); //parses through command input to execute the appropriate function
+
         }
-
-        //for loop for storing currToken in array args and retrieving rest of the tokens
-        for(i=0; currToken != NULL && i < MAX_ARGS-1; i++){
-
-            args[i] = currToken;
-            currToken = strtok(NULL, " ");
-
-        }
-
-        args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
-        parseCmd(args); //parses through command input to execute the appropriate function
 
     }
 

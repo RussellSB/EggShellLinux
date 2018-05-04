@@ -44,6 +44,8 @@ int validateVarName(char * name) {
 //returns value content from variable name if exists, if doesn't returns NULL
 char * getVarValue(const char * varName){
 
+    varName+=1; //points to string after '$', so it can compare the name
+
     //traverses through variable array searching for a variable name match
     for(int i = 0; i < variables->amount; i++ ){
 
