@@ -116,18 +116,29 @@ void addVar(char * name, char * value) {
     variables->varArr[v] = malloc(sizeof(Var)); //allocates memory for new variable in varArr[v]
 
     variables->varArr[v]->name = name; //sets name at index v
-
     variables->varArr[v]->value = value; //sets value at index v
 
     variables->amount++; //increases amount by 1
 
 }
 
+
+//method that sets the variable CWD for current working directory
+void setCWD(void){
+
+    char buf[MAX_CHAR];//sets buffer with max character length for string
+    char * cwd; //pointer to point to this String array buffer
+
+    getcwd(buf, sizeof(buf)); //gets new current working directory
+
+    cwd = strdup(buf); //allocates memory for cwd, by using buffer as a source
+    addVar("CWD", cwd); //current working directory, file operations relative to this
+
+}
+
+
 //initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
-
-    char valCWD1[MAX_CHAR];//sets buffer valCWD1 with max character length for string
-    getcwd(valCWD1, sizeof(valCWD1)); //gets new current working directory
 
     //allocates memory for Variables Array which is just one item
     variables = malloc(sizeof(VarArr));
@@ -140,15 +151,17 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
+    //getenv() variables
     addVar("PATH", getenv("PATH")); //path to external commands
-    addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
-
-    addVar("CWD", valCWD1); //current working directory, file operations relative to this
-
     addVar("USER", getenv("USER")); //name of current user
     addVar("HOME", getenv("HOME")); //home directory of user
-    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
 
+    //cwd variable
+    setCWD();
+
+    //other variables
+    addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
+    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
 
     //addVariable("SHELL", ---, variables); //absolute path of the eggshell binary
     //addVariable("EXITCODE", ---, variables); //exit code returned by the last program in the shell

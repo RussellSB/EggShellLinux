@@ -1,15 +1,14 @@
 #include "eggshell.h"
 
-
+/*
 void main(){
 
     initShellVariables();
     char * test = getVarValue("$CWD"); //returns fine, gets corrupted with print
-    printf("I hate myself"); //problem here - corrupts value
+    printf("%s",test); //problem here - corrupts value
 
-}
+}*/
 
-/*
 int main(int argc, char **argv){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -38,5 +37,5 @@ int main(int argc, char **argv){
 
     return 0;
 
-}*/
+}
 

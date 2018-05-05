@@ -25,7 +25,7 @@ typedef struct variableArray VarArr; //stores multiple shell variables
 int validateVarName(char* name); //check inputted varName for validity
 void addVar(char* name, char* content); //adds variable to initialised variable storage
 char * getVarValue(const char * variableName); //gets the variable value by name
-char * getCWD(void);
+void setCWD(void); //sets the current working directory variable
 void initShellVariables(void); //initialises variable storage and adds initial variables
 void printAllVar(void); //prints all the variables stored in the shell
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
