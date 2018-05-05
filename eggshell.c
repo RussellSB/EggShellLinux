@@ -4,9 +4,8 @@
 void main(){
 
     initShellVariables();
-
-    char * test = getVarValue("$HOME");
-    printf("value: "); //problem here - corrupts value
+    char * test = getVarValue("$CWD"); //returns fine, gets corrupted with print
+    printf("I hate myself"); //problem here - corrupts value
 
 }
 
