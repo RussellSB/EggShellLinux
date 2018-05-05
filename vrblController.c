@@ -174,7 +174,7 @@ void initShellVariables(void) {
     //adding other variables
     addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
-    addVar("EXITCODE",NULL);
+    addVar("EXITCODE","(null)");
 
 }
 
@@ -182,12 +182,16 @@ void initShellVariables(void) {
 //prints all the variables stored in the shell
 void printAllVar(void){
 
+    printf("\n"); //skips a line beforeexit printing all
+
     //traverses through storage of variables, printing out each one
     for(int i = 0; i < variables->amount; i++ ){
 
         printf("%s=%s\n", variables->varArr[i]->name, variables->varArr[i]->value);
 
     }
+
+    printf("\n"); //skips a line after printing all
 
 }
 

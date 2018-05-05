@@ -1,5 +1,6 @@
 #include "eggshell.h"
 
+
 //parses through recognised variable command from input command
 void parseVrblCmd(char * args[MAX_ARGS]){
 
@@ -42,6 +43,7 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 //parses through recognised print command from input command
 void parsePrintCmd(char * args[MAX_ARGS]){
 
+    //if nothing is to be printed
     if(args[1]==NULL){
 
         printf("\n"); //prints blank line when nothing is to be echoed
@@ -54,11 +56,98 @@ void parsePrintCmd(char * args[MAX_ARGS]){
             //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
             if(*args[i] == '$'){
 
-                args[i] = getVarValue(args[i]); //gets value of requested variable with dollar sign
+                int flag = 0;
+
+                char tempName[MAX_CHAR] = ""; //temporarily stores name to filter out non-variable characters
+                char tempRem[MAX_CHAR] = ""; //temporarily stores remainder string for non-variable characters
+
+                tempName[0] = '$'; //sets first character to '$'
+
+                //goes through characters in args[i], excluding the first '$'
+                for(int j = 1; j<strlen(args[i]); j++){
+
+                    //when a variable character append to tempName
+                    if (flag == 0 && isalnum(args[i][j]) || args[i][j] == '_') {
+
+                        tempName[j] = args[i][j];
+
+                    //when after first non-variable character reached, append to tempRem
+                    }else{
+
+                        tempRem[j-strlen(tempName)] = args[i][j];
+
+                        flag = 1; //sets flag to 1 not to go back to appending to tempName
+
+                    }
+
+                }
+
+                char tempString[MAX_CHAR] = ""; //initialized for temporary strcat() storage
+
+                strcat(tempString, getVarValue(tempName)); //concat variable value
+                strcat(tempString, tempRem); //concat remainder after this
+
+                args[i] = tempString; //set argument to this to be printed
+
+                printf("%s ", args[i]); //prints the current argument
 
             }
 
-            printf("%s ", args[i]); //prints the current argument
+            //if quotation is detected at the beginning of one of the arguments
+            else if(*args[i] == '\"') {
+
+                char * tempArgs[MAX_ARGS]; //temporary tempArgs to store what's in quotations
+                tempArgs[0] = args[i]+1; //stores first argument from quotation (excluding quotation mark)
+                int n = 1; //counter for tempArgs[] appending in else
+
+                //traverses through rest of arguments looking for closing quotation mark
+                for (int k = i+1; args[k] != NULL; k++) {
+
+                    //finds next argument with quotation mark in it
+                    if(strstr(args[k], "\"")){
+
+                        char tempString[MAX_CHAR] = ""; //initialized for temporary strcpy() storage
+                        strcpy(tempString, args[k]); //copies contents into tempString
+
+                        //if quotation mark not at the end of an argument
+                        if(tempString[ strlen(args[k])-1 ] != '\"'){
+
+                            printf("Error: Please put ending quotation mark at the end of your argument\n");
+                            return;
+
+                        }else{ //when appropriately at end of argument
+
+                            tempString[ strlen(args[k])-1 ] = '\0'; //changes ending quotation mark to \0
+                            tempArgs[n] = tempString;
+
+                            //goes through tempArgs and prints each argument (that's in the quotations)
+                            for(int l = 0; l<=n; l++){
+
+                                printf("%s ", tempArgs[l]); //print current quotation argument
+
+                            }
+
+                            i = k; //set i to after argument with quotation mark
+                            break;
+
+
+                        }
+
+                    }else{ //else appends to tempStringArray "tempArgs"
+
+                        tempArgs[n] =  args[k];
+                        n++; //increments n counter
+
+                    }
+
+                }
+            }
+
+            else { //when just a normal word
+
+                printf("%s ", args[i]); //prints the current argument
+
+            }
 
         }
 
@@ -82,6 +171,16 @@ void parseCmd(char * args[MAX_ARGS]){
     else if(strcmp(args[0],"print") == 0){
 
         parsePrintCmd(args); //calls method for parsing print commands
+
+    }
+
+    //Recognises command as the chdir command to change the current working directory
+    //to be done
+
+    //Recognises command as "all" command therefore it prints all variables
+    else if(strcmp(args[0],"all") == 0 && args[1] == NULL){
+
+        printAllVar(); //prints all variables
 
     }
 

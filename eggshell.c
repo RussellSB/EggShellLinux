@@ -4,8 +4,8 @@
 void main(){
 
     initShellVariables();
-    char * test = getVarValue("$CWD"); //returns fine, gets corrupted with print
-    printf("%s",test); //problem here - corrupts value
+    char * args[MAX_ARGS] = {"print","\"What","is","this","madness\"","new"};
+    parsePrintCmd(args);
 
 }*/
 
@@ -38,4 +38,5 @@ int main(int argc, char **argv){
     return 0;
 
 }
+
 

@@ -11,11 +11,11 @@
 #include "linenoise.h"
 #include <ctype.h>
 
+/* Constants defined */
+#define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
+#define MAX_CHAR 300 //maximum number of characters in a character array
 
 /* --in vrblController.c-- */
-
-/* Constants defined */
-#define MAX_CHAR 300 //maximum number of characters in a string, used for cwd
 
 //Struct Declarations
 typedef struct shellVariable Var; //instance of a shell variable
@@ -32,9 +32,6 @@ void freeAllVar(void); //frees all variables stored (freeing variable storage pl
 
 
 /* --in cmdController.c-- */
-
-/* Constants defined */
-#define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
 
 /* Methods Declarations */
 void parseVrblCmd(char * args[MAX_ARGS]);
