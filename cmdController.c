@@ -169,6 +169,41 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
 }
 
+
+//method that parses through chdr command through args array
+void parseChdrCmd(char * args[MAX_ARGS]){
+
+    //when just cmd "cd" on it's own is entered
+    if(args[1] == NULL){
+
+        setCWD(); //resets current working to initial
+
+    }
+
+    //when user wants to go back out a directory
+    else if(strcmp(args[1],"..") == 0){
+
+        char buffer[MAX_CHAR] = ""; //initialized for strcat()
+        char * cwd;
+
+        strcat(buffer, getVarValue("$CWD")); //tempString buffer becomes value of $CWD
+
+        int i = (int)strlen(buffer)-1; //initialized to last character in string
+        while(i --> 0 && buffer[i] != '/'){ //deletes every character after last '/'
+
+            buffer[i] = 0;
+
+        }
+
+        buffer[i] = 0; //removes '/'
+        cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
+
+        addVar("CWD",cwd); //updates new current working directory
+
+    }
+
+}
+
 //parses through inputted command, understandable through String array "args"
 void parseCmd(char * args[MAX_ARGS]){
 
@@ -187,7 +222,11 @@ void parseCmd(char * args[MAX_ARGS]){
     }
 
     //Recognises command as the chdir command to change the current working directory
-    //to be done
+    else if(strcmp(args[0],"chdir") == 0){
+
+        parseChdrCmd(args); //calls method for parsing chdir commands
+
+    }
 
     //Recognises command as "all" command therefore it prints all variables
     else if(strcmp(args[0],"all") == 0 && args[1] == NULL){

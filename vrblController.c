@@ -85,6 +85,7 @@ int getVarIndex(const char * varName){
 
 
 //method used for adding a shell variable and storing to a dynamic array of structs if doesn't already exist
+//method used for adding a shell variable and storing to a dynamic array of structs if doesn't already exist
 void addVar(char * name, char * value) {
 
     if (validateVarName(name) != 0) { //used to catch just in case the variable name is not valid
@@ -127,7 +128,7 @@ void addVar(char * name, char * value) {
 }
 
 
-//method that sets the variable CWD for current working directory (used when updating)
+//method that sets the variable CWD for current working directory (used when resetting)
 void setCWD(void){
 
     char buffer[MAX_CHAR];//sets buffer with max character length for string
@@ -137,6 +138,15 @@ void setCWD(void){
 
     cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
     addVar("CWD", cwd); //adds variable
+}
+
+
+//sets specific shell variables
+void setShellSpecific(void){
+
+    setCWD();
+    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
+
 }
 
 
@@ -164,8 +174,8 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
-    //adding variable $CWD
-    setCWD(); //sets the initial current working directory and adds as variable
+    //adding shell specific variables $CWD and $TERMINAL
+    setShellSpecific(); //sets CWD and TERMINAL variables
 
     //adding variable $SHELL
     setSV(); //sets the path to binary file and adds as variable
@@ -177,7 +187,6 @@ void initShellVariables(void) {
 
     //adding other variables
     addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
-    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
     addVar("EXITCODE","(null)");
 
 }

@@ -4,10 +4,13 @@
 void main(){
 
     initShellVariables();
-    char * args[MAX_ARGS] = {"print","$","lol","$USER,","is","awesome","\"Isn't","$USER,","he","not\"",":)"};
-    parsePrintCmd(args);
+    char * args[MAX_ARGS] = {"chdir",".."};
+    parseCmd(args);
+    char * args2[MAX_ARGS] = {"print","$CWD"};
+    parseCmd(args2);
 
 }*/
+
 
 int main(int argc, char **argv){
 
@@ -38,4 +41,5 @@ int main(int argc, char **argv){
     return 0;
 
 }
+
 
