@@ -15,6 +15,8 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
         printf("Error: Incorrect entry of a variable declaration command. ");
         printf("Please input in the form VAR_NAME=var_value\n");
+
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
     }
@@ -24,6 +26,8 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
         printf("Error: Right Hand Side Variable name shouldn't contain a $ before it's name. ");
         printf("Please input in the form VAR_NAME=var_value\n");
+
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
     }
@@ -36,6 +40,7 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     }
 
     addVar(varName, varValue); //adds variable to variables storage, or modifies value of existing variable
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
@@ -53,8 +58,10 @@ void parsePrintCmd(char * args[MAX_ARGS]){
         //prints each argument one by one
         for(int i = 1; args[i] != NULL; i++){
 
-            //if dollar sign is in-front of string pointer, get value from Right-Hand Side Variable
-            if(*args[i] == '$'){
+            char * after$ = args[i]+1; //gets string after $
+
+            //if dollar sign is in-front of string pointer and there is actual string after $, get value of Right-Hand Sided Variable
+            if(*args[i] == '$' && *after$ != 0){
 
                 int flag = 0;
 
@@ -113,6 +120,8 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                         if(tempString[ strlen(args[k])-1 ] != '\"'){
 
                             printf("Error: Please put ending quotation mark at the end of your argument\n");
+
+                            addVar("EXITCODE","-1"); //exit code to -1, as error occurred
                             return;
 
                         }else{ //when appropriately at end of argument
@@ -141,6 +150,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                     }
 
                 }
+
             }
 
             else { //when just a normal word
@@ -154,6 +164,8 @@ void parsePrintCmd(char * args[MAX_ARGS]){
         printf("\n"); //prints blank line after everything is echoed
 
     }
+
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 

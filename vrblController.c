@@ -59,6 +59,8 @@ char * getVarValue(const char * varName){
     }
 
     printf("Error: Requested Shell Variable doesn't exist\n");
+
+    addVar("EXITCODE","-1"); //exit code to -1, as error occurred
     return NULL; //return NULL when no match is found (variable doesn't exist)
 
 }
@@ -88,6 +90,8 @@ void addVar(char * name, char * value) {
     if (validateVarName(name) != 0) { //used to catch just in case the variable name is not valid
 
         printf("Error: Variable \"%s\" should contain digits, letters and underscores only. Please try again.\n", name);
+
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return; //returns, to cancel adding variable
 
     }
@@ -192,6 +196,7 @@ void printAllVar(void){
     }
 
     printf("\n"); //skips a line after printing all
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
