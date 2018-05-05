@@ -51,8 +51,9 @@ char * getVarValue(const char * varName){
 
         //if a match is found
         if(strcmp(variables->varArr[i]->name,varName) == 0){
-            char * v = variables->varArr[i]->value; //return value when match is found
-            return v;
+
+            return variables->varArr[i]->value; //return value when match is found
+
         }
 
     }
@@ -115,6 +116,7 @@ void addVar(char * name, char * value) {
     variables->varArr[v] = malloc(sizeof(Var)); //allocates memory for new variable in varArr[v]
 
     variables->varArr[v]->name = name; //sets name at index v
+
     variables->varArr[v]->value = value; //sets value at index v
 
     variables->amount++; //increases amount by 1
@@ -124,8 +126,7 @@ void addVar(char * name, char * value) {
 //initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
 
-
-    char valCWD1[MAX_CHAR] = {'\0'};//sets buffer valCWD1 with max character length for string
+    char valCWD1[MAX_CHAR];//sets buffer valCWD1 with max character length for string
     getcwd(valCWD1, sizeof(valCWD1)); //gets new current working directory
 
     //allocates memory for Variables Array which is just one item

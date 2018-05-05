@@ -4,9 +4,9 @@
 void main(){
 
     initShellVariables();
-    printf("^CWD value^%s", getVarValue("$CWD"));
-    //char * args[1024] = {"print","$CWD",NULL};
-    //parsePrintCmd(args);
+
+    char * test = getVarValue("$HOME");
+    printf("value: "); //problem here - corrupts value
 
 }
 
