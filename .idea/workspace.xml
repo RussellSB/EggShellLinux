@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f642f13-f878-4410-a747-af1f3daed998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eggshell.c" beforeDir="false" afterPath="$PROJECT_DIR$/eggshell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/EggShell" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EggShell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eggshell.h" beforeDir="false" afterPath="$PROJECT_DIR$/eggshell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vrblController.c" beforeDir="false" afterPath="$PROJECT_DIR$/vrblController.c" afterDir="false" />
     </list>
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eggshell.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="eggshell.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eggshell.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+            <state relative-caret-position="495">
+              <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <folding>
                 <element signature="e#60#78#0" expanded="true" />
               </folding>
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vrblController.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vrblController.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vrblController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+            <state relative-caret-position="-165">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -114,10 +114,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="989" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="59" />
     <option name="y" value="24" />
-    <option name="width" value="931" />
+    <option name="width" value="1861" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -197,7 +197,7 @@
       <workItem from="1525447918025" duration="5915000" />
       <workItem from="1525516972627" duration="10775000" />
       <workItem from="1525528642623" duration="772000" />
-      <workItem from="1525529806395" duration="3517000" />
+      <workItem from="1525529806395" duration="4997000" />
     </task>
     <task id="LOCAL-00001" summary="removed extra file">
       <created>1525215715220</created>
@@ -297,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525529408015</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixed CWD variable issue">
+      <created>1525533336189</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525533336189</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81639000" />
+    <option name="totallyTimeSpent" value="83119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -313,10 +320,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="989" y="24" width="931" height="1056" extended-state="4" />
+    <frame x="59" y="24" width="1861" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27604726" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.21004099" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32489452" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.27320674" />
@@ -324,7 +331,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32805908" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.15400843" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.12341772" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3586498" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -357,7 +364,8 @@
     <MESSAGE value="Can press enter infinitely lol :) - dis is fun" />
     <MESSAGE value="cwd bug :c" />
     <MESSAGE value="printf function corrupts $CWD value" />
-    <option name="LAST_COMMIT_MESSAGE" value="printf function corrupts $CWD value" />
+    <MESSAGE value="fixed CWD variable issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed CWD variable issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -661,13 +669,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/Assignment.cbp" />
-    <entry file="file://$PROJECT_DIR$/cmdController.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -682,20 +683,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eggshell.h">
+    <entry file="file://$PROJECT_DIR$/cmdController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="52" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-          <folding>
-            <element signature="e#60#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="329">
+          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vrblController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        <state relative-caret-position="-165">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eggshell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="e#60#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

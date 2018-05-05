@@ -15,7 +15,7 @@
 /* --in vrblController.c-- */
 
 /* Constants defined */
-#define MAX_CHAR 200 //maximum number of characters in a string, used for cwd
+#define MAX_CHAR 300 //maximum number of characters in a string, used for cwd
 
 //Struct Declarations
 typedef struct shellVariable Var; //instance of a shell variable

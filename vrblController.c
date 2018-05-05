@@ -123,19 +123,28 @@ void addVar(char * name, char * value) {
 }
 
 
-//method that sets the variable CWD for current working directory
+//method that sets the variable CWD for current working directory (used when updating)
 void setCWD(void){
 
-    char buf[MAX_CHAR];//sets buffer with max character length for string
+    char buffer[MAX_CHAR];//sets buffer with max character length for string
     char * cwd; //pointer to point to this String array buffer
 
-    getcwd(buf, sizeof(buf)); //gets new current working directory
+    getcwd(buffer, sizeof(buffer)); //gets new current working directory
 
-    cwd = strdup(buf); //allocates memory for cwd, by using buffer as a source
-    addVar("CWD", cwd); //current working directory, file operations relative to this
-
+    cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
+    addVar("CWD", cwd); //adds variable
 }
 
+
+//sets the variable SHELL (Shell Variable) as path to currently executed binary file
+void setSV(void){
+
+    char buffer[BUFSIZ];
+    readlink("/proc/self/exe", buffer, BUFSIZ);
+
+    addVar("SHELL", buffer); //adds variable
+
+}
 
 //initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
@@ -151,20 +160,21 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
-    //getenv() variables
+    //adding variable $CWD
+    setCWD(); //sets the initial current working directory and adds as variable
+
+    //adding variable $SHELL
+    setSV(); //sets the path to binary file and adds as variable
+
+    //adding getenv() variables
     addVar("PATH", getenv("PATH")); //path to external commands
     addVar("USER", getenv("USER")); //name of current user
     addVar("HOME", getenv("HOME")); //home directory of user
 
-    //cwd variable
-    setCWD();
-
-    //other variables
+    //adding other variables
     addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
-
-    //addVariable("SHELL", ---, variables); //absolute path of the eggshell binary
-    //addVariable("EXITCODE", ---, variables); //exit code returned by the last program in the shell
+    addVar("EXITCODE",NULL);
 
 }
 
