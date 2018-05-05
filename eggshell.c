@@ -1,6 +1,16 @@
 #include "eggshell.h"
 
 
+void main(){
+
+    initShellVariables();
+    printf("^CWD value^%s", getVarValue("$CWD"));
+    //char * args[1024] = {"print","$CWD",NULL};
+    //parsePrintCmd(args);
+
+}
+
+/*
 int main(int argc, char **argv){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -29,4 +39,5 @@ int main(int argc, char **argv){
 
     return 0;
 
-}
+}*/
+

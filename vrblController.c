@@ -121,9 +121,12 @@ void addVar(char * name, char * value) {
 
 }
 
-
 //initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
+
+
+    char valCWD1[MAX_CHAR] = {'\0'};//sets buffer valCWD1 with max character length for string
+    getcwd(valCWD1, sizeof(valCWD1)); //gets new current working directory
 
     //allocates memory for Variables Array which is just one item
     variables = malloc(sizeof(VarArr));
@@ -139,11 +142,12 @@ void initShellVariables(void) {
     addVar("PATH", getenv("PATH")); //path to external commands
     addVar("PROMPT", "eggShell-lineInput~$> "); //command prompt variable, to be used in cmdController.c
 
-    //addVar("CWD", ---); //current working directory, file operations relative to this
+    addVar("CWD", valCWD1); //current working directory, file operations relative to this
 
     addVar("USER", getenv("USER")); //name of current user
     addVar("HOME", getenv("HOME")); //home directory of user
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
+
 
     //addVariable("SHELL", ---, variables); //absolute path of the eggshell binary
     //addVariable("EXITCODE", ---, variables); //exit code returned by the last program in the shell
