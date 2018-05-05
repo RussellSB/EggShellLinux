@@ -181,7 +181,7 @@ void parseChdrCmd(char * args[MAX_ARGS]){
     }
 
     //when user wants to go back out a directory
-    else if(strcmp(args[1],"..") == 0){
+    else if(strcmp(args[1],"..") == 0 && args[2] == NULL){
 
         char buffer[MAX_CHAR] = ""; //initialized for strcat()
         char * cwd;
@@ -201,6 +201,26 @@ void parseChdrCmd(char * args[MAX_ARGS]){
         addVar("CWD",cwd); //updates new current working directory
 
     }
+
+    //when user wants to change current working directory
+    else if(args[1]!=NULL && args[2]==NULL){
+
+
+
+    }
+
+    //more than one argument for chdir entered
+    else{
+
+        printf("Error: Please put just one argument for chdir.\n");
+
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
 
 }
 
