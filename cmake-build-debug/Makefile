@@ -177,6 +177,33 @@ eggshell.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.s
 .PHONY : eggshell.c.s
 
+intrnlCmdController.o: intrnlCmdController.c.o
+
+.PHONY : intrnlCmdController.o
+
+# target to build an object file
+intrnlCmdController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.o
+.PHONY : intrnlCmdController.c.o
+
+intrnlCmdController.i: intrnlCmdController.c.i
+
+.PHONY : intrnlCmdController.i
+
+# target to preprocess a source file
+intrnlCmdController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.i
+.PHONY : intrnlCmdController.c.i
+
+intrnlCmdController.s: intrnlCmdController.c.s
+
+.PHONY : intrnlCmdController.s
+
+# target to generate assembly for a file
+intrnlCmdController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.s
+.PHONY : intrnlCmdController.c.s
+
 linenoise.o: linenoise.c.o
 
 .PHONY : linenoise.o
@@ -246,6 +273,9 @@ help:
 	@echo "... eggshell.o"
 	@echo "... eggshell.i"
 	@echo "... eggshell.s"
+	@echo "... intrnlCmdController.o"
+	@echo "... intrnlCmdController.i"
+	@echo "... intrnlCmdController.s"
 	@echo "... linenoise.o"
 	@echo "... linenoise.i"
 	@echo "... linenoise.s"
