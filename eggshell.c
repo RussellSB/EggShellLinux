@@ -1,15 +1,15 @@
 #include "eggshell.h"
 
-/*
 void main(){
 
     initShellVariables();
-    char * args2[MAX_ARGS] = {"print","\"$CWD","three","four","fi\"ve","Test","$PROMPT","","$PROMPT"};
+    //char * args2[MAX_ARGS] = {"source","sourceTest.sh"};
+    char * args2[MAX_ARGS] = {"source","sourceTest.sh"};
     parseCmd(args2);
 
-}*/
+}
 
-
+/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -38,4 +38,4 @@ int main(void){
 
     return 0;
 
-}
+}*/

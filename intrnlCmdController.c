@@ -115,14 +115,17 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                         char tempString[MAX_CHAR] = ""; //initialized for temporary strcpy() storage
                         strcpy(tempString, args[i]); //copies contents into tempString
 
-                        //if quotation mark not at the end of an argument
-                        if(tempString[ strlen(args[i])-1 ] != '\"'){
+                        //if quotation mark not at the end of an argument or letter before the end
+                        if(tempString[ strlen(args[i])-1 ] != '\"' && tempString[ strlen(args[i])-2 ] != '\"'){
 
                             printf("Error: Please put the terminating quotation mark at the end of your word\n");
                             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
                             return;
 
-                        }else if(tempString[ strlen(args[i])-1 ] == '\"'){ //when \" appropriately at end of argument
+                        }
+
+                        //when \" appropriately at end of argument
+                        else if(tempString[ strlen(args[i])-1 ] == '\"'){
 
                             tempString[ strlen(args[i])-1 ] = '\0'; //changes ending quotation mark to \0
                             tempArgs[n] = tempString;
@@ -136,6 +139,22 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
                             break;
 
+                        }
+
+                        //when \" appropriately at the letter before the last
+                        else if(tempString[ strlen(args[i])-2 ] == '\"'){
+
+                            tempString[ strlen(args[i])-2 ] = '\0'; //changes quotation mark before end to \0
+                            tempArgs[n] = tempString;
+
+                            //goes through tempArgs and prints each argument (that's in the quotations)
+                            for(int l = 0; l<=n; l++){
+
+                                printf("%s ", tempArgs[l]); //print current quotation argument
+
+                            }
+
+                            break;
 
                         }
 
@@ -303,14 +322,79 @@ void parseChdirCmd(char * args[MAX_ARGS]){
 //method that parses through source command through args array
 void parseSourceCmd(char * args[MAX_ARGS]){
 
-    //if it sees that more than one argument is given for source
+    //if it sees that more than one argument or no arguments is given for source
     if(args[2] != NULL){
 
-        printf("Error: Please enter one argument only for \"source\".\n");
+        printf("Error: Please enter a single file name argument for \"source\".\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
     }
+
+    FILE *f; //file pointer
+
+    //attempts to open file name string entered in args[1]
+    if((f = fopen(args[1], "r")) != NULL) {
+
+        char line[MAX_CHAR]; //initialized char array for working with fgets()
+        char * currToken = NULL; //stores token temporarily from the current line. initialized as NULL
+        char * args2[MAX_ARGS];  //array of strings used for storing tokens for current command from the .sh source file!
+
+        int i; //counter for the token index
+
+        //reads every line in args[1] until the end
+        while(fgets(line, sizeof(args2), f) != NULL) {
+
+            //removes the '\n' fgets tends to leave
+            if(line[ strlen(line)-1 ] == '\n'){
+                line[ strlen(line)-1 ] = '\0';
+            }
+
+            //if no characters are inputted in the line, it's entered with no content
+            if(strcmp(line,"") == 0){
+
+                //Do nothing, go to next iteration
+
+            }else{ //else when line entered with actual content
+
+                currToken = strtok(line, " "); //retrieves first token
+
+                //if first token is set to "exit" quit the line input loop (considered a special command case)
+                if (strcmp(currToken, "exit") == 0) {
+                    break;
+                }
+
+                //for loop for storing currToken in array args and retrieving rest of the tokens
+                for (i = 0; currToken != NULL && i < MAX_ARGS - 1; i++) {
+
+                    args2[i] = currToken;
+                    currToken = strtok(NULL, " ");
+
+                }
+
+                args2[i] = NULL; //set last token to NULL, useful when arguments vary per line input
+
+                parseCmd(args2); //parses through command input to execute the appropriate function
+
+                memset(line, 0, MAX_CHAR);
+                printf("newline\n");
+
+            }
+
+        }
+
+    }
+
+    //exception of retrieval failure
+    else{
+
+        printf("Error: The file \"%s\" was not found.\n", args[1]);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+
 
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
