@@ -38,6 +38,13 @@ void parseCmd(char * args[MAX_ARGS]){
 
     }
 
+    //Doesn't recognise so passes it off as an external command to handle
+    else{
+
+        externalCmd(args); //passes args to external command method
+
+    }
+
 }
 
 

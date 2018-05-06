@@ -13,7 +13,7 @@
 
 /* Constants defined */
 #define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
-#define MAX_CHAR 300 //maximum number of characters in a character array
+#define MAX_CHAR 300 //maximum number of characters in a character array (used for string buffers)
 
 /* --in vrblController.c-- */
 
@@ -34,12 +34,23 @@ void printAllVar(void); //prints all the variables stored in the shell
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
-/* --in cmdController.c-- */
+/* --in intrnlCmdController.c-- */
 
-/* Methods Declarations */
+/* Method Declarations */
 void parseVrblCmd(char * args[MAX_ARGS]); //parses VARNAME=value
 void parsePrintCmd(char * args[MAX_ARGS]); //parses print
 void parseChdirCmd(char * args[MAX_ARGS]); //parses chdr
 void parseSourceCmd(char * args[MAX_ARGS]); //parses source
+
+
+/* --in extrnlCmdController.c-- */
+
+/* Method Declarations */
+void externalCmd(char * args[MAX_ARGS]);
+
+
+/* --in cmdController.c-- */
+
+/* Method Declarations */
 void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
 void execEggShell(void); //executes the shell, considered as the main method of the eggShell

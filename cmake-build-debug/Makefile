@@ -177,6 +177,33 @@ eggshell.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.s
 .PHONY : eggshell.c.s
 
+extrnlCmdController.o: extrnlCmdController.c.o
+
+.PHONY : extrnlCmdController.o
+
+# target to build an object file
+extrnlCmdController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.o
+.PHONY : extrnlCmdController.c.o
+
+extrnlCmdController.i: extrnlCmdController.c.i
+
+.PHONY : extrnlCmdController.i
+
+# target to preprocess a source file
+extrnlCmdController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.i
+.PHONY : extrnlCmdController.c.i
+
+extrnlCmdController.s: extrnlCmdController.c.s
+
+.PHONY : extrnlCmdController.s
+
+# target to generate assembly for a file
+extrnlCmdController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.s
+.PHONY : extrnlCmdController.c.s
+
 intrnlCmdController.o: intrnlCmdController.c.o
 
 .PHONY : intrnlCmdController.o
@@ -273,6 +300,9 @@ help:
 	@echo "... eggshell.o"
 	@echo "... eggshell.i"
 	@echo "... eggshell.s"
+	@echo "... extrnlCmdController.o"
+	@echo "... extrnlCmdController.i"
+	@echo "... extrnlCmdController.s"
 	@echo "... intrnlCmdController.o"
 	@echo "... intrnlCmdController.i"
 	@echo "... intrnlCmdController.s"
