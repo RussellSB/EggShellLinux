@@ -377,7 +377,6 @@ void parseSourceCmd(char * args[MAX_ARGS]){
                 parseCmd(args2); //parses through command input to execute the appropriate function
 
                 memset(line, 0, MAX_CHAR);
-                printf("newline\n");
 
             }
 
