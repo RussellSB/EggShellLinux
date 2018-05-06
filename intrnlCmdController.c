@@ -388,7 +388,9 @@ void parseSourceCmd(char * args[MAX_ARGS]){
 
             }
         }
-        if(flag==1) free(linePntr); //frees linePntr after malloced
+
+        if(flag==1) free(linePntr); //frees linePntr after malloced for the last time
+
     }
 
     //exception of retrieval failure
