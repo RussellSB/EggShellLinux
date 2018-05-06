@@ -281,7 +281,7 @@ void parseChdirCmd(char * args[MAX_ARGS]){
         setPROMPT(); //updates prompt with new cwd
          */
 
-        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
+        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents for path with spaces
 
         for(int i = 1; args[i]!=NULL; i++){
 
@@ -343,7 +343,7 @@ void parseSourceCmd(char * args[MAX_ARGS]){
         int i; //counter for the token index
         int flag=0; //shows that linePntr is not as of yet malloced
 
-        char * linePntr; //used for memory alloc, works like line for linenoise (also is freed after loop)
+        char *linePntr = NULL; //used for memory alloc, works like line for linenoise (also is freed after loop)
 
         //reads every line in args[1] until the end
         while(fgets(line, sizeof(args2), f) != NULL) {

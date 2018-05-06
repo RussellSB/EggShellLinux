@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f642f13-f878-4410-a747-af1f3daed998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/EggShell" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EggShell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intrnlCmdController.c" beforeDir="false" afterPath="$PROJECT_DIR$/intrnlCmdController.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="eggshell.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eggshell.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            <state relative-caret-position="600">
+              <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -57,8 +56,8 @@
       <file leaf-file-name="intrnlCmdController.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intrnlCmdController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="365" lean-forward="true" selection-start-line="365" selection-end-line="365" />
+            <state relative-caret-position="880">
+              <caret line="307" column="78" lean-forward="true" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -66,8 +65,8 @@
       <file leaf-file-name="sourceTest.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/sourceTest.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state relative-caret-position="120">
+              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -106,6 +105,8 @@
       <find>dedec</find>
       <find>dede</find>
       <find>color</find>
+      <find>linenoise</find>
+      <find>linenoise(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,8 +124,8 @@
         <option value="$PROJECT_DIR$/cmdController.c" />
         <option value="$PROJECT_DIR$/vrblController.c" />
         <option value="$PROJECT_DIR$/eggshell.c" />
-        <option value="$PROJECT_DIR$/cmake-build-debug/sourceTest.sh" />
         <option value="$PROJECT_DIR$/intrnlCmdController.c" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/sourceTest.sh" />
       </list>
     </option>
   </component>
@@ -224,7 +225,7 @@
       <workItem from="1525537542430" duration="17928000" />
       <workItem from="1525590108423" duration="6700000" />
       <workItem from="1525599485537" duration="25304000" />
-      <workItem from="1525629790662" duration="2570000" />
+      <workItem from="1525629790662" duration="3853000" />
     </task>
     <task id="LOCAL-00001" summary="removed extra file">
       <created>1525215715220</created>
@@ -436,11 +437,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525628283059</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Source command BUG FIXED: was a matter of line memory allocation">
+      <created>1525639373037</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1525639373037</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138320000" />
+    <option name="totallyTimeSpent" value="139603000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,18 +460,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="989" y="24" width="931" height="1056" extended-state="4" />
+    <frame x="59" y="24" width="1861" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23845327" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1192907" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20991561" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.49472573" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.13396624" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.27320674" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32700422" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.0010548523" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3470464" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -498,11 +506,13 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sh" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="freeAllVar() method" />
     <MESSAGE value="updated freeAllVar() method, freeing one by one was useless lol" />
     <MESSAGE value="TO DO: Save variable contents to another" />
     <MESSAGE value="Saved variable contents to another" />
@@ -527,7 +537,8 @@
     <MESSAGE value="Started source cmd" />
     <MESSAGE value="Source command BUG: fgets leaking memory through declared variables" />
     <MESSAGE value="Source command BUG: bugs when going in to next iteration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Source command BUG: bugs when going in to next iteration" />
+    <MESSAGE value="Source command BUG FIXED: was a matter of line memory allocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Source command BUG FIXED: was a matter of line memory allocation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -906,13 +917,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/Assignment.cbp" />
-    <entry file="file://$PROJECT_DIR$/linenoise.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9555">
-          <caret line="661" column="1" lean-forward="true" selection-start-line="661" selection-start-column="1" selection-end-line="661" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eggshell.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -923,17 +927,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/vrblController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="234">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linenoise.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1025" column="16" lean-forward="true" selection-start-line="1025" selection-start-column="16" selection-end-line="1025" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eggshell.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        <state relative-caret-position="600">
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -944,24 +962,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vrblController.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/intrnlCmdController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="365" lean-forward="true" selection-start-line="365" selection-end-line="365" />
+        <state relative-caret-position="880">
+          <caret line="307" column="78" lean-forward="true" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/sourceTest.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
