@@ -14,8 +14,6 @@
     <list default="true" id="6f642f13-f878-4410-a747-af1f3daed998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/EggShell" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EggShell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmdController.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmdController.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eggshell.c" beforeDir="false" afterPath="$PROJECT_DIR$/eggshell.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intrnlCmdController.c" beforeDir="false" afterPath="$PROJECT_DIR$/intrnlCmdController.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -38,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eggshell.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="eggshell.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eggshell.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="425">
+              <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -50,17 +48,17 @@
       <file leaf-file-name="cmdController.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmdController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="645">
+              <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="intrnlCmdController.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="intrnlCmdController.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/intrnlCmdController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+            <state relative-caret-position="6">
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
             </state>
           </provider>
         </entry>
@@ -68,8 +66,8 @@
       <file leaf-file-name="vrblController.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vrblController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="1815">
+              <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
             </state>
           </provider>
         </entry>
@@ -112,10 +110,10 @@
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/eggshell.h" />
+        <option value="$PROJECT_DIR$/eggshell.c" />
         <option value="$PROJECT_DIR$/vrblController.c" />
         <option value="$PROJECT_DIR$/cmdController.c" />
         <option value="$PROJECT_DIR$/intrnlCmdController.c" />
-        <option value="$PROJECT_DIR$/eggshell.c" />
       </list>
     </option>
   </component>
@@ -128,10 +126,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="59" />
     <option name="y" value="24" />
-    <option name="width" value="1861" />
+    <option name="width" value="1240" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -214,7 +212,7 @@
       <workItem from="1525529806395" duration="7696000" />
       <workItem from="1525537542430" duration="17928000" />
       <workItem from="1525590108423" duration="6700000" />
-      <workItem from="1525599485537" duration="4477000" />
+      <workItem from="1525599485537" duration="12477000" />
     </task>
     <task id="LOCAL-00001" summary="removed extra file">
       <created>1525215715220</created>
@@ -384,11 +382,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525597414755</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Redone Print function">
+      <created>1525603988004</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1525603988004</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Redone chdir function using chdir()">
+      <created>1525610339191</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1525610339191</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114923000" />
+    <option name="totallyTimeSpent" value="122923000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,8 +412,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="24" width="1861" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="59" y="24" width="1240" height="1056" extended-state="4" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1380978" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20991561" />
@@ -412,7 +423,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32700422" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.101265825" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.0" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3470464" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -450,7 +461,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed extra file" />
     <MESSAGE value="Changed some file names, fixed bug" />
     <MESSAGE value="Finished backend methods for shellVariables" />
     <MESSAGE value="Made prompt use PROMPT shell variable" />
@@ -474,7 +484,9 @@
     <MESSAGE value="Finished CHDIR, polishing PROMPT" />
     <MESSAGE value="PROMPT as Shell variable, USER initialized beforehand" />
     <MESSAGE value="removed redundant init" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed redundant init" />
+    <MESSAGE value="Redone Print function" />
+    <MESSAGE value="Redone chdir function using chdir()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redone chdir function using chdir()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -490,7 +502,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/intrnlCmdController.c</url>
-          <line>103</line>
+          <line>101</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
@@ -908,31 +920,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vrblController.c">
+    <entry file="file://$PROJECT_DIR$/eggshell.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="425">
+          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intrnlCmdController.c">
+    <entry file="file://$PROJECT_DIR$/vrblController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        <state relative-caret-position="1815">
+          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmdController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="645">
+          <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eggshell.c">
+    <entry file="file://$PROJECT_DIR$/intrnlCmdController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="6">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
         </state>
       </provider>
     </entry>

@@ -209,6 +209,7 @@ void parseChdrCmd(char * args[MAX_ARGS]){
         setCWD(); //resets current working to initial
         setPROMPT(); //updates prompt with new cwd
 
+
     }
 
     //when user wants to go back out a directory
