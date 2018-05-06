@@ -85,7 +85,6 @@ int getVarIndex(const char * varName){
 
 
 //method used for adding a shell variable and storing to a dynamic array of structs if doesn't already exist
-//method used for adding a shell variable and storing to a dynamic array of structs if doesn't already exist
 void addVar(char * name, char * value) {
 
     if (validateVarName(name) != 0) { //used to catch just in case the variable name is not valid

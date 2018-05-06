@@ -179,8 +179,8 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 }
 
 
-//method that parses through chdr command through args array
-void parseChdrCmd(char * args[MAX_ARGS]){
+//method that parses through chdir command through args array
+void parseChdirCmd(char * args[MAX_ARGS]){
 
     //when "chdir" on it's own is entered, set cwd as the root directory of the shell binary
     if(args[1] == NULL){
@@ -204,7 +204,7 @@ void parseChdrCmd(char * args[MAX_ARGS]){
 
         buffer[i] = 0; //removes '/'
 
-        chdir(buffer);
+        chdir(buffer); //sets current working directory to initial
 
         setCWD(); //resets current working to initial
         setPROMPT(); //updates prompt with new cwd
@@ -245,7 +245,7 @@ void parseChdrCmd(char * args[MAX_ARGS]){
     //when user wants to change current working directory
     else if(strcmp(args[1],"..") != 0 && args[1]!=NULL){
 
-        /* CODE WHEN chdir() IS NOT USED (doesn't validate string input)
+        /* CODE WHEN chdir() IS NOT USED (problem: doesn't validate string input)
         char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
         char * cwd;
 
@@ -289,7 +289,24 @@ void parseChdrCmd(char * args[MAX_ARGS]){
     //more than one argument than ".." entered, e.g: "chdir .. as asd asd ads"
     else{
 
-        printf("Error: Please put just one argument for \"chdir ..\".\n");
+        printf("Error: Please enter one argument only for \"chdir ..\".\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
+
+
+//method that parses through source command through args array
+void parseSourceCmd(char * args[MAX_ARGS]){
+
+    //if it sees that more than one argument is given for source
+    if(args[2] != NULL){
+
+        printf("Error: Please enter one argument only for \"source\".\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 

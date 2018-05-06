@@ -39,6 +39,7 @@ void freeAllVar(void); //frees all variables stored (freeing variable storage pl
 /* Methods Declarations */
 void parseVrblCmd(char * args[MAX_ARGS]); //parses VARNAME=value
 void parsePrintCmd(char * args[MAX_ARGS]); //parses print
-void parseChdrCmd(char * args[MAX_ARGS]); //parses chdr
+void parseChdirCmd(char * args[MAX_ARGS]); //parses chdr
+void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
 void execEggShell(void); //executes the shell, considered as the main method of the eggShell
