@@ -141,10 +141,32 @@ void setCWD(void){
 }
 
 
+//sets the variable PROMPT by concatenating CWD to EggShell string and then adding $
+void setPROMPT(void){
+
+    char buffer[MAX_CHAR] = ""; //buffer declared for strcat
+    char * eggString = "eggShell-lineInput";
+    char * prompt = ""; //initialized
+
+    strcat(buffer, getVarValue("$USER")); //concat user name
+    strcat(buffer, " @ ");
+    strcat(buffer, eggString); //concat egg shell name
+    strcat(buffer, " ~ ");
+    strcat(buffer, getVarValue("$CWD")); //concat current working directory
+    strcat(buffer, "$> ");
+
+    prompt = strdup(buffer); //allocates memory for prompt, by using buffer as a source
+
+    addVar("PROMPT", prompt); //adds variable
+
+}
+
+
 //sets specific shell variables
 void setShellSpecific(void){
 
-    setCWD();
+    setCWD(); //current working directory, accessed by chdir and used in PROMPT
+    setPROMPT(); //command prompt variable, to be used in cmdController.c
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
 
 }
@@ -161,26 +183,6 @@ void setSV(void){
 }
 
 
-//sets the variable PROMPT by concatenating CWD to EggShell string and then adding $
-void setPROMPT(void){
-
-    char buffer[MAX_CHAR] = ""; //buffer declared for strcat
-    char * eggString = "eggShell-lineInput";
-    char * prmpt;
-
-    strcat(buffer, getVarValue("$USER")); //concat user name
-    strcat(buffer, " @ ");
-    strcat(buffer, eggString); //concat egg shell name
-    strcat(buffer, " ~ ");
-    strcat(buffer, getVarValue("$CWD")); //concat current working directory
-    strcat(buffer, "$> ");
-
-    prmpt = strdup(buffer); //allocates memory for prompt, by using buffer as a source
-
-    addVar("PROMPT", prmpt); //adds variable
-
-}
-
 //initializes storage platform "variables" and adds initial shell variables to storage
 void initShellVariables(void) {
 
@@ -195,19 +197,18 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
-    //adding shell specific variables $CWD and $TERMINAL
-    setShellSpecific(); //sets CWD and TERMINAL variables
-
     //adding variable $SHELL
     setSV(); //sets the path to binary file and adds as variable
 
     //adding getenv() variables
     addVar("PATH", getenv("PATH")); //path to external commands
-    addVar("USER", getenv("USER")); //name of current user
+    addVar("USER", getenv("USER")); //name of current user, used in PROMPT
     addVar("HOME", getenv("HOME")); //home directory of user
 
+    //adding shell specific variables $CWD, $PROMPT and $TERMINAL
+    setShellSpecific(); //sets and adds them
+
     //adding other variables
-    setPROMPT(); //command prompt variable, to be used in cmdController.c
     addVar("EXITCODE","(null)"); //exitcode variable
 
 }
