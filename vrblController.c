@@ -146,7 +146,7 @@ void setPROMPT(void){
 
     char buffer[MAX_CHAR] = ""; //buffer declared for strcat
     char * eggString = "eggShell-lineInput";
-    char * prompt = ""; //initialized
+    char * prompt; //initialized
 
     strcat(buffer, getVarValue("$USER")); //concat user name
     strcat(buffer, " @ ");
