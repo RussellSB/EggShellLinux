@@ -10,7 +10,7 @@ void main(){
 }*/
 
 
-int main(int argc, char **argv){
+int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
     pid = fork(); //used for forking, to display booting up prompt before booting

@@ -15,7 +15,6 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
         printf("Error: Incorrect entry of a variable declaration command. ");
         printf("Please input in the form VAR_NAME=var_value\n");
-
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
@@ -26,7 +25,6 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 
         printf("Error: Right Hand Side Variable name shouldn't contain a $ before it's name. ");
         printf("Please input in the form VAR_NAME=var_value\n");
-
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
@@ -121,7 +119,6 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                         if(tempString[ strlen(args[i])-1 ] != '\"'){
 
                             printf("Error: Please put the terminating quotation mark at the end of your word\n");
-
                             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
                             return;
 
@@ -148,7 +145,6 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                     else if(args[i+1]==NULL){
 
                         printf("Error: No terminating quotation mark found, please finish your quote\n");
-
                         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
                         return;
 
@@ -186,8 +182,29 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 //method that parses through chdr command through args array
 void parseChdrCmd(char * args[MAX_ARGS]){
 
-    //when just cmd "cd" on it's own is entered
+    //when "chdir" on it's own is entered, set cwd as the root directory of the shell binary
     if(args[1] == NULL){
+
+        /* CODE WHEN chdir() IS NOT USED
+         setCWD();
+         setPROMPT();
+         */
+
+        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
+
+        strcpy(buffer, getVarValue("$SHELL")); //sets buffer to SHELL value
+
+        int i = (int)strlen(buffer)-1; //initialized to last character in string
+
+        while(i --> 0 && buffer[i] != '/'){ //deletes every character after last '/'
+
+            buffer[i] = 0;
+
+        }
+
+        buffer[i] = 0; //removes '/'
+
+        chdir(buffer);
 
         setCWD(); //resets current working to initial
         setPROMPT(); //updates prompt with new cwd
@@ -197,12 +214,14 @@ void parseChdrCmd(char * args[MAX_ARGS]){
     //when user wants to go back out a directory
     else if(strcmp(args[1],"..") == 0 && args[2] == NULL){
 
+        /* CODE WHEN chdir() IS NOT USED
         char buffer[MAX_CHAR] = ""; //initialized for strcat()
         char * cwd;
 
         strcat(buffer, getVarValue("$CWD")); //tempString buffer becomes value of $CWD
 
         int i = (int)strlen(buffer)-1; //initialized to last character in string
+
         while(i --> 0 && buffer[i] != '/'){ //deletes every character after last '/'
 
             buffer[i] = 0;
@@ -214,13 +233,19 @@ void parseChdrCmd(char * args[MAX_ARGS]){
 
         addVar("CWD",cwd); //updates new current working directory
         setPROMPT(); //updates prompt with new cwd
+         */
+
+        chdir(".."); //changes current directory to go up to parent
+        setCWD(); //updates $CWD
+        setPROMPT(); //updates $PROMPT
 
     }
 
     //when user wants to change current working directory
     else if(strcmp(args[1],"..") != 0 && args[1]!=NULL){
 
-        char buffer[MAX_CHAR] = ""; //initialized tp concat all other argument contents
+        /* CODE WHEN chdir() IS NOT USED (doesn't validate string input)
+        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
         char * cwd;
 
         for(int i = 1; args[i]!=NULL; i++){
@@ -234,14 +259,36 @@ void parseChdrCmd(char * args[MAX_ARGS]){
 
         addVar("CWD", cwd); //updates new current working directory
         setPROMPT(); //updates prompt with new cwd
+         */
+
+        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
+
+        for(int i = 1; args[i]!=NULL; i++){
+
+            strcat(buffer, args[i]); //concat argument
+
+            if(args[i+1] != NULL) strcat(buffer, " "); //concat space if not at last argument
+
+        }
+
+        //sets to new directory and retrieves return value, 0 for success or -1 for failure
+        if(chdir(buffer) == -1){
+
+            printf("Error: The path \"%s\" was not found please change to a directory that exists\n", buffer);
+            addVar("EXITCODE","-1");
+            return;
+
+        }
+
+        setCWD(); //updates $CWD
+        setPROMPT(); //updates $PROMPT
 
     }
 
-    //more than one argument for chdir entered
+    //more than one argument than ".." entered, e.g: "chdir .. as asd asd ads"
     else{
 
-        printf("Error: Please put just one argument for chdir.\n");
-
+        printf("Error: Please put just one argument for \"chdir ..\".\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 

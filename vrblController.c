@@ -14,8 +14,8 @@ typedef struct variableArray {
 } VarArr;
 
 
-/* Global dynamic array "variables" */
-VarArr * variables;
+/* Global variables */
+VarArr * variables; //dynamic array that stores variables
 
 
 //validates variable name for containing (a-z, A-Z), (0-9) or (_), returns 0 when succeeded, -1 when failed
@@ -134,7 +134,7 @@ void setCWD(void){
     char buffer[MAX_CHAR];//sets buffer with max character length for string
     char * cwd; //pointer to point to this String array buffer
 
-    getcwd(buffer, sizeof(buffer)); //gets new current working directory
+    getcwd(buffer, sizeof(buffer)); //gets initial current working directory
 
     cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
     addVar("CWD", cwd); //adds variable
@@ -162,16 +162,6 @@ void setPROMPT(void){
 }
 
 
-//sets specific shell variables
-void setShellSpecific(void){
-
-    setCWD(); //current working directory, accessed by chdir and used in PROMPT
-    setPROMPT(); //command prompt variable, to be used in cmdController.c
-    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
-
-}
-
-
 //sets the variable SHELL (Shell Variable) as path to currently executed binary file
 void setSV(void){
 
@@ -179,6 +169,17 @@ void setSV(void){
     readlink("/proc/self/exe", buffer, BUFSIZ);
 
     addVar("SHELL", buffer); //adds variable
+
+}
+
+
+//sets specific shell variables
+void setShellSpecific(void){
+
+    setCWD(); //current working directory, accessed by chdir and used in PROMPT
+    setPROMPT(); //command prompt variable, to be used in cmdController.c
+    addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
+    setSV(); //sets the path to binary file and adds as variable
 
 }
 
@@ -197,19 +198,16 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
-    //adding variable $SHELL
-    setSV(); //sets the path to binary file and adds as variable
-
     //adding getenv() variables
     addVar("PATH", getenv("PATH")); //path to external commands
     addVar("USER", getenv("USER")); //name of current user, used in PROMPT
     addVar("HOME", getenv("HOME")); //home directory of user
 
-    //adding shell specific variables $CWD, $PROMPT and $TERMINAL
+    //adding shell specific variables $CWD, $PROMPT, $SHELL and $TERMINAL
     setShellSpecific(); //sets and adds them
 
     //adding other variables
-    addVar("EXITCODE","(null)"); //exitcode variable
+    addVar("EXITCODE","(null)"); //initial exitcode variable
 
 }
 
