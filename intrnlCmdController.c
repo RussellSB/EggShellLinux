@@ -103,30 +103,31 @@ void parsePrintCmd(char * args[MAX_ARGS]){
             //if quotation is detected at the beginning of one of the arguments
             else if(*args[i] == '\"') {
 
-                char * tempArgs[MAX_ARGS]; //temporary tempArgs to store what's in quotations
-                tempArgs[0] = args[i]+1; //stores first argument from quotation (excluding quotation mark)
-                int n = 1; //counter for tempArgs[] appending in else
+                int n = 0; //used as counter for tempArgs
 
-                //traverses through rest of arguments looking for closing quotation mark
-                for (int k = i+1; args[k] != NULL; k++) {
+                char * tempArgs[MAX_ARGS-1]; //temporary tempArgs to store what's in quotations
+                args[i] = args[i] + 1; //sets pointer to after \"
 
-                    //finds next argument with quotation mark in it
-                    if(strstr(args[k], "\"")){
+                //traverses through arguments looking for closing quotation mark
+                for (i; args[i] != NULL; i++) {
+
+                    //finds argument with quotation mark in it
+                    if(strstr(args[i], "\"")){
 
                         char tempString[MAX_CHAR] = ""; //initialized for temporary strcpy() storage
-                        strcpy(tempString, args[k]); //copies contents into tempString
+                        strcpy(tempString, args[i]); //copies contents into tempString
 
                         //if quotation mark not at the end of an argument
-                        if(tempString[ strlen(args[k])-1 ] != '\"'){
+                        if(tempString[ strlen(args[i])-1 ] != '\"'){
 
-                            printf("Error: Please put ending quotation mark at the end of your argument\n");
+                            printf("Error: Please put the terminating quotation mark at the end of your word\n");
 
                             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
                             return;
 
-                        }else{ //when appropriately at end of argument
+                        }else if(tempString[ strlen(args[i])-1 ] == '\"'){ //when \" appropriately at end of argument
 
-                            tempString[ strlen(args[k])-1 ] = '\0'; //changes ending quotation mark to \0
+                            tempString[ strlen(args[i])-1 ] = '\0'; //changes ending quotation mark to \0
                             tempArgs[n] = tempString;
 
                             //goes through tempArgs and prints each argument (that's in the quotations)
@@ -136,15 +137,27 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
                             }
 
-                            i = k; //set i to after argument with quotation mark
                             break;
 
 
                         }
 
-                    }else{ //else appends to tempStringArray "tempArgs"
+                    }
 
-                        tempArgs[n] =  args[k];
+                    //else when \" not found but at last argument
+                    else if(args[i+1]==NULL){
+
+                        printf("Error: No terminating quotation mark found, please finish your quote\n");
+
+                        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+                        return;
+
+                    }
+
+                    //else when \" not found, and not at last argument appends to tempStringArray "tempArgs"
+                    else{
+
+                        tempArgs[n] =  args[i];
                         n++; //increments n counter
 
                     }

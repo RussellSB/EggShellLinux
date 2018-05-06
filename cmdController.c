@@ -1,6 +1,6 @@
 #include "eggshell.h"
 
-//parses through inputted command, understandable through String array "args"
+//parses through inputted command, understandable through String array "args" calls methods from intrnlCmdController.c or extrnlCmdController.c
 void parseCmd(char * args[MAX_ARGS]){
 
     //Recognises command as variable assignment command because first argument has an '=', and there's only one argument
