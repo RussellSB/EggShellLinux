@@ -100,7 +100,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
             }
 
-                //if quotation is detected at the beginning of one of the arguments
+            //if quotation is detected at the beginning of one of the arguments
             else if(*args[i] == '\"') {
 
                 char * tempArgs[MAX_ARGS]; //temporary tempArgs to store what's in quotations
@@ -177,10 +177,11 @@ void parseChdrCmd(char * args[MAX_ARGS]){
     if(args[1] == NULL){
 
         setCWD(); //resets current working to initial
+        setPROMPT(); //updates prompt with new cwd
 
     }
 
-        //when user wants to go back out a directory
+    //when user wants to go back out a directory
     else if(strcmp(args[1],"..") == 0 && args[2] == NULL){
 
         char buffer[MAX_CHAR] = ""; //initialized for strcat()
@@ -199,17 +200,31 @@ void parseChdrCmd(char * args[MAX_ARGS]){
         cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
 
         addVar("CWD",cwd); //updates new current working directory
+        setPROMPT(); //updates prompt with new cwd
 
     }
 
-        //when user wants to change current working directory
-    else if(args[1]!=NULL && args[2]==NULL){
+    //when user wants to change current working directory
+    else if(strcmp(args[1],"..") != 0 && args[1]!=NULL){
 
+        char buffer[MAX_CHAR] = ""; //initialized tp concat all other argument contents
+        char * cwd;
 
+        for(int i = 1; args[i]!=NULL; i++){
+
+            strcat(buffer, args[i]); //concat argument
+            strcat(buffer, " "); //concat space
+
+        }
+
+        cwd = strdup(buffer);
+
+        addVar("CWD", cwd); //updates new current working directory
+        setPROMPT(); //updates prompt with new cwd
 
     }
 
-        //more than one argument for chdir entered
+    //more than one argument for chdir entered
     else{
 
         printf("Error: Please put just one argument for chdir.\n");

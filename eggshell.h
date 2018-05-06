@@ -28,6 +28,7 @@ char * getVarValue(const char * variableName); //gets the variable value by name
 void setCWD(void); //sets the current working directory variable
 void setShellSpecific(void); //calls setCWD() and sets TERMINAL variable
 void setSV(void); //sets the variable SHELL (put in other method for neatness)
+void setPROMPT(void); //sets PROMPT variable using CWD
 void initShellVariables(void); //initialises variable storage and adds initial variables
 void printAllVar(void); //prints all the variables stored in the shell
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
