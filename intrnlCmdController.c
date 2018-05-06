@@ -341,23 +341,30 @@ void parseSourceCmd(char * args[MAX_ARGS]){
         char * args2[MAX_ARGS];  //array of strings used for storing tokens for current command from the .sh source file!
 
         int i; //counter for the token index
+        int flag=0; //shows that linePntr is not as of yet malloced
+
+        char * linePntr; //used for memory alloc, works like line for linenoise (also is freed after loop)
 
         //reads every line in args[1] until the end
         while(fgets(line, sizeof(args2), f) != NULL) {
+
+            linePntr = malloc(MAX_CHAR*sizeof(char)); //initialized string pointer for use with strtok
 
             //removes the '\n' fgets tends to leave
             if(line[ strlen(line)-1 ] == '\n'){
                 line[ strlen(line)-1 ] = '\0';
             }
 
+            strcpy(linePntr, line); //copies line to linePntr for strtok use
+
             //if no characters are inputted in the line, it's entered with no content
-            if(strcmp(line,"") == 0){
+            if(strcmp(linePntr,"") == 0){
 
                 //Do nothing, go to next iteration
 
             }else{ //else when line entered with actual content
 
-                currToken = strtok(line, " "); //retrieves first token
+                currToken = strtok(linePntr, " "); //retrieves first token
 
                 //if first token is set to "exit" quit the line input loop (considered a special command case)
                 if (strcmp(currToken, "exit") == 0) {
@@ -376,12 +383,12 @@ void parseSourceCmd(char * args[MAX_ARGS]){
 
                 parseCmd(args2); //parses through command input to execute the appropriate function
 
-                memset(line, 0, MAX_CHAR);
+                memset(line, 0, MAX_CHAR); //clears line
+                flag = 1; //shows that linePntr is malloced
 
             }
-
         }
-
+        if(flag==1) free(linePntr); //frees linePntr after malloced
     }
 
     //exception of retrieval failure
@@ -392,8 +399,6 @@ void parseSourceCmd(char * args[MAX_ARGS]){
         return;
 
     }
-
-
 
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 

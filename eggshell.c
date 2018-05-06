@@ -1,5 +1,6 @@
 #include "eggshell.h"
 
+/*
 void main(){
 
     initShellVariables();
@@ -7,9 +8,8 @@ void main(){
     char * args2[MAX_ARGS] = {"source","sourceTest.sh"};
     parseCmd(args2);
 
-}
+}*/
 
-/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -38,4 +38,4 @@ int main(void){
 
     return 0;
 
-}*/
+}
