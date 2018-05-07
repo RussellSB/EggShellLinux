@@ -7,7 +7,7 @@ void externalCmd(char * args[MAX_ARGS]){
     char * envp[ getVarSize() + 1]; //initializes envp String array
     fillEnvp(envp); //allocates all strings in envp appropriately (uses malloc)
 
-    char * paths[ ]; //initializes array for all possible paths were binary can be stored
+    char * paths[ MAX_PATHS]; //initializes array for all possible paths were binary can be stored
 
 
 
