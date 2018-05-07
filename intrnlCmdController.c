@@ -209,10 +209,10 @@ void parseChdirCmd(char * args[MAX_ARGS]){
          setPROMPT();
          */
 
+        //Note: Since is dependant on $SHELL, "chdir" doesn't work when $SHELL is manually changed
+
         char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
-
-        strcpy(buffer, getVarValue("$SHELL")); //sets buffer to SHELL value
-
+        strcpy(buffer, getVarValue("$SHELL")); //sets buffer to SHELL variable value
         int i = (int)strlen(buffer)-1; //initialized to last character in string
 
         while(i --> 0 && buffer[i] != '/'){ //deletes every character after last '/'
@@ -336,7 +336,7 @@ void parseSourceCmd(char * args[MAX_ARGS]){
     //attempts to open file name string entered in args[1]
     if((f = fopen(args[1], "r")) != NULL) {
 
-        char line[MAX_CHAR]; //initialized char array for working with fgets()
+        char line[MAX_CHAR]; //initialized char array for working with fgets() and removing the character \n at the end
         char * currToken = NULL; //stores token temporarily from the current line. initialized as NULL
         char * args2[MAX_ARGS];  //array of strings used for storing tokens for current command from the .sh source file!
 

@@ -6,14 +6,16 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
-#include <tgmath.h>
 #include <sys/wait.h>
 #include "linenoise.h"
 #include <ctype.h>
 
+
 /* Constants defined */
 #define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
 #define MAX_CHAR 300 //maximum number of characters in a character array (used for string buffers)
+#define MAX_PATHS 30 //maximum amount of paths to parse through when calling external command
+
 
 /* --in vrblController.c-- */
 
@@ -31,6 +33,9 @@ void setSV(void); //sets the variable SHELL (put in other method for neatness)
 void setPROMPT(void); //sets PROMPT variable using CWD
 void initShellVariables(void); //initialises variable storage and adds initial variables
 void printAllVar(void); //prints all the variables stored in the shell
+int getVarSize(void); //used in getAllEnvp, returns the int of variables amount
+void fillEnvp( char * envp[ getVarSize() + 1]); //gets all variables in envp form
+void freeAllEnvp( char * envp[ getVarSize() + 1]); //frees all allocated memory in getAllEnvp()
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 

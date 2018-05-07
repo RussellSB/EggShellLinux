@@ -1,15 +1,15 @@
 #include "eggshell.h"
 
-/*
+
 void main(){
 
     initShellVariables();
-    //char * args2[MAX_ARGS] = {"source","sourceTest.sh"};
-    char * args2[MAX_ARGS] = {"source","sourceTest.sh"};
+    char * args2[MAX_ARGS] = {"ls",NULL};
     parseCmd(args2);
 
-}*/
+}
 
+/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -32,10 +32,11 @@ int main(void){
 
     }else{
 
-        printf("Error: Forking unsuccessful.");
+        printf("Error: Forking unsuccessful, could not load the Egg Shell program.");
 
     }
 
     return 0;
 
 }
+ */

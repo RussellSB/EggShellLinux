@@ -1,5 +1,8 @@
 #include "eggshell.h"
 
+
+/* Struct declarations */
+
 //struct for storing shellVariable with it's string name and string values
 typedef struct shellVariable {
     char * name;
@@ -12,7 +15,6 @@ typedef struct variableArray {
     Var ** varArr; //double pointer to act as an array of structs
     int amount; //stores amount of variables in array, increases array dynamically
 } VarArr;
-
 
 /* Global variables */
 VarArr * variables; //dynamic array that stores variables
@@ -59,7 +61,6 @@ char * getVarValue(const char * varName){
     }
 
     printf("Error: Requested Shell Variable doesn't exist\n");
-
     addVar("EXITCODE","-1"); //exit code to -1, as error occurred
     return NULL; //return NULL when no match is found (variable doesn't exist)
 
@@ -166,7 +167,6 @@ void setSV(void){
 
     char buffer[BUFSIZ];
     readlink("/proc/self/exe", buffer, BUFSIZ);
-
     addVar("SHELL", buffer); //adds variable
 
 }
@@ -175,10 +175,10 @@ void setSV(void){
 //sets specific shell variables
 void setShellSpecific(void){
 
+    setSV(); //sets the path to binary file and adds as variable
     setCWD(); //current working directory, accessed by chdir and used in PROMPT
     setPROMPT(); //command prompt variable, to be used in cmdController.c
     addVar("TERMINAL", ttyname(STDIN_FILENO)); //current terminal name
-    setSV(); //sets the path to binary file and adds as variable
 
 }
 
@@ -224,6 +224,52 @@ void printAllVar(void){
     }
 
     printf("\n"); //skips a line after printing all
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
+
+
+//returns the size of the dynamic variables array
+int getVarSize(void){
+
+    return variables->amount;
+
+}
+
+
+//fills envp appropriately with all current variables in the dynamic array
+void fillEnvp( char * envp[ getVarSize() + 1]){
+
+    int i; //initialized counter
+
+    //traverses through storage of variables, saving each one as the format "VAR=value"
+    for(i = 0; i < variables->amount; i++ ){
+
+        envp[i] = malloc(MAX_CHAR * sizeof(char));
+        strcat(envp[i], variables->varArr[i]->name);
+        strcat(envp[i],"=");
+        strcat(envp[i], variables->varArr[i]->value);
+
+    }
+
+    envp[i] = NULL; //sets the last element to NULL
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
+
+
+//frees all the allocated memory in getAllEnvp(), used for avoiding leak after external command
+void freeAllEnvp( char * envp[ getVarSize() + 1]){
+
+    int i; //initialized counter
+
+    //traverses through allocated memory in envp after getAllEnvp call
+    for(i = 0; i < variables->amount; i++ ){
+
+        free(envp[i]);
+
+    }
+
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
