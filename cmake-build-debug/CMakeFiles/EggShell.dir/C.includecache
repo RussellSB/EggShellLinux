@@ -25,14 +25,16 @@ unistd.h
 -
 string.h
 -
-tgmath.h
--
 sys/wait.h
 -
 linenoise.h
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.h
 ctype.h
 -
+
+/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdController.c
+eggshell.h
+/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.h
 
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdController.c
 eggshell.h

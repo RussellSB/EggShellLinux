@@ -9,6 +9,10 @@ CMakeFiles/EggShell.dir/eggshell.c.o: ../eggshell.c
 CMakeFiles/EggShell.dir/eggshell.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/eggshell.c.o: ../linenoise.h
 
+CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../extrnlCmdController.c
+CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../linenoise.h
+
 CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../intrnlCmdController.c
 CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../linenoise.h

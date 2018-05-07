@@ -35,7 +35,6 @@ void initShellVariables(void); //initialises variable storage and adds initial v
 void printAllVar(void); //prints all the variables stored in the shell
 int getVarSize(void); //used in getAllEnvp, returns the int of variables amount
 void fillEnvp( char * envp[ getVarSize() + 1]); //gets all variables in envp form
-void freeAllEnvp( char * envp[ getVarSize() + 1]); //frees all allocated memory in getAllEnvp()
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
@@ -51,7 +50,10 @@ void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 /* --in extrnlCmdController.c-- */
 
 /* Method Declarations */
-void externalCmd(char * args[MAX_ARGS]);
+void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
+char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possible paths for external command
+void freeAllPaths(char * paths[MAX_PATHS]); //frees paths allocated mem for in fillPaths()
+void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
 
 
 /* --in cmdController.c-- */

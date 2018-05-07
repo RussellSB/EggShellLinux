@@ -4,7 +4,12 @@
 void main(){
 
     initShellVariables();
-    char * args2[MAX_ARGS] = {"ls",NULL};
+    char * args2[MAX_ARGS] = {"cornyjokes",NULL};
+    parseCmd(args2);
+    char * args3[MAX_ARGS] = {"ls",NULL};
+    parseCmd(args3);
+    parseCmd(args2);
+    parseCmd(args3);
     parseCmd(args2);
 
 }
@@ -39,4 +44,4 @@ int main(void){
     return 0;
 
 }
- */
+*/

@@ -258,23 +258,6 @@ void fillEnvp( char * envp[ getVarSize() + 1]){
 }
 
 
-//frees all the allocated memory in getAllEnvp(), used for avoiding leak after external command
-void freeAllEnvp( char * envp[ getVarSize() + 1]){
-
-    int i; //initialized counter
-
-    //traverses through allocated memory in envp after getAllEnvp call
-    for(i = 0; i < variables->amount; i++ ){
-
-        free(envp[i]);
-
-    }
-
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
-
-}
-
-
 //frees all the variables stored in the shell by freeing dynamic array
 void freeAllVar(void){
 
