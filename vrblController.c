@@ -237,27 +237,6 @@ int getVarSize(void){
 }
 
 
-//fills envp appropriately with all current variables in the dynamic array
-void fillEnvp( char * envp[ getVarSize() + 1]){
-
-    int i; //initialized counter
-
-    //traverses through storage of variables, saving each one as the format "VAR=value"
-    for(i = 0; i < variables->amount; i++ ){
-
-        envp[i] = malloc(MAX_CHAR * sizeof(char));
-        strcat(envp[i], variables->varArr[i]->name);
-        strcat(envp[i],"=");
-        strcat(envp[i], variables->varArr[i]->value);
-
-    }
-
-    envp[i] = NULL; //sets the last element to NULL
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
-
-}
-
-
 //frees all the variables stored in the shell by freeing dynamic array
 void freeAllVar(void){
 

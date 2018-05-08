@@ -1,21 +1,19 @@
 #include "eggshell.h"
 
-
+/*
 void main(){
 
     initShellVariables();
+
     char * args2[MAX_ARGS] = {"cornyjokes",NULL};
     parseCmd(args2);
+
     char * args3[MAX_ARGS] = {"ls",NULL};
     parseCmd(args3);
-    parseCmd(args2);
-    parseCmd(args3);
-    parseCmd(args2);
 
 }
+*/
 
-
-/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -45,4 +43,3 @@ int main(void){
     return 0;
 
 }
-*/

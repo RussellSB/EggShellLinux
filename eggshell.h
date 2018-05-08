@@ -33,8 +33,7 @@ void setSV(void); //sets the variable SHELL (put in other method for neatness)
 void setPROMPT(void); //sets PROMPT variable using CWD
 void initShellVariables(void); //initialises variable storage and adds initial variables
 void printAllVar(void); //prints all the variables stored in the shell
-int getVarSize(void); //used in getAllEnvp, returns the int of variables amount
-void fillEnvp( char * envp[ getVarSize() + 1]); //gets all variables in envp form
+int getVarSize(void); //returns the int of variables amount
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
@@ -52,7 +51,6 @@ void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 /* Method Declarations */
 void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
 char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possible paths for external command
-void freeAllPaths(char * paths[MAX_PATHS]); //frees paths allocated mem for in fillPaths()
 void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
 
 
