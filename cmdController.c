@@ -87,7 +87,9 @@ void execEggShell(void){
             }
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
-            parseCmd(args); //parses through command input to execute the appropriate function
+
+            //checkInputOutput(args); //checks whether to use standard output, output to file or add to file
+            //parseCmd(args); //parses through command input to execute the appropriate function
 
         }
 

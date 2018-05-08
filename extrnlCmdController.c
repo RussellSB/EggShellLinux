@@ -27,7 +27,7 @@ char** getEnviron(void){
 }
 
 
-//fills paths array with all possible paths for the external command
+//fills paths array with all possible paths for the file name
 void fillPaths(char * paths[MAX_PATHS], char * fileName){
 
     char * currPath = NULL; //initialized currPath
@@ -53,7 +53,7 @@ void fillPaths(char * paths[MAX_PATHS], char * fileName){
 }
 
 
-//finds the valid path for the external command, if not it returns no successful path found by "-1"
+//finds the valid path for the filename, if not it returns no successful path found, by "-1"
 char * findSuccPath(char * paths[MAX_PATHS]){
 
     //traverses through all possible paths

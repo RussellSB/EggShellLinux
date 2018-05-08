@@ -37,6 +37,13 @@ int getVarSize(void); //returns the int of variables amount
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
+/* --in cmdController.c-- */
+
+/* Method Declarations */
+void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
+void execEggShell(void); //executes the shell, considered as the main method of the eggShell
+
+
 /* --in intrnlCmdController.c-- */
 
 /* Method Declarations */
@@ -54,8 +61,7 @@ char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possib
 void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
 
 
-/* --in cmdController.c-- */
+/* --in ioController.c-- */
 
 /* Method Declarations */
-void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
-void execEggShell(void); //executes the shell, considered as the main method of the eggShell
+void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()

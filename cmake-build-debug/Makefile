@@ -231,6 +231,33 @@ intrnlCmdController.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.s
 .PHONY : intrnlCmdController.c.s
 
+ioController.o: ioController.c.o
+
+.PHONY : ioController.o
+
+# target to build an object file
+ioController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/ioController.c.o
+.PHONY : ioController.c.o
+
+ioController.i: ioController.c.i
+
+.PHONY : ioController.i
+
+# target to preprocess a source file
+ioController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/ioController.c.i
+.PHONY : ioController.c.i
+
+ioController.s: ioController.c.s
+
+.PHONY : ioController.s
+
+# target to generate assembly for a file
+ioController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/ioController.c.s
+.PHONY : ioController.c.s
+
 linenoise.o: linenoise.c.o
 
 .PHONY : linenoise.o
@@ -306,6 +333,9 @@ help:
 	@echo "... intrnlCmdController.o"
 	@echo "... intrnlCmdController.i"
 	@echo "... intrnlCmdController.s"
+	@echo "... ioController.o"
+	@echo "... ioController.i"
+	@echo "... ioController.s"
 	@echo "... linenoise.o"
 	@echo "... linenoise.i"
 	@echo "... linenoise.s"
