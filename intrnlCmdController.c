@@ -381,7 +381,7 @@ void parseSourceCmd(char * args[MAX_ARGS]){
 
                 args2[i] = NULL; //set last token to NULL, useful when arguments vary per line input
 
-                parseCmd(args2); //parses through command input to execute the appropriate function
+                checkInputOutput(args2); //checks command for I/O redirection then parses it
 
                 memset(line, 0, MAX_CHAR); //clears line
                 flag = 1; //shows that linePntr is malloced

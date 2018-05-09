@@ -58,7 +58,9 @@ void execEggShell(void){
     int i;      //initialized counter for looping through prompting for line input
 
     initShellVariables(); //initializes all the shell variables in vrblController.c
+
     linenoiseClearScreen(); //allows ability to clear previous eggshell lines by [CTRL+L]
+    linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
 
     //keeps looping for line input using linenoise
     while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)
@@ -70,6 +72,8 @@ void execEggShell(void){
             //Do nothing, go to next prompt iteration
 
         }else{ //else when line entered with actual content
+
+            linenoiseHistoryAdd(line); //adds line to history
 
             currToken = strtok(line, " "); //retrieves first token
 
@@ -88,8 +92,7 @@ void execEggShell(void){
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
 
-            //checkInputOutput(args); //checks whether to use standard output, output to file or add to file
-            //parseCmd(args); //parses through command input to execute the appropriate function
+            checkInputOutput(args); //passes to check arguments for any I/O redirection before parsing command
 
         }
 

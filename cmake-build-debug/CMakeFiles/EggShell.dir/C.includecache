@@ -19,8 +19,6 @@ stdio.h
 -
 stdlib.h
 -
-stdbool.h
--
 unistd.h
 -
 string.h
@@ -30,6 +28,8 @@ sys/wait.h
 linenoise.h
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/linenoise.h
 ctype.h
+-
+fcntl.h
 -
 
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdController.c
@@ -41,8 +41,6 @@ eggshell.h
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.h
 
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/ioController.c
-fcntl.h
--
 eggshell.h
 /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/eggshell.h
 

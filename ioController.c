@@ -1,15 +1,19 @@
-#include <fcntl.h>
 #include "eggshell.h"
 
 
-//checks for input or output redirection
+//redirects stdout to newly created file "fileName," catering for symbol '>'
 void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
     /* Connect standard output to given file*/
 
     fflush(stdout); //used as a safety precaution
 
-    int fd1 = open(fileName, O_WRONLY | O_CREAT | O_TRUNC, 0644); //sets file descriptor for file
+    int fd1; //initialized file descriptor 1
+
+    //sets file descriptor for file for creating file
+    if(flag == 1) fd1 = open(fileName, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    //sets file descriptor for appending to file when flag is 2
+    else fd1 = open(fileName, O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 
     if(fd1 < 0){
 
@@ -66,7 +70,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 //checks for input or output redirection
 void checkInputOutput(char * args[MAX_ARGS]){
 
-    char * cmd[MAX_ARGS-2]; //stores command
+    char * cmd[MAX_ARGS-2] = {NULL}; //stores command
 
     int flag = 0; //initialized flag, changes when > or >> is detected
     int i; //initialized counter for for loop
@@ -113,38 +117,11 @@ void checkInputOutput(char * args[MAX_ARGS]){
 
     if(flag != 0){
 
-        //if valid > output redirection is detected
-        if(flag == 1){
+        //if output redirection is detected
+        if(flag == 1 || flag == 2) redirectOutput(cmd, args[i], flag);
 
-            //> stuff here
-            redirectOutput(cmd, args[i], flag);
-
-
-        }
-
-        //if valid >> output redirection is detected
-        else if(flag == 2){
-
-            //>> stuff here
-
-
-        }
-
-        //if valid < input redirection is detected
-        else if(flag == 3){
-
-            //< stuff here
-
-
-        }
-
-        //if valid << input redirection is detected
-        else if(flag == 4){
-
-            //<<< stuff here
-
-
-        }
+        //else input redirection is detected
+        else;
 
     }
 
@@ -153,10 +130,6 @@ void checkInputOutput(char * args[MAX_ARGS]){
     /* When no redirection is flagged*/
 
     //if no output redirection is detected
-    else{
-
-        parseCmd(cmd); //parses through command normally with stdout
-
-    }
+    else parseCmd(cmd); //parses through command normally with stdout
 
 }

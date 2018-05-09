@@ -3,15 +3,16 @@
 /* imports used for various function calls */
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
 #include "linenoise.h"
 #include <ctype.h>
+#include <fcntl.h>
 
 
 /* Constants defined */
+#define MAX_HISTORY 20 //maximum number of commands to add to history
 #define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
 #define MAX_CHAR 300 //maximum number of characters in a character array (used for string buffers)
 #define MAX_PATHS 30 //maximum amount of paths to parse through when calling external command
@@ -64,4 +65,5 @@ void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recogn
 /* --in ioController.c-- */
 
 /* Method Declarations */
+void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag); //redirects output
 void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()

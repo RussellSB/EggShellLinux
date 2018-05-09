@@ -1,18 +1,21 @@
 #include "eggshell.h"
 
+/*
 void main(){
 
     initShellVariables();
 
     char * args2[MAX_ARGS] = {"cornyjokes",">","outputTest.txt", NULL};
     checkInputOutput(args2);
+    char * args4[MAX_ARGS] = {"source","sourceTest.sh", ">>","outputTest.txt", NULL};
+    checkInputOutput(args4);
     char * args3[MAX_ARGS] = {"print", "test2", "321", NULL};
     checkInputOutput(args3);
 
 }
+*/
 
 
-/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -42,4 +45,3 @@ int main(void){
     return 0;
 
 }
-*/
