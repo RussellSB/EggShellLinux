@@ -17,6 +17,10 @@ CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../intrnlCmdController.c
 CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../linenoise.h
 
+CMakeFiles/EggShell.dir/ioController.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/ioController.c.o: ../ioController.c
+CMakeFiles/EggShell.dir/ioController.c.o: ../linenoise.h
+
 CMakeFiles/EggShell.dir/linenoise.c.o: ../linenoise.c
 CMakeFiles/EggShell.dir/linenoise.c.o: ../linenoise.h
 

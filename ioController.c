@@ -1,4 +1,66 @@
+#include <fcntl.h>
 #include "eggshell.h"
+
+
+//checks for input or output redirection
+void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
+
+    /* Connect standard output to given file*/
+
+    fflush(stdout); //used as a safety precaution
+
+    int fd1 = open(fileName, O_WRONLY | O_CREAT | O_TRUNC, 0644); //sets file descriptor for file
+
+    if(fd1 < 0){
+
+        printf("Error: Failed to open the file \"%s\"\n for writing\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    int fd2 = dup(STDOUT_FILENO); //sets output to file descriptor instead of stdout
+
+    if(fd2 < 0){
+
+        printf("Error: Failed to duplicate standard output\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    //restores fd1
+    if(dup2(fd1, STDOUT_FILENO) < 0){
+
+        printf("Error: Failed to duplicate the file \"%s\" to standard output\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd1);
+
+    /* Write to standard output */
+
+    parseCmd(cmd); //parses command
+
+    /* Reconnect original standard output */
+
+    fflush(stdout); //safety precaution
+
+    //restores fd2
+    if(dup2(fd2, STDOUT_FILENO) < 0){
+
+        printf("Error: Failed to reinstate standard output\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd2);
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
 
 
 //checks for input or output redirection
@@ -51,13 +113,11 @@ void checkInputOutput(char * args[MAX_ARGS]){
 
     if(flag != 0){
 
-        char * fileName = args[i]; //points to fileName
-
         //if valid > output redirection is detected
         if(flag == 1){
 
             //> stuff here
-            printf("%s", fileName);
+            redirectOutput(cmd, args[i], flag);
 
 
         }

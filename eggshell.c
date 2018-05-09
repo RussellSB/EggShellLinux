@@ -4,8 +4,10 @@ void main(){
 
     initShellVariables();
 
-    char * args2[MAX_ARGS] = {"cornyjokes", "dsfsdf", "dsfdf", ">", "outputTest.txt", NULL};
+    char * args2[MAX_ARGS] = {"cornyjokes",">","outputTest.txt", NULL};
     checkInputOutput(args2);
+    char * args3[MAX_ARGS] = {"print", "test2", "321", NULL};
+    checkInputOutput(args3);
 
 }
 
