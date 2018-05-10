@@ -63,8 +63,19 @@ void pipePipeLine(char * cmd1[MAX_ARGS], char * cmd2[MAX_ARGS]){
     int status;
     waitpid(pid2, &status, 0);
 
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+    //checks if child process failed
+    if (status == -1) {
 
+        perror("Error: An error occurred when executing child process.\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }else{
+
+        printf("BEEp");
+        addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+    }
 }
 
 

@@ -61,7 +61,7 @@ void stdinToNormal(int fd2){
 }
 
 
-//redirects stdout to newly created file "fileName," catering for symbol '>'
+//redirects stdin to string by tempFile "hereString.tmp," catering for symbol '<<<'
 void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
 
     /* Creates temporary file and stores string */
@@ -98,7 +98,7 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
 }
 
 
-//redirects stdout to newly created file "fileName," catering for symbol '>'
+//redirects stdin to newly created file "fileName," catering for symbol '<'
 void redirectInputFile(char * cmd[MAX_ARGS], char * fileName){
 
     /* Connect standard output to given file*/
