@@ -153,52 +153,52 @@ CMakeFiles/EggShell.dir/vrblController.c.o.provides: CMakeFiles/EggShell.dir/vrb
 CMakeFiles/EggShell.dir/vrblController.c.o.provides.build: CMakeFiles/EggShell.dir/vrblController.c.o
 
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o: CMakeFiles/EggShell.dir/flags.make
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../intrnlCmdController.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/EggShell.dir/intrnlCmdController.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/intrnlCmdController.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdController.c"
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o: CMakeFiles/EggShell.dir/flags.make
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o: ../intrnlCmdParser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/EggShell.dir/intrnlCmdParser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/intrnlCmdParser.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdParser.c"
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/intrnlCmdController.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdController.c" > CMakeFiles/EggShell.dir/intrnlCmdController.c.i
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/intrnlCmdParser.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdParser.c" > CMakeFiles/EggShell.dir/intrnlCmdParser.c.i
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/intrnlCmdController.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdController.c" -o CMakeFiles/EggShell.dir/intrnlCmdController.c.s
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/intrnlCmdParser.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/intrnlCmdParser.c" -o CMakeFiles/EggShell.dir/intrnlCmdParser.c.s
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o.requires:
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.requires:
 
-.PHONY : CMakeFiles/EggShell.dir/intrnlCmdController.c.o.requires
+.PHONY : CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.requires
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o.provides: CMakeFiles/EggShell.dir/intrnlCmdController.c.o.requires
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.o.provides.build
-.PHONY : CMakeFiles/EggShell.dir/intrnlCmdController.c.o.provides
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.provides: CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.requires
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.provides.build
+.PHONY : CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.provides
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o.provides.build: CMakeFiles/EggShell.dir/intrnlCmdController.c.o
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.provides.build: CMakeFiles/EggShell.dir/intrnlCmdParser.c.o
 
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o: CMakeFiles/EggShell.dir/flags.make
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../extrnlCmdController.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/EggShell.dir/extrnlCmdController.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/extrnlCmdController.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdController.c"
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o: CMakeFiles/EggShell.dir/flags.make
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o: ../extrnlCmdParser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/EggShell.dir/extrnlCmdParser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EggShell.dir/extrnlCmdParser.c.o   -c "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdParser.c"
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/extrnlCmdController.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdController.c" > CMakeFiles/EggShell.dir/extrnlCmdController.c.i
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EggShell.dir/extrnlCmdParser.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdParser.c" > CMakeFiles/EggShell.dir/extrnlCmdParser.c.i
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/extrnlCmdController.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdController.c" -o CMakeFiles/EggShell.dir/extrnlCmdController.c.s
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EggShell.dir/extrnlCmdParser.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/extrnlCmdParser.c" -o CMakeFiles/EggShell.dir/extrnlCmdParser.c.s
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o.requires:
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.requires:
 
-.PHONY : CMakeFiles/EggShell.dir/extrnlCmdController.c.o.requires
+.PHONY : CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.requires
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o.provides: CMakeFiles/EggShell.dir/extrnlCmdController.c.o.requires
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.o.provides.build
-.PHONY : CMakeFiles/EggShell.dir/extrnlCmdController.c.o.provides
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.provides: CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.requires
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.provides.build
+.PHONY : CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.provides
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o.provides.build: CMakeFiles/EggShell.dir/extrnlCmdController.c.o
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.provides.build: CMakeFiles/EggShell.dir/extrnlCmdParser.c.o
 
 
 CMakeFiles/EggShell.dir/ioController.c.o: CMakeFiles/EggShell.dir/flags.make
@@ -231,8 +231,8 @@ EggShell_OBJECTS = \
 "CMakeFiles/EggShell.dir/linenoise.c.o" \
 "CMakeFiles/EggShell.dir/cmdController.c.o" \
 "CMakeFiles/EggShell.dir/vrblController.c.o" \
-"CMakeFiles/EggShell.dir/intrnlCmdController.c.o" \
-"CMakeFiles/EggShell.dir/extrnlCmdController.c.o" \
+"CMakeFiles/EggShell.dir/intrnlCmdParser.c.o" \
+"CMakeFiles/EggShell.dir/extrnlCmdParser.c.o" \
 "CMakeFiles/EggShell.dir/ioController.c.o"
 
 # External object files for target EggShell
@@ -242,8 +242,8 @@ EggShell: CMakeFiles/EggShell.dir/eggshell.c.o
 EggShell: CMakeFiles/EggShell.dir/linenoise.c.o
 EggShell: CMakeFiles/EggShell.dir/cmdController.c.o
 EggShell: CMakeFiles/EggShell.dir/vrblController.c.o
-EggShell: CMakeFiles/EggShell.dir/intrnlCmdController.c.o
-EggShell: CMakeFiles/EggShell.dir/extrnlCmdController.c.o
+EggShell: CMakeFiles/EggShell.dir/intrnlCmdParser.c.o
+EggShell: CMakeFiles/EggShell.dir/extrnlCmdParser.c.o
 EggShell: CMakeFiles/EggShell.dir/ioController.c.o
 EggShell: CMakeFiles/EggShell.dir/build.make
 EggShell: CMakeFiles/EggShell.dir/link.txt
@@ -259,8 +259,8 @@ CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/eggshell.c.o.requires
 CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/linenoise.c.o.requires
 CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/cmdController.c.o.requires
 CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/vrblController.c.o.requires
-CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/intrnlCmdController.c.o.requires
-CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/extrnlCmdController.c.o.requires
+CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/intrnlCmdParser.c.o.requires
+CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/extrnlCmdParser.c.o.requires
 CMakeFiles/EggShell.dir/requires: CMakeFiles/EggShell.dir/ioController.c.o.requires
 
 .PHONY : CMakeFiles/EggShell.dir/requires

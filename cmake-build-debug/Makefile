@@ -177,59 +177,59 @@ eggshell.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/eggshell.c.s
 .PHONY : eggshell.c.s
 
-extrnlCmdController.o: extrnlCmdController.c.o
+extrnlCmdParser.o: extrnlCmdParser.c.o
 
-.PHONY : extrnlCmdController.o
-
-# target to build an object file
-extrnlCmdController.c.o:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.o
-.PHONY : extrnlCmdController.c.o
-
-extrnlCmdController.i: extrnlCmdController.c.i
-
-.PHONY : extrnlCmdController.i
-
-# target to preprocess a source file
-extrnlCmdController.c.i:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.i
-.PHONY : extrnlCmdController.c.i
-
-extrnlCmdController.s: extrnlCmdController.c.s
-
-.PHONY : extrnlCmdController.s
-
-# target to generate assembly for a file
-extrnlCmdController.c.s:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdController.c.s
-.PHONY : extrnlCmdController.c.s
-
-intrnlCmdController.o: intrnlCmdController.c.o
-
-.PHONY : intrnlCmdController.o
+.PHONY : extrnlCmdParser.o
 
 # target to build an object file
-intrnlCmdController.c.o:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.o
-.PHONY : intrnlCmdController.c.o
+extrnlCmdParser.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdParser.c.o
+.PHONY : extrnlCmdParser.c.o
 
-intrnlCmdController.i: intrnlCmdController.c.i
+extrnlCmdParser.i: extrnlCmdParser.c.i
 
-.PHONY : intrnlCmdController.i
+.PHONY : extrnlCmdParser.i
 
 # target to preprocess a source file
-intrnlCmdController.c.i:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.i
-.PHONY : intrnlCmdController.c.i
+extrnlCmdParser.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdParser.c.i
+.PHONY : extrnlCmdParser.c.i
 
-intrnlCmdController.s: intrnlCmdController.c.s
+extrnlCmdParser.s: extrnlCmdParser.c.s
 
-.PHONY : intrnlCmdController.s
+.PHONY : extrnlCmdParser.s
 
 # target to generate assembly for a file
-intrnlCmdController.c.s:
-	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdController.c.s
-.PHONY : intrnlCmdController.c.s
+extrnlCmdParser.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/extrnlCmdParser.c.s
+.PHONY : extrnlCmdParser.c.s
+
+intrnlCmdParser.o: intrnlCmdParser.c.o
+
+.PHONY : intrnlCmdParser.o
+
+# target to build an object file
+intrnlCmdParser.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdParser.c.o
+.PHONY : intrnlCmdParser.c.o
+
+intrnlCmdParser.i: intrnlCmdParser.c.i
+
+.PHONY : intrnlCmdParser.i
+
+# target to preprocess a source file
+intrnlCmdParser.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdParser.c.i
+.PHONY : intrnlCmdParser.c.i
+
+intrnlCmdParser.s: intrnlCmdParser.c.s
+
+.PHONY : intrnlCmdParser.s
+
+# target to generate assembly for a file
+intrnlCmdParser.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/intrnlCmdParser.c.s
+.PHONY : intrnlCmdParser.c.s
 
 ioController.o: ioController.c.o
 
@@ -327,12 +327,12 @@ help:
 	@echo "... eggshell.o"
 	@echo "... eggshell.i"
 	@echo "... eggshell.s"
-	@echo "... extrnlCmdController.o"
-	@echo "... extrnlCmdController.i"
-	@echo "... extrnlCmdController.s"
-	@echo "... intrnlCmdController.o"
-	@echo "... intrnlCmdController.i"
-	@echo "... intrnlCmdController.s"
+	@echo "... extrnlCmdParser.o"
+	@echo "... extrnlCmdParser.i"
+	@echo "... extrnlCmdParser.s"
+	@echo "... intrnlCmdParser.o"
+	@echo "... intrnlCmdParser.i"
+	@echo "... intrnlCmdParser.s"
 	@echo "... ioController.o"
 	@echo "... ioController.i"
 	@echo "... ioController.s"

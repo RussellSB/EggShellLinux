@@ -204,13 +204,7 @@ void parseChdirCmd(char * args[MAX_ARGS]){
     //when "chdir" on it's own is entered, set cwd as the root directory of the shell binary
     if(args[1] == NULL){
 
-        /* CODE WHEN chdir() IS NOT USED
-         setCWD();
-         setPROMPT();
-         */
-
         //Note: Since is dependant on $SHELL, "chdir" doesn't work when $SHELL is manually changed
-
         char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
         strcpy(buffer, getVarValue("$SHELL")); //sets buffer to SHELL variable value
         int i = (int)strlen(buffer)-1; //initialized to last character in string
@@ -234,27 +228,6 @@ void parseChdirCmd(char * args[MAX_ARGS]){
     //when user wants to go back out a directory
     else if(strcmp(args[1],"..") == 0 && args[2] == NULL){
 
-        /* CODE WHEN chdir() IS NOT USED
-        char buffer[MAX_CHAR] = ""; //initialized for strcat()
-        char * cwd;
-
-        strcat(buffer, getVarValue("$CWD")); //tempString buffer becomes value of $CWD
-
-        int i = (int)strlen(buffer)-1; //initialized to last character in string
-
-        while(i --> 0 && buffer[i] != '/'){ //deletes every character after last '/'
-
-            buffer[i] = 0;
-
-        }
-
-        buffer[i] = 0; //removes '/'
-        cwd = strdup(buffer); //allocates memory for cwd, by using buffer as a source
-
-        addVar("CWD",cwd); //updates new current working directory
-        setPROMPT(); //updates prompt with new cwd
-         */
-
         chdir(".."); //changes current directory to go up to parent
         setCWD(); //updates $CWD
         setPROMPT(); //updates $PROMPT
@@ -263,23 +236,6 @@ void parseChdirCmd(char * args[MAX_ARGS]){
 
     //when user wants to change current working directory
     else if(strcmp(args[1],"..") != 0 && args[1]!=NULL){
-
-        /* CODE WHEN chdir() IS NOT USED (problem: doesn't validate string input)
-        char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents
-        char * cwd;
-
-        for(int i = 1; args[i]!=NULL; i++){
-
-            strcat(buffer, args[i]); //concat argument
-            strcat(buffer, " "); //concat space
-
-        }
-
-        cwd = strdup(buffer);
-
-        addVar("CWD", cwd); //updates new current working directory
-        setPROMPT(); //updates prompt with new cwd
-         */
 
         char buffer[MAX_CHAR] = ""; //initialized to concat all other argument contents for path with spaces
 

@@ -5,15 +5,11 @@ void main(){
 
     initShellVariables();
 
-    char * args2[MAX_ARGS] = {"cornyjokes",">","outputTest.txt", NULL};
+    char * args2[MAX_ARGS] = {"wc","<<<","123","456","789","101112", NULL};
     checkInputOutput(args2);
-    char * args4[MAX_ARGS] = {"source","sourceTest.sh", ">>","outputTest.txt", NULL};
-    checkInputOutput(args4);
-    char * args3[MAX_ARGS] = {"print", "test2", "321", NULL};
-    checkInputOutput(args3);
 
-}
-*/
+}*/
+
 
 
 int main(void){
@@ -45,3 +41,4 @@ int main(void){
     return 0;
 
 }
+

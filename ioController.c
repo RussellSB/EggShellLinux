@@ -2,6 +2,149 @@
 
 
 //redirects stdout to newly created file "fileName," catering for symbol '>'
+void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
+
+    char * fileName = "hereString.tmp";
+
+    /* Creates temporary file and stores string */
+
+    FILE *f = fopen("hereString.tmp", "w+");
+
+    for(int i = 0; stringArray[i] != NULL; i++){
+
+        if(stringArray[i+1] == NULL)fprintf(f, "%s", stringArray[i]);
+        else fprintf(f, "%s ", stringArray[i]);
+
+    }
+
+    fclose(f);
+
+    /* Connect standard output to given file*/
+
+    fflush(stdin); //used as a safety precaution
+
+    int fd1; //initialized file descriptor 1
+
+    //sets file descriptor for file for reading file
+    fd1 = open(fileName, O_RDONLY);
+
+    if(fd1 < 0){
+
+        printf("Error: Failed to open the temporary file \"%s\" for reading\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    int fd2 = dup(STDIN_FILENO); //sets input to file descriptor instead of stdin
+
+    if(fd2 < 0){
+
+        printf("Error: Failed to duplicate standard input\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    //restores fd1
+    if(dup2(fd1, STDIN_FILENO) < 0){
+
+        printf("Error: Failed to duplicate the temporary file \"%s\" for standard input\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd1);
+
+    /* Write to standard input */
+
+    parseCmd(cmd); //parses command
+
+    /* Reconnect original standard input */
+
+    fflush(stdin); //safety precaution
+    remove(fileName); //removes temporary file
+
+    //restores fd2
+    if(dup2(fd2, STDIN_FILENO) < 0){
+
+        printf("Error: Failed to reinstate standard input\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd2);
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
+
+
+//redirects stdout to newly created file "fileName," catering for symbol '>'
+void redirectInputFile(char * cmd[MAX_ARGS], char * fileName){
+
+    /* Connect standard output to given file*/
+
+    fflush(stdin); //used as a safety precaution
+
+    int fd1; //initialized file descriptor 1
+
+    //sets file descriptor for file for reading file
+    fd1 = open(fileName, O_RDONLY);
+
+    if(fd1 < 0){
+
+        printf("Error: Failed to open the file \"%s\" for reading\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    int fd2 = dup(STDIN_FILENO); //sets input to file descriptor instead of stdin
+
+    if(fd2 < 0){
+
+        printf("Error: Failed to duplicate standard input\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    //restores fd1
+    if(dup2(fd1, STDIN_FILENO) < 0){
+
+        printf("Error: Failed to duplicate the file \"%s\" for standard input\n", fileName);
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd1);
+
+    /* Write to standard input */
+
+    parseCmd(cmd); //parses command
+
+    /* Reconnect original standard input */
+
+    fflush(stdin); //safety precaution
+
+    //restores fd2
+    if(dup2(fd2, STDIN_FILENO) < 0){
+
+        printf("Error: Failed to reinstate standard input\n");
+        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+        return;
+
+    }
+
+    close(fd2);
+    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+
+}
+
+//redirects stdout to newly created file "fileName," catering for symbol '>'
 void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
     /* Connect standard output to given file*/
@@ -12,12 +155,12 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
     //sets file descriptor for file for creating file
     if(flag == 1) fd1 = open(fileName, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    //sets file descriptor for appending to file when flag is 2
+        //sets file descriptor for appending to file when flag is 2
     else fd1 = open(fileName, O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 
     if(fd1 < 0){
 
-        printf("Error: Failed to open the file \"%s\"\n for writing\n", fileName);
+        printf("Error: Failed to open the file \"%s\" for writing\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
@@ -67,6 +210,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 }
 
 
+
 //checks for input or output redirection
 void checkInputOutput(char * args[MAX_ARGS]){
 
@@ -104,8 +248,8 @@ void checkInputOutput(char * args[MAX_ARGS]){
 
     }
 
-    //if more than one argument after > or >> is found, return an error and stop
-    else if( (flag == 3 || flag == 4) && args[i+1] != NULL){
+    //if more than one argument after <, return an error and stop
+    else if( (flag == 3) && args[i+1] != NULL){
 
         printf("Error: Please enter a single file name argument for input redirection\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
@@ -120,12 +264,28 @@ void checkInputOutput(char * args[MAX_ARGS]){
         //if output redirection is detected
         if(flag == 1 || flag == 2) redirectOutput(cmd, args[i], flag);
 
-        //else input redirection is detected
-        else;
+        //file input redirection '<' is detected
+        else if(flag == 3) redirectInputFile(cmd, args[i]);
+
+        //string input redirection '<<<' is detected (flag == 4)
+        else{
+
+            char * stringArray[MAX_ARGS]; //makes string array for string after "<<<"
+
+            for(int j = 0; args[i] != NULL; j++){
+
+                stringArray[j] = args[i]; //puts all contents into stringArray
+                i++;
+
+            }
+
+            stringArray[i] = NULL; //sets last token to null
+
+            redirectInputString(cmd, stringArray);
+
+        }
 
     }
-
-
 
     /* When no redirection is flagged*/
 

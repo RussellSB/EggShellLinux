@@ -111,7 +111,7 @@ void externalCmd(char * args[MAX_ARGS]){
         //checks if child process failed
         if (status == -1) {
 
-            perror("Error: An error occured when executing child process, it terminated with an error!\n");
+            perror("Error: An error occurred when executing child process.\n");
             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
             return;
 
@@ -123,7 +123,7 @@ void externalCmd(char * args[MAX_ARGS]){
 
     }else{
 
-        printf("Error: Forking was unsuccessful in extrnlCmdController.c.\n");
+        perror("Error: Forking was unsuccessful in extrnlCmdController.c.\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 

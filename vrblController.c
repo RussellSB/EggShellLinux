@@ -165,9 +165,15 @@ void setPROMPT(void){
 //sets the variable SHELL (Shell Variable) as path to currently executed binary file
 void setSV(void){
 
-    char buffer[BUFSIZ];
-    readlink("/proc/self/exe", buffer, BUFSIZ);
-    addVar("SHELL", buffer); //adds variable
+    char pathString[MAX_CHAR]; //initialized for readlink use
+    char * path = malloc(MAX_CHAR * sizeof(char)); //mallocs to avoid data corruption, imp as used for chdir
+
+    pid_t pid = getpid(); //gets current process id to create pathString
+
+    sprintf(pathString, "/proc/%d/exe", pid); //creates pathString for readlink()
+
+    readlink(pathString, path, MAX_CHAR); //gets the path to executable and stores in path
+    addVar("SHELL", path); //adds variable
 
 }
 
@@ -197,6 +203,9 @@ void initShellVariables(void) {
 
     /* Adding initial Shell Variables */
 
+    //adding error code variable
+    addVar("EXITCODE","(null)"); //initial exitcode variable
+
     //adding getenv() variables
     addVar("PATH", getenv("PATH")); //path to external commands
     addVar("USER", getenv("USER")); //name of current user, used in PROMPT
@@ -205,8 +214,7 @@ void initShellVariables(void) {
     //adding shell specific variables $CWD, $PROMPT, $SHELL and $TERMINAL
     setShellSpecific(); //sets and adds them
 
-    //adding other variables
-    addVar("EXITCODE","(null)"); //initial exitcode variable
+
 
 }
 
