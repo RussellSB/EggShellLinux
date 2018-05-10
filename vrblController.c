@@ -237,14 +237,6 @@ void printAllVar(void){
 }
 
 
-//returns the size of the dynamic variables array
-int getVarSize(void){
-
-    return variables->amount;
-
-}
-
-
 //frees all the variables stored in the shell by freeing dynamic array
 void freeAllVar(void){
 

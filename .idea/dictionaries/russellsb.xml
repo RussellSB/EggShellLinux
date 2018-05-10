@@ -8,7 +8,9 @@
       <w>intrnl</w>
       <w>linenoise</w>
       <w>redirectio</w>
+      <w>stdin</w>
       <w>struct</w>
+      <w>tokenized</w>
       <w>vararr</w>
       <w>varname</w>
       <w>vrbl</w>

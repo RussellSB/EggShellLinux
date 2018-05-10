@@ -285,6 +285,33 @@ linenoise.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/linenoise.c.s
 .PHONY : linenoise.c.s
 
+pipeController.o: pipeController.c.o
+
+.PHONY : pipeController.o
+
+# target to build an object file
+pipeController.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/pipeController.c.o
+.PHONY : pipeController.c.o
+
+pipeController.i: pipeController.c.i
+
+.PHONY : pipeController.i
+
+# target to preprocess a source file
+pipeController.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/pipeController.c.i
+.PHONY : pipeController.c.i
+
+pipeController.s: pipeController.c.s
+
+.PHONY : pipeController.s
+
+# target to generate assembly for a file
+pipeController.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/pipeController.c.s
+.PHONY : pipeController.c.s
+
 vrblController.o: vrblController.c.o
 
 .PHONY : vrblController.o
@@ -339,6 +366,9 @@ help:
 	@echo "... linenoise.o"
 	@echo "... linenoise.i"
 	@echo "... linenoise.s"
+	@echo "... pipeController.o"
+	@echo "... pipeController.i"
+	@echo "... pipeController.s"
 	@echo "... vrblController.o"
 	@echo "... vrblController.i"
 	@echo "... vrblController.s"

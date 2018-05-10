@@ -1,25 +1,7 @@
 #include "eggshell.h"
 
-
-//redirects stdout to newly created file "fileName," catering for symbol '>'
-void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
-
-    char * fileName = "hereString.tmp";
-
-    /* Creates temporary file and stores string */
-
-    FILE *f = fopen("hereString.tmp", "w+");
-
-    for(int i = 0; stringArray[i] != NULL; i++){
-
-        if(stringArray[i+1] == NULL)fprintf(f, "%s", stringArray[i]);
-        else fprintf(f, "%s ", stringArray[i]);
-
-    }
-
-    fclose(f);
-
-    /* Connect standard output to given file*/
+//stdin set to point to fileName
+int stdinToFile(char * fileName){
 
     fflush(stdin); //used as a safety precaution
 
@@ -32,7 +14,7 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
 
         printf("Error: Failed to open the temporary file \"%s\" for reading\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
@@ -42,7 +24,7 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
 
         printf("Error: Failed to duplicate standard input\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
@@ -51,20 +33,19 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
 
         printf("Error: Failed to duplicate the temporary file \"%s\" for standard input\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
     close(fd1);
+    return fd2;
 
-    /* Write to standard input */
+}
 
-    parseCmd(cmd); //parses command
-
-    /* Reconnect original standard input */
+//resets stdin back to normal using pointer made in stdinToFile()
+void stdinToNormal(int fd2){
 
     fflush(stdin); //safety precaution
-    remove(fileName); //removes temporary file
 
     //restores fd2
     if(dup2(fd2, STDIN_FILENO) < 0){
@@ -76,6 +57,42 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
     }
 
     close(fd2);
+
+}
+
+
+//redirects stdout to newly created file "fileName," catering for symbol '>'
+void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
+
+    /* Creates temporary file and stores string */
+
+    char * fileName = "hereString.tmp";
+    FILE *f = fopen("hereString.tmp", "w+");
+
+    for(int i = 0; stringArray[i] != NULL; i++){
+
+        if(stringArray[i+1] == NULL)fprintf(f, "%s", stringArray[i]);
+        else fprintf(f, "%s ", stringArray[i]);
+
+    }
+
+    fclose(f);
+
+    /* Connect standard input to given file*/
+    int fd2 = stdinToFile(fileName); //returns fd2 for later use for reversion
+
+    //if -1 is returned, error occurred and printed so just return
+    if(fd2 == -1){
+        return;
+    }
+
+    /* Write to standard input */
+    parseCmd(cmd); //parses command
+
+    /* Reconnect original standard input */
+    stdinToNormal(fd2);
+
+    remove(fileName); //removes temporary file
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
@@ -86,68 +103,26 @@ void redirectInputFile(char * cmd[MAX_ARGS], char * fileName){
 
     /* Connect standard output to given file*/
 
-    fflush(stdin); //used as a safety precaution
+    int fd2 = stdinToFile(fileName); //returns fd2 for later use for reversion
 
-    int fd1; //initialized file descriptor 1
-
-    //sets file descriptor for file for reading file
-    fd1 = open(fileName, O_RDONLY);
-
-    if(fd1 < 0){
-
-        printf("Error: Failed to open the file \"%s\" for reading\n", fileName);
-        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+    //if -1 is returned, error occurred and printed so just return
+    if(fd2 == -1){
         return;
-
     }
-
-    int fd2 = dup(STDIN_FILENO); //sets input to file descriptor instead of stdin
-
-    if(fd2 < 0){
-
-        printf("Error: Failed to duplicate standard input\n");
-        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
-
-    }
-
-    //restores fd1
-    if(dup2(fd1, STDIN_FILENO) < 0){
-
-        printf("Error: Failed to duplicate the file \"%s\" for standard input\n", fileName);
-        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
-
-    }
-
-    close(fd1);
 
     /* Write to standard input */
-
     parseCmd(cmd); //parses command
 
     /* Reconnect original standard input */
+    stdinToNormal(fd2);
 
-    fflush(stdin); //safety precaution
-
-    //restores fd2
-    if(dup2(fd2, STDIN_FILENO) < 0){
-
-        printf("Error: Failed to reinstate standard input\n");
-        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
-
-    }
-
-    close(fd2);
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
-//redirects stdout to newly created file "fileName," catering for symbol '>'
-void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
-    /* Connect standard output to given file*/
+//sets stdout to point to fileName
+int stdoutToFile(char * fileName, int flag){
 
     fflush(stdout); //used as a safety precaution
 
@@ -162,7 +137,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
         printf("Error: Failed to open the file \"%s\" for writing\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
@@ -172,7 +147,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
         printf("Error: Failed to duplicate standard output\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
@@ -181,17 +156,17 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
         printf("Error: Failed to duplicate the file \"%s\" to standard output\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-        return;
+        return -1;
 
     }
 
     close(fd1);
+    return fd2;
 
-    /* Write to standard output */
+}
 
-    parseCmd(cmd); //parses command
 
-    /* Reconnect original standard output */
+void stdoutToNormal(int fd2){
 
     fflush(stdout); //safety precaution
 
@@ -205,16 +180,30 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
     }
 
     close(fd2);
+
+}
+
+//redirects stdout to newly created file "fileName," catering for symbol '>'
+void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
+
+    /* Connect standard output to given file*/
+    int fd2 = stdoutToFile(fileName, flag);
+
+    /* Write to standard output */
+    parseCmd(cmd); //parses command
+
+    /* Reconnect original standard output */
+    stdoutToNormal(fd2);
+
     addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
 
-
 //checks for input or output redirection
 void checkInputOutput(char * args[MAX_ARGS]){
 
-    char * cmd[MAX_ARGS-2] = {NULL}; //stores command
+    char * cmd[MAX_ARGS] = {NULL}; //stores command
 
     int flag = 0; //initialized flag, changes when > or >> is detected
     int i; //initialized counter for for loop
@@ -280,7 +269,6 @@ void checkInputOutput(char * args[MAX_ARGS]){
             }
 
             stringArray[i] = NULL; //sets last token to null
-
             redirectInputString(cmd, stringArray);
 
         }

@@ -1,17 +1,16 @@
 #include "eggshell.h"
 
-/*
 void main(){
 
     initShellVariables();
 
-    char * args2[MAX_ARGS] = {"wc","<<<","123","456","789","101112", NULL};
-    checkInputOutput(args2);
+    char * args2[MAX_ARGS] = {"echo","twentyOneTest","|","figlet","|","figlet", NULL};
+    constructPipeLine(args2);
 
-}*/
+}
 
 
-
+/*
 int main(void){
 
     pid_t pid;  //used in forking processes, stores the process id
@@ -41,4 +40,6 @@ int main(void){
     return 0;
 
 }
+
+ */
 

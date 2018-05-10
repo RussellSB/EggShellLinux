@@ -13,9 +13,10 @@
 
 /* Constants defined */
 #define MAX_HISTORY 20 //maximum number of commands to add to history
-#define MAX_ARGS 225 //maximum number of arguments made acceptable by user input
+#define MAX_ARGS 30 //maximum number of arguments made acceptable by user input
 #define MAX_CHAR 300 //maximum number of characters in a character array (used for string buffers)
-#define MAX_PATHS 30 //maximum amount of paths to parse through when calling external command
+#define MAX_PATHS 30 //maximum amount of paths to parse through when looking for external command file location
+#define MAX_COMMANDS 20 //maximum amount of commands in the pipeline
 
 
 /* --in vrblController.c-- */
@@ -34,18 +35,17 @@ void setSV(void); //sets the variable SHELL (put in other method for neatness)
 void setPROMPT(void); //sets PROMPT variable using CWD
 void initShellVariables(void); //initialises variable storage and adds initial variables
 void printAllVar(void); //prints all the variables stored in the shell
-int getVarSize(void); //returns the int of variables amount
 void freeAllVar(void); //frees all variables stored (freeing variable storage platform)
 
 
 /* --in cmdController.c-- */
 
 /* Method Declarations */
-void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command
+void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command for internal or external
 void execEggShell(void); //executes the shell, considered as the main method of the eggShell
 
 
-/* --in intrnlCmdController.c-- */
+/* --in intrnlCmdParser.c-- */
 
 /* Method Declarations */
 void parseVrblCmd(char * args[MAX_ARGS]); //parses VARNAME=value
@@ -54,7 +54,7 @@ void parseChdirCmd(char * args[MAX_ARGS]); //parses chdr
 void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 
 
-/* --in extrnlCmdController.c-- */
+/* --in extrnlCmdParser.c-- */
 
 /* Method Declarations */
 void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
@@ -65,5 +65,18 @@ void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recogn
 /* --in ioController.c-- */
 
 /* Method Declarations */
-void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag); //redirects output
+int stdinToFile(char * fileName); //sets stdin to input from file
+void stdinToNormal(int fd2); //resets stdin back to normal
+void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]); //redirects input fom String
+void redirectInputFile(char * cmd[MAX_ARGS], char * fileName); //redirects input from file
+int stdoutToFile(char * fileName, int flag); //sets stdout to output to file
+void stdoutToNormal(int fd2); //resets stdout back to normal
+void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag); //redirects output to file
 void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()
+
+
+/* --in pipeController-- */
+
+/* Method Declarations */
+void parsePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS]); //parses command array, potentially piping
+void constructPipeLine(char * args[MAX_ARGS]); //checks for piping, and makes array of args commands

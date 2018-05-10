@@ -53,7 +53,7 @@ void execEggShell(void){
 
     char * line;             //pointer to the current line
     char * currToken = NULL; //stores token temporarily from the current line. initialized as NULL
-    char * args[MAX_ARGS];   //array of strings used for storing tokens
+    char * args[MAX_ARGS] = {NULL};   //array of strings used for storing tokens
 
     int i;      //initialized counter for looping through prompting for line input
 
@@ -74,7 +74,6 @@ void execEggShell(void){
         }else{ //else when line entered with actual content
 
             linenoiseHistoryAdd(line); //adds line to history
-
             currToken = strtok(line, " "); //retrieves first token
 
             //if first token is set to "exit" quit the line input loop (considered a special command case)
@@ -91,8 +90,7 @@ void execEggShell(void){
             }
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
-
-            checkInputOutput(args); //passes to check arguments for any I/O redirection before parsing command
+            checkInputOutput(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
 
         }
 

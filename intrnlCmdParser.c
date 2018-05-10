@@ -1,7 +1,7 @@
 #include "eggshell.h"
 
 
-//parses through recognised variable command from input command
+//parses through recognised variable command from input command and executes
 void parseVrblCmd(char * args[MAX_ARGS]){
 
     char * varName = NULL; //initialized to store variable name from variable cmd
@@ -43,7 +43,7 @@ void parseVrblCmd(char * args[MAX_ARGS]){
 }
 
 
-//parses through recognised print command from input command
+//parses through recognised print command from input command and executes
 void parsePrintCmd(char * args[MAX_ARGS]){
 
     //if nothing is to be printed
@@ -198,7 +198,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 }
 
 
-//method that parses through chdir command through args array
+//method that parses through chdir command through args array and executes
 void parseChdirCmd(char * args[MAX_ARGS]){
 
     //when "chdir" on it's own is entered, set cwd as the root directory of the shell binary
@@ -275,7 +275,7 @@ void parseChdirCmd(char * args[MAX_ARGS]){
 }
 
 
-//method that parses through source command through args array
+//method that parses through source command through args array and executes
 void parseSourceCmd(char * args[MAX_ARGS]){
 
     //if it sees that more than one argument or no arguments is given for source

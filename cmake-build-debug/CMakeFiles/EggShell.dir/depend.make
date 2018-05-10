@@ -9,13 +9,13 @@ CMakeFiles/EggShell.dir/eggshell.c.o: ../eggshell.c
 CMakeFiles/EggShell.dir/eggshell.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/eggshell.c.o: ../linenoise.h
 
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../eggshell.h
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../extrnlCmdController.c
-CMakeFiles/EggShell.dir/extrnlCmdController.c.o: ../linenoise.h
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o: ../extrnlCmdParser.c
+CMakeFiles/EggShell.dir/extrnlCmdParser.c.o: ../linenoise.h
 
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../eggshell.h
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../intrnlCmdController.c
-CMakeFiles/EggShell.dir/intrnlCmdController.c.o: ../linenoise.h
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o: ../intrnlCmdParser.c
+CMakeFiles/EggShell.dir/intrnlCmdParser.c.o: ../linenoise.h
 
 CMakeFiles/EggShell.dir/ioController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/ioController.c.o: ../ioController.c
@@ -23,6 +23,10 @@ CMakeFiles/EggShell.dir/ioController.c.o: ../linenoise.h
 
 CMakeFiles/EggShell.dir/linenoise.c.o: ../linenoise.c
 CMakeFiles/EggShell.dir/linenoise.c.o: ../linenoise.h
+
+CMakeFiles/EggShell.dir/pipeController.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/pipeController.c.o: ../linenoise.h
+CMakeFiles/EggShell.dir/pipeController.c.o: ../pipeController.c
 
 CMakeFiles/EggShell.dir/vrblController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/vrblController.c.o: ../linenoise.h
