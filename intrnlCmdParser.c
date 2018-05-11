@@ -337,7 +337,7 @@ void parseSourceCmd(char * args[MAX_ARGS]){
 
                 args2[i] = NULL; //set last token to NULL, useful when arguments vary per line input
 
-                parsePipeLine(args2); //checks command for piping, then I/O redirection the parses it
+                checkPipeLine(args2); //checks command for piping, then I/O redirection the parses it
 
                 memset(line, 0, MAX_CHAR); //clears line
                 flag = 1; //shows that linePntr is malloced

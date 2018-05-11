@@ -1,7 +1,7 @@
 #include "eggshell.h"
 
 //parses through inputted command, understandable through String array "args" calls methods from intrnlCmdController.c or extrnlCmdController.c
-void parseCmd(char * args[MAX_ARGS]){
+void checkCmd(char * args[MAX_ARGS]){
 
     //Recognises internal command as variable assignment command because first argument has an '=', and there's only one argument
     if(strstr(args[0], "=") && args[1] == NULL){
@@ -90,7 +90,7 @@ void execEggShell(void){
             }
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
-            parsePipeLine(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
+            checkPipeLine(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
 
         }
 

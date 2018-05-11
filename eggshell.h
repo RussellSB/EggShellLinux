@@ -41,7 +41,7 @@ void freeAllVar(void); //frees all variables stored (freeing variable storage pl
 /* --in cmdController.c-- */
 
 /* Method Declarations */
-void parseCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command for internal or external
+void checkCmd(char * args[MAX_ARGS]); //makes sense of the user inputted command for internal or external
 void execEggShell(void); //executes the shell, considered as the main method of the eggShell
 
 
@@ -72,12 +72,11 @@ void redirectInputFile(char * cmd[MAX_ARGS], char * fileName); //redirects input
 int stdoutToFile(char * fileName, int flag); //sets stdout to output to file
 void stdoutToNormal(int fd2); //resets stdout back to normal
 void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag); //redirects output to file
-void parseInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()
+void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()
 
 
 /* --in pipeController-- */
 
 /* Method Declarations */
 void pipePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //pipes pipeLine containing more than one command
-void checkPipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //sees whether array of commands demand piping or not
-void parsePipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an array of commands
+void checkPipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an array of commands

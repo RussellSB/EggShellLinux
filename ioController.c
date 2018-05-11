@@ -87,7 +87,7 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
     }
 
     /* Write to standard input */
-    parseCmd(cmd); //parses command
+    checkCmd(cmd); //parses command
 
     /* Reconnect original standard input */
     stdinToNormal(fd2);
@@ -111,7 +111,7 @@ void redirectInputFile(char * cmd[MAX_ARGS], char * fileName){
     }
 
     /* Write to standard input */
-    parseCmd(cmd); //parses command
+    checkCmd(cmd); //parses command
 
     /* Reconnect original standard input */
     stdinToNormal(fd2);
@@ -190,7 +190,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
     int fd2 = stdoutToFile(fileName, flag);
 
     /* Write to standard output */
-    parseCmd(cmd); //parses command
+    checkCmd(cmd); //checks command type, then parses and executes
 
     /* Reconnect original standard output */
     stdoutToNormal(fd2);
@@ -201,7 +201,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
 
 //checks for input or output redirection
-void parseInputOutput(char * args[MAX_ARGS]){
+void checkInputOutput(char * args[MAX_ARGS]){
 
     char * cmd[MAX_ARGS] = {NULL}; //stores command
 
@@ -278,6 +278,6 @@ void parseInputOutput(char * args[MAX_ARGS]){
     /* When no redirection is flagged*/
 
     //if no output redirection is detected
-    else parseCmd(cmd); //parses through command normally with stdout
+    else checkCmd(cmd); //parses through command normally with stdout
 
 }
