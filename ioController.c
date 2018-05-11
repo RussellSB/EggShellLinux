@@ -201,7 +201,7 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
 
 //checks for input or output redirection
-void checkInputOutput(char * args[MAX_ARGS]){
+void parseInputOutput(char * args[MAX_ARGS]){
 
     char * cmd[MAX_ARGS] = {NULL}; //stores command
 

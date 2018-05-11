@@ -72,11 +72,12 @@ void redirectInputFile(char * cmd[MAX_ARGS], char * fileName); //redirects input
 int stdoutToFile(char * fileName, int flag); //sets stdout to output to file
 void stdoutToNormal(int fd2); //resets stdout back to normal
 void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag); //redirects output to file
-void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()
+void parseInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection before parseCmd()
 
 
 /* --in pipeController-- */
 
 /* Method Declarations */
-void parsePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS]); //parses command array, potentially piping
-void constructPipeLine(char * args[MAX_ARGS]); //checks for piping, and makes array of args commands
+void pipePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //pipes pipeLine containing more than one command
+void checkPipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //sees whether array of commands demand piping or not
+void parsePipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an array of commands

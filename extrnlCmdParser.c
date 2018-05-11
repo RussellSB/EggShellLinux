@@ -83,7 +83,7 @@ void externalCmd(char * args[MAX_ARGS]){
     //checks if successful path was found or not
     if(strcmp(succPath,"-1") == 0){
 
-        printf("Error: Path to external command \"%s\" was not found.\n", args[0]);
+        perror("Error: Path to external command was not found");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 

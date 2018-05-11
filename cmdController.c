@@ -90,7 +90,7 @@ void execEggShell(void){
             }
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
-            checkInputOutput(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
+            parsePipeLine(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
 
         }
 
