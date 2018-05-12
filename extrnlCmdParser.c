@@ -1,7 +1,5 @@
 #include "eggshell.h"
 
-pid_t current_pid;
-
 //returns the environ pointer needed as one of the arguments for execve()
 char** getEnviron(void){
 
@@ -98,9 +96,6 @@ void externalCmd(char * args[MAX_ARGS]){
     //accesses child
     if(pid == 0){
 
-        fprintf(stdout,"Pid: %d\n",pid); //prints new line safely to the terminal
-
-        current_pid = pid;
         execve(succPath, args, envp);
         exit(0);
 
@@ -112,7 +107,7 @@ void externalCmd(char * args[MAX_ARGS]){
         current_pid = pid;
         int status; //initialized for storing the return status
 
-        if(waitpid(pid, &status, WUNTRACED) < 0){ //waits for the child process to terminate
+        if(waitpid(pid, &status, WUNTRACED) < 0){ //since in foreground, waits for resumed process to terminate
 
             perror("Error: An error occurred whilst waiting for the child process.\n");
             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
@@ -126,10 +121,19 @@ void externalCmd(char * args[MAX_ARGS]){
             addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
             return;
 
-        }else if(WEXITSTATUS(status)){ //if exited abnormally
+        }
 
-            printf("Error: An error occurred when executing child process with exit code %d.\n",status);
+        else if(status == -1){ //if exited with failure case
+
+            printf("Error: A problem went wrong in the child process during parsing external command.\n");
             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+            return;
+
+        }
+
+        else if(WEXITSTATUS(status)){ //if exited abnormally
+
+            printf("Program did not finish with status %d.\n",status);
             return;
 
         }
@@ -142,11 +146,3 @@ void externalCmd(char * args[MAX_ARGS]){
 
     }
 }
-
-
-pid_t getCurrentPid(void){
-
-    fprintf(stdout,"getCurrent pid: %d\n",current_pid); //prints new line safely to the terminal
-    return current_pid;
-
-};

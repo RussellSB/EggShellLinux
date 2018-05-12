@@ -63,7 +63,7 @@ void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
 char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possible paths for external command
 void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
-pid_t getCurrentPid(void);
+pid_t getCurrentPid(void); //gets the current process id, used for signal handling
 
 
 /* --in ioController.c-- */
@@ -86,11 +86,13 @@ void pipePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //pipes
 void checkPipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an array of commands
 
 
-/* --in pipeController-- */
+/* --in sigHandler.c-- */
 
 /* Method Declarations */
-void resumeSuspended(int state); //resumes the last suspended process
+void resumeSuspended(int resumeTo); //resumes the last suspended process
 void signalHandler(int signo); //sets the signal handler method for CTRL+C and CTRL+Z
 void checkForSignals(void); //checks for signals, called in the execEggShell() method
+
+pid_t current_pid; //used for the current process id in signal handling
 
 

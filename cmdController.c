@@ -38,7 +38,6 @@ void checkCmd(char * args[MAX_ARGS]){
 
     }
 
-    /*
     //Recognises internal command as "fg" command
     else if(strcmp(args[0],"fg" ) == 0 && args[1] == NULL){
 
@@ -52,7 +51,6 @@ void checkCmd(char * args[MAX_ARGS]){
         resumeSuspended(0); //resumes suspended process to background
 
     }
-     */
 
     //Doesn't recognise so passes it off as an external command to handle
     else{
