@@ -15,18 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f642f13-f878-4410-a747-af1f3daed998" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eggshell.h" beforeDir="false" afterPath="$PROJECT_DIR$/eggshell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/EggShell.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/EggShell" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EggShell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmdController.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmdController.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eggshell.c" beforeDir="false" afterPath="$PROJECT_DIR$/eggshell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extrnlCmdParser.c" beforeDir="false" afterPath="$PROJECT_DIR$/extrnlCmdParser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigHandler.c" beforeDir="false" afterPath="$PROJECT_DIR$/sigHandler.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="eggshell.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eggshell.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            <state relative-caret-position="1365">
+              <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
               <folding>
                 <element signature="e#60#78#0" expanded="true" />
               </folding>
@@ -51,20 +48,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sigHandler.c" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sigHandler.c">
+      <file leaf-file-name="eggshell.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eggshell.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+            <state relative-caret-position="600">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ioController.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ioController.c">
+      <file leaf-file-name="sigHandler.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sigHandler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="21" />
+            <state relative-caret-position="318">
+              <caret line="65" column="72" selection-start-line="65" selection-start-column="72" selection-end-line="65" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extrnlCmdParser.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -72,8 +78,8 @@
       <file leaf-file-name="cmdController.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmdController.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+            <state relative-caret-position="498">
+              <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -128,15 +134,15 @@
         <option value="$PROJECT_DIR$/intrnlCmdController.c" />
         <option value="$PROJECT_DIR$/cmake-build-debug/sourceTest.sh" />
         <option value="$PROJECT_DIR$/vrblController.c" />
-        <option value="$PROJECT_DIR$/extrnlCmdParser.c" />
-        <option value="$PROJECT_DIR$/eggshell.c" />
-        <option value="$PROJECT_DIR$/cmdController.c" />
         <option value="$PROJECT_DIR$/intrnlCmdParser.c" />
         <option value="$PROJECT_DIR$/ioController.c" />
         <option value="$PROJECT_DIR$/pipeController.c" />
         <option value="$PROJECT_DIR$/prcController.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/eggshell.h" />
+        <option value="$PROJECT_DIR$/eggshell.c" />
+        <option value="$PROJECT_DIR$/extrnlCmdParser.c" />
+        <option value="$PROJECT_DIR$/cmdController.c" />
         <option value="$PROJECT_DIR$/sigHandler.c" />
       </list>
     </option>
@@ -153,7 +159,7 @@
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="59" />
     <option name="y" value="24" />
-    <option name="width" value="931" />
+    <option name="width" value="1004" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -249,14 +255,9 @@
       <workItem from="1525848009973" duration="13181000" />
       <workItem from="1525879161515" duration="18845000" />
       <workItem from="1525946845854" duration="35506000" />
-      <workItem from="1526068863327" duration="6431000" />
-    </task>
-    <task id="LOCAL-00001" summary="removed extra file">
-      <created>1525215715220</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1525215715220</updated>
+      <workItem from="1526068863327" duration="13907000" />
+      <workItem from="1526136862984" duration="110000" />
+      <workItem from="1526137837861" duration="7306000" />
     </task>
     <task id="LOCAL-00002" summary="Changed some file names, fixed bug">
       <created>1525262673334</created>
@@ -587,11 +588,25 @@
       <option name="project" value="LOCAL" />
       <updated>1526069200466</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Started signal handling!">
+      <created>1526124943240</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1526124943240</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Continued signal handling a little more - with checks for signals and kill() calls">
+      <created>1526136411678</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1526136411679</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258535000" />
+    <option name="totallyTimeSpent" value="273427000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,18 +618,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="24" width="931" height="1056" extended-state="4" />
+    <frame x="59" y="24" width="1004" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9156118" visible="true" weight="0.25349087" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.89987326" visible="true" weight="0.23505977" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20991561" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.27320674" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
-      <window_info id="Structure" order="1" sideWeight="0.08438819" side_tool="true" visible="true" weight="0.25349087" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32947367" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
+      <window_info id="Structure" order="1" sideWeight="0.10012674" side_tool="true" visible="true" weight="0.23505977" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.16772152" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32911393" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -657,8 +672,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Redone Print function" />
-    <MESSAGE value="Redone chdir function using chdir()" />
     <MESSAGE value="Started source cmd" />
     <MESSAGE value="Source command BUG: fgets leaking memory through declared variables" />
     <MESSAGE value="Source command BUG: bugs when going in to next iteration" />
@@ -682,7 +695,9 @@
     <MESSAGE value="Success at piping! *proceeds to victory smoke Sherlock Holmes' pipe*" />
     <MESSAGE value="Updated parse main call in source command" />
     <MESSAGE value="Renamed appropriate checker functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed appropriate checker functions" />
+    <MESSAGE value="Started signal handling!" />
+    <MESSAGE value="Continued signal handling a little more - with checks for signals and kill() calls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued signal handling a little more - with checks for signals and kill() calls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -693,7 +708,7 @@
           <option name="timeStamp" value="160" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="162" />
+      <option name="time" value="163" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -757,6 +772,13 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cmdController.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="16" lean-forward="true" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cmdController.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
@@ -1030,13 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeController.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1050,16 +1065,6 @@
           <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eggshell.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prcController.c">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -1075,44 +1080,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmdController.c">
+    <entry file="file://$PROJECT_DIR$/linenoise.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+        <state relative-caret-position="232">
+          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ioController.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linenoise.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="105" column="9" lean-forward="true" selection-start-line="105" selection-start-column="9" selection-end-line="105" selection-end-column="9" />
-          <folding>
-            <element signature="e#3893#3913#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eggshell.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state relative-caret-position="1365">
+          <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
           <folding>
             <element signature="e#60#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eggshell.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdController.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sigHandler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state relative-caret-position="318">
+          <caret line="65" column="72" selection-start-line="65" selection-start-column="72" selection-end-line="65" selection-end-column="72" />
         </state>
       </provider>
     </entry>

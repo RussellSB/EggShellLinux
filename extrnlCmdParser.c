@@ -106,7 +106,7 @@ void externalCmd(char * args[MAX_ARGS]){
     else if(pid > 0){
 
         int status; //initialized for storing the return status
-        waitpid(pid, &status, 0); //waits for the child process to terminate
+        waitpid(pid, &status, WUNTRACED); //waits for the child process to terminate
 
         //checks if child process failed
         if (status == -1) {

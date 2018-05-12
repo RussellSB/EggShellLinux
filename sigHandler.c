@@ -1,7 +1,9 @@
 #include "eggshell.h"
 
+/*
 pid_t suspendedPids[MAX_SUSPENDED]; //initializes stack-like array for suspended processes
 int topOfTheStack = -1; //initialized index counter for the stack's top
+
 
 /*
 //resumes the last suspended process
@@ -45,29 +47,26 @@ void resumeSuspended(int state){
 }
  */
 
-
-//on signal recognition, returns the int return value of kill, indicating success or failure
+//on signal recognition, sends the signal to the current process id
 void signalHandler(int signo){
 
     pid_t pid = getpid(); //gets current process id
 
-    //catches the interrupt signal CTRL+C
     if(signo == SIGINT){
 
         kill(pid, SIGINT); //sends SIGINT to interrupt current pid
 
     }
 
-    //catches the suspend signal CTRL+Z
-    else if(signo == SIGTSTP){
+            /*
+        case SIGTSTP:
 
-        suspendedPids[topOfTheStack + 1] = pid; //pushes the current process id
-        topOfTheStack++; //increments stack top
-        kill(pid, SIGTSTP); //sends SIGTSTP to interrupt current pid
+            suspendedPids[topOfTheStack + 1] = pid; //pushes the current process id
+            topOfTheStack++; //increments stack top
+            kill(pid, SIGTSTP); //sends SIGTSTP to interrupt current pid
+             */
 
-    }
 
-    /*NOTE: using SIGTSTP over SIGSTOP as SIGTSTP can be blocked, useful when dealing with users*/
 
 }
 
@@ -83,7 +82,6 @@ void checkForSignals(void){
 
     //creates signal handlers for CTRL+C and CTRL+Z
     if(sigaction(SIGINT, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+C\n");;
-    if(sigaction(SIGTSTP, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+Z\n");;
+    //if(sigaction(SIGTSTP, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+Z\n");;
 
 }
-

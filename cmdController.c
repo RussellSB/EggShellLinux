@@ -78,8 +78,6 @@ void execEggShell(void){
     linenoiseClearScreen(); //allows ability to clear previous eggshell lines by [CTRL+L]
     linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
 
-    checkForSignals(); //initialized check for signals for future processes
-
     //keeps looping for line input using linenoise
     while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)
     {
@@ -109,6 +107,8 @@ void execEggShell(void){
 
             args[i] = NULL; //set last token to NULL, useful when arguments vary per line input
             checkPipeLine(args); //passes to check arguments for any piping, then passes it to check I/O then runs command
+
+            checkForSignals(); //initialized check for signals for future processes
 
         }
 

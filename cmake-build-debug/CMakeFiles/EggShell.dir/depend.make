@@ -28,6 +28,10 @@ CMakeFiles/EggShell.dir/pipeController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/pipeController.c.o: ../linenoise.h
 CMakeFiles/EggShell.dir/pipeController.c.o: ../pipeController.c
 
+CMakeFiles/EggShell.dir/sigHandler.c.o: ../eggshell.h
+CMakeFiles/EggShell.dir/sigHandler.c.o: ../linenoise.h
+CMakeFiles/EggShell.dir/sigHandler.c.o: ../sigHandler.c
+
 CMakeFiles/EggShell.dir/vrblController.c.o: ../eggshell.h
 CMakeFiles/EggShell.dir/vrblController.c.o: ../linenoise.h
 CMakeFiles/EggShell.dir/vrblController.c.o: ../vrblController.c

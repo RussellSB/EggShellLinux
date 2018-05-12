@@ -4,9 +4,7 @@
 void main(){
 
     initShellVariables();
-
-    char * args2[MAX_ARGS] = {"print", "twentyOneFork","test","|","figlet","|","figlet", NULL};
-    parsePipeLine(args2);
+    checkForSignals();
 
 }*/
 
@@ -40,6 +38,7 @@ int main(void){
     return 0;
 
 }
+
 
 
 
