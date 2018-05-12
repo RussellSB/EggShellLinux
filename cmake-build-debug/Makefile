@@ -312,6 +312,33 @@ pipeController.c.s:
 	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/pipeController.c.s
 .PHONY : pipeController.c.s
 
+sigHandler.o: sigHandler.c.o
+
+.PHONY : sigHandler.o
+
+# target to build an object file
+sigHandler.c.o:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/sigHandler.c.o
+.PHONY : sigHandler.c.o
+
+sigHandler.i: sigHandler.c.i
+
+.PHONY : sigHandler.i
+
+# target to preprocess a source file
+sigHandler.c.i:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/sigHandler.c.i
+.PHONY : sigHandler.c.i
+
+sigHandler.s: sigHandler.c.s
+
+.PHONY : sigHandler.s
+
+# target to generate assembly for a file
+sigHandler.c.s:
+	$(MAKE) -f CMakeFiles/EggShell.dir/build.make CMakeFiles/EggShell.dir/sigHandler.c.s
+.PHONY : sigHandler.c.s
+
 vrblController.o: vrblController.c.o
 
 .PHONY : vrblController.o
@@ -369,6 +396,9 @@ help:
 	@echo "... pipeController.o"
 	@echo "... pipeController.i"
 	@echo "... pipeController.s"
+	@echo "... sigHandler.o"
+	@echo "... sigHandler.i"
+	@echo "... sigHandler.s"
 	@echo "... vrblController.o"
 	@echo "... vrblController.i"
 	@echo "... vrblController.s"

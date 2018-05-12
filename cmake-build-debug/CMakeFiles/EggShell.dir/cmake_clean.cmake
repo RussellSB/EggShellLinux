@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/EggShell.dir/extrnlCmdParser.c.o"
   "CMakeFiles/EggShell.dir/ioController.c.o"
   "CMakeFiles/EggShell.dir/pipeController.c.o"
+  "CMakeFiles/EggShell.dir/sigHandler.c.o"
   "EggShell.pdb"
   "EggShell"
 )

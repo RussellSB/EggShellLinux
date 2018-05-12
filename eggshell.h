@@ -9,6 +9,7 @@
 #include "linenoise.h"
 #include <ctype.h>
 #include <fcntl.h>
+#include <signal.h>
 
 
 /* Constants defined */
@@ -17,6 +18,7 @@
 #define MAX_CHAR 300 //maximum number of characters in a character array (used for string buffers)
 #define MAX_PATHS 30 //maximum amount of paths to parse through when looking for external command file location
 #define MAX_COMMANDS 20 //maximum amount of commands in the pipeline
+#define MAX_SUSPENDED 20 //maximum amount of suspended processes
 
 
 /* --in vrblController.c-- */
@@ -80,3 +82,9 @@ void checkInputOutput(char * args[MAX_ARGS]); //checks for any I/O redirection b
 /* Method Declarations */
 void pipePipeLine(char * cmdArray[MAX_COMMANDS][MAX_ARGS], int cmdAmnt); //pipes pipeLine containing more than one command
 void checkPipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an array of commands
+
+
+/* --in pipeController-- */
+
+/* Method Declarations */
+
