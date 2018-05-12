@@ -12,6 +12,7 @@
 #include <signal.h>
 
 
+
 /* Constants defined */
 #define MAX_HISTORY 20 //maximum number of commands to add to history
 #define MAX_ARGS 30 //maximum number of arguments made acceptable by user input
@@ -62,6 +63,7 @@ void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
 char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possible paths for external command
 void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
+pid_t getCurrentPid(void);
 
 
 /* --in ioController.c-- */
@@ -90,4 +92,5 @@ void checkPipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an arr
 void resumeSuspended(int state); //resumes the last suspended process
 void signalHandler(int signo); //sets the signal handler method for CTRL+C and CTRL+Z
 void checkForSignals(void); //checks for signals, called in the execEggShell() method
+
 

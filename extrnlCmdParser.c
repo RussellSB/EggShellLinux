@@ -1,5 +1,6 @@
 #include "eggshell.h"
 
+pid_t current_pid;
 
 //returns the environ pointer needed as one of the arguments for execve()
 char** getEnviron(void){
@@ -97,6 +98,9 @@ void externalCmd(char * args[MAX_ARGS]){
     //accesses child
     if(pid == 0){
 
+        fprintf(stdout,"Pid: %d\n",pid); //prints new line safely to the terminal
+
+        current_pid = pid;
         execve(succPath, args, envp);
         exit(0);
 
@@ -105,19 +109,28 @@ void externalCmd(char * args[MAX_ARGS]){
     //accesses parent
     else if(pid > 0){
 
+        current_pid = pid;
         int status; //initialized for storing the return status
-        waitpid(pid, &status, WUNTRACED); //waits for the child process to terminate
 
-        //checks if child process failed
-        if (status == -1) {
+        if(waitpid(pid, &status, WUNTRACED) < 0){ //waits for the child process to terminate
 
-            perror("Error: An error occurred when executing child process.\n");
+            perror("Error: An error occurred whilst waiting for the child process.\n");
             addVar("EXITCODE","-1"); //exit code to -1, as error occurred
             return;
 
-        }else{
+        };
+
+        //if exited normally
+        if (WIFEXITED(status)) {
 
             addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+            return;
+
+        }else if(WEXITSTATUS(status)){ //if exited abnormally
+
+            printf("Error: An error occurred when executing child process with exit code %d.\n",status);
+            addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+            return;
 
         }
 
@@ -128,5 +141,12 @@ void externalCmd(char * args[MAX_ARGS]){
         return;
 
     }
-
 }
+
+
+pid_t getCurrentPid(void){
+
+    fprintf(stdout,"getCurrent pid: %d\n",current_pid); //prints new line safely to the terminal
+    return current_pid;
+
+};

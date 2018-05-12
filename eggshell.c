@@ -11,15 +11,15 @@ void main(){
 
 int main(void){
 
-    pid_t pid;  //used in forking processes, stores the process id
-    pid = fork(); //used for forking, to display booting up prompt before booting
+    pid_t pidMain;  //used in forking processes, stores the process id
+    pidMain = fork(); //used for forking, to display booting up prompt before booting
 
-    if(pid == 0){
+    if(pidMain == 0){
 
         system("clear"); //clears terminal
         printf("Booting up the Egg Shell from main.......\n"); //prompts boot up
 
-    }else if(pid>0) {
+    }else if(pidMain>0) {
 
         int returnStatus;
         wait(&returnStatus);  //parent process waits here for child to terminate.
