@@ -38,6 +38,22 @@ void checkCmd(char * args[MAX_ARGS]){
 
     }
 
+    /*
+    //Recognises internal command as "fg" command
+    else if(strcmp(args[0],"fg" ) == 0 && args[1] == NULL){
+
+        resumeSuspended(1); //resumes suspended process to foreground
+
+    }
+
+    //Recognises internal command as "bg" command
+    else if(strcmp(args[0],"bg") == 0 && args[1] == NULL){
+
+        resumeSuspended(0); //resumes suspended process to background
+
+    }
+     */
+
     //Doesn't recognise so passes it off as an external command to handle
     else{
 
@@ -51,16 +67,18 @@ void checkCmd(char * args[MAX_ARGS]){
 //executes the REPL (Read Eval Print Loop) of the eggshell and which calls initializations then parse commands
 void execEggShell(void){
 
-    char * line;             //pointer to the current line
+    char * line; //pointer to the current line
     char * currToken = NULL; //stores token temporarily from the current line. initialized as NULL
-    char * args[MAX_ARGS] = {NULL};   //array of strings used for storing tokens
+    char * args[MAX_ARGS] = {NULL}; //array of strings used for storing tokens
 
-    int i;      //initialized counter for looping through prompting for line input
+    int i; //initialized counter for looping through prompting for line input
 
     initShellVariables(); //initializes all the shell variables in vrblController.c
 
     linenoiseClearScreen(); //allows ability to clear previous eggshell lines by [CTRL+L]
     linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
+
+    checkForSignals(); //initialized check for signals for future processes
 
     //keeps looping for line input using linenoise
     while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)

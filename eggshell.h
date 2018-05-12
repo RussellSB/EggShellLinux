@@ -87,4 +87,7 @@ void checkPipeLine(char * args[MAX_ARGS]); //parses pipeline constructing an arr
 /* --in pipeController-- */
 
 /* Method Declarations */
+void resumeSuspended(int state); //resumes the last suspended process
+void signalHandler(int signo); //sets the signal handler method for CTRL+C and CTRL+Z
+void checkForSignals(void); //checks for signals, called in the execEggShell() method
 
