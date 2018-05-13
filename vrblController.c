@@ -60,9 +60,9 @@ char * getVarValue(const char * varName){
 
     }
 
-    printf("Error: Requested Shell Variable doesn't exist\n");
-    addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-    return NULL; //return NULL when no match is found (variable doesn't exist)
+    printf("Error: Requested Shell Variable not found.\n");
+    addVar("EXITCODE","404"); //exit code to -1, as error occurred
+    return "404: Variable not found"; //return 404 string when no match is found (variable doesn't exist)
 
 }
 
@@ -149,9 +149,9 @@ void setPROMPT(void){
     char * prompt; //initialized
 
     strcat(buffer, getVarValue("$USER")); //concat user name
-    strcat(buffer, " @ ");
+    strcat(buffer, "@");
     strcat(buffer, eggString); //concat egg shell name
-    strcat(buffer, " ~ ");
+    strcat(buffer, "~");
     strcat(buffer, getVarValue("$CWD")); //concat current working directory
     strcat(buffer, "$> ");
 

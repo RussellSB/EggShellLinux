@@ -89,7 +89,13 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
                 char tempString[MAX_CHAR] = ""; //initialized for temporary strcat() storage
 
-                strcat(tempString, getVarValue(tempName)); //concat variable value
+                char * value = getVarValue(tempName);
+
+                if(strcmp(value, "404: Variable not found") == 0){
+                    return;
+                }
+
+                strcat(tempString, value); //concat variable value
                 strcat(tempString, tempRem); //concat remainder after this
 
                 args[i] = tempString; //set argument to this to be printed

@@ -93,7 +93,6 @@ void redirectInputString(char * cmd[MAX_ARGS], char * stringArray[MAX_ARGS]){
     stdinToNormal(fd2);
 
     remove(fileName); //removes temporary file
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
@@ -115,8 +114,6 @@ void redirectInputFile(char * cmd[MAX_ARGS], char * fileName){
 
     /* Reconnect original standard input */
     stdinToNormal(fd2);
-
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 
@@ -194,8 +191,6 @@ void redirectOutput(char * cmd[MAX_ARGS], char * fileName, int flag){
 
     /* Reconnect original standard output */
     stdoutToNormal(fd2);
-
-    addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
 
 }
 

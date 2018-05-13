@@ -148,7 +148,7 @@ void externalCmd(char * args[MAX_ARGS]){
 
             else if(WEXITSTATUS(status)){ //if exited abnormally
 
-                printf("Program did not finish with status %d.\n",status);
+                printf("Exited with status %d.\n",status);
                 return;
 
             }

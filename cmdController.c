@@ -73,7 +73,6 @@ void execEggShell(void){
 
     initShellVariables(); //initializes all the shell variables in vrblController.c
 
-    linenoiseClearScreen(); //allows ability to clear previous eggshell lines by [CTRL+L]
     linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
 
     checkForSignals(); //initialized check for signals for future processes

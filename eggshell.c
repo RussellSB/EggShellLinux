@@ -24,17 +24,24 @@ int main(void){
 
     if(pidMain == 0){
 
-        system("clear"); //clears terminal
-        printf("Booting up the Egg Shell from main.......\n"); //prompts boot up
+        linenoiseClearScreen(); //clears screen and sets up CTRL+L handling for lineNoise
+
+        printf("Booting up EggShell.....................................................\n");
+        printf("========================================================================}\n\n");
+        printf("   ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\n");
+        printf("   ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\t\t| ============================\n");
+        printf("   ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗\t\t\t| Type commands\n");
+        printf("   ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝\t\t\t| in the prompt below!\n");
+        printf("   ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\t\t| ============================\n");
+        printf("   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝\n\n");
+        printf("========================================================================}\n\n");
 
     }else if(pidMain>0) {
 
-        int returnStatus;
-        wait(&returnStatus);  //parent process waits here for child to terminate.
+        int status;
+        waitpid(pidMain, &status, WUNTRACED);  //parent process waits here for child to terminate.
 
         execEggShell(); //calls egg shell after clearing and printing prompt
-
-        printf("Exiting the Egg Shell.......\n");
         system("clear"); //clears terminal
 
     }else{
