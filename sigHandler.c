@@ -8,7 +8,7 @@ void resumeSuspended(int resumeTo){
 
     if(topOfTheStack == -1){
 
-        printf("Currently no suspended processes found! Can't resume what isn't paused");
+        printf("Currently no suspended processes found! Can't resume what isn't paused\n");
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return;
 
@@ -19,6 +19,7 @@ void resumeSuspended(int resumeTo){
         suspendedPids[topOfTheStack] = 0; //set previous top to nothing
         topOfTheStack--; //decrements stack top
 
+        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
         kill(current_pid, SIGCONT);  //sends SIGCONT to resume last suspended pid
 
         //if resumed to foreground
@@ -73,6 +74,15 @@ void signalHandler(int signo){
     //if SIGINT is received
     if(signo == SIGINT){
 
+        //if process to interrupt is a resumed process at the top of the stack
+        if(topOfTheStack != -1 && current_pid == suspendedPids[topOfTheStack]){
+
+            suspendedPids[topOfTheStack] = 0; //set previous top to nothing
+            topOfTheStack--; //decrements stack top
+
+        }
+
+        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
         kill(current_pid, SIGINT); //sends SIGINT to interrupt current pid
 
     }
@@ -80,9 +90,10 @@ void signalHandler(int signo){
     //if SIGTSTP is received
     else if(signo == SIGTSTP){
 
-        suspendedPids[topOfTheStack + 1] = current_pid; //pushes the current process id
         topOfTheStack++; //increments stack top
-        kill(current_pid, SIGTSTP); //sends SIGTSTP to interrupt current pid
+        suspendedPids[topOfTheStack] = current_pid; //pushes the current process id
+        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
+        kill(current_pid, SIGSTOP); //sends SIGTSTP to interrupt current pid
 
     }
 
