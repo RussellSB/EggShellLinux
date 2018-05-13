@@ -14,7 +14,10 @@ void resumeSuspended(int resumeTo){
 
     }else{
 
+        fprintf(stdout, "Process Group: : %d\n", getpgid(current_pid));
+
         current_pid = suspendedPids[topOfTheStack]; //pulls pid at the top of the suspended pids Stack
+
         kill(current_pid, SIGCONT);  //sends SIGCONT to resume last suspended pid
 
         fprintf(stdout, "Pulled Stack ID: : %d\n", topOfTheStack);

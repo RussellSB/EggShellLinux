@@ -105,6 +105,12 @@ void externalCmd(char * args[MAX_ARGS]){
     else if(pid > 0){
 
         current_pid = pid; //sets current pid for signal handling
+
+        //changes process group of the current, so that it is unique from the group of other possible suspended processes
+        if (setpgid(current_pid, current_pid) != 0) {
+            perror("setpgid() error");
+        }
+
         int andOperatorAtEnd = 0;
 
         //traverses through arguments
