@@ -12,7 +12,7 @@ int stdinToFile(char * fileName){
 
     if(fd1 < 0){
 
-        printf("Error: Failed to open the temporary file \"%s\" for reading\n", fileName);
+        printf("Error: Failed to open the file \"%s\" for reading\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return -1;
 
@@ -31,7 +31,7 @@ int stdinToFile(char * fileName){
     //restores fd1
     if(dup2(fd1, STDIN_FILENO) < 0){
 
-        printf("Error: Failed to duplicate the temporary file \"%s\" for standard input\n", fileName);
+        printf("Error: Failed to duplicate the file \"%s\" for standard input\n", fileName);
         addVar("EXITCODE","-1"); //exit code to -1, as error occurred
         return -1;
 
