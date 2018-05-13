@@ -104,38 +104,57 @@ void externalCmd(char * args[MAX_ARGS]){
     //accesses parent
     else if(pid > 0){
 
-        current_pid = pid;
-        int status; //initialized for storing the return status
+        current_pid = pid; //sets current pid for signal handling
+        int andOperatorAtEnd = 0;
 
-        if(waitpid(pid, &status, WUNTRACED) < 0){ //since in foreground, waits for resumed process to terminate
+        //traverses through arguments
+        for(int i = 0; args[i] != NULL; i++){
 
-            perror("Error: An error occurred whilst waiting for the child process.\n");
-            addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-            return;
+            //goes to last argument
+            if(args[i+1] == NULL && strcmp(args[i], "&") == 0){
 
-        };
+                andOperatorAtEnd = 1;
 
-        //if exited normally
-        if (WIFEXITED(status)) {
-
-            addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
-            return;
+            }
 
         }
 
-        else if(status == -1){ //if exited with failure case
+        if(andOperatorAtEnd == 0){
 
-            printf("Error: A problem went wrong in the child process during parsing external command.\n");
-            addVar("EXITCODE","-1"); //exit code to -1, as error occurred
-            return;
+            int status; //initialized for storing the return status
+            if(waitpid(pid, &status, WUNTRACED) < 0){ //since in foreground, waits for resumed process to terminate
 
-        }
+                perror("Error: An error occurred whilst waiting for the child process.\n");
+                addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+                return;
 
-        else if(WEXITSTATUS(status)){ //if exited abnormally
+            };
 
-            printf("Program did not finish with status %d.\n",status);
-            return;
+            //if exited normally
+            if (WIFEXITED(status)) {
 
+                addVar("EXITCODE","0"); //reaches here when program executes command successfully, therefore stores 0 as EXITCODE
+                return;
+
+            }
+
+            else if(status == -1){ //if exited with failure case
+
+                printf("Error: A problem went wrong in the child process during parsing external command.\n");
+                addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+                return;
+
+            }
+
+            else if(WEXITSTATUS(status)){ //if exited abnormally
+
+                printf("Program did not finish with status %d.\n",status);
+                return;
+
+            }
+
+        }else{ //andProcessAtEnd is true (1)
+            //don't wait as background process
         }
 
     }else{

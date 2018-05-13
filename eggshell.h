@@ -63,7 +63,6 @@ void parseSourceCmd(char * args[MAX_ARGS]); //parses source
 void fillPaths(char * paths[ MAX_PATHS], char * fileName); //fills all possible paths, appending "/fileName"
 char * findSuccPath(char * paths[MAX_PATHS]); //finds valid path from all possible paths for external command
 void externalCmd(char * args[MAX_ARGS]); //gets called when command isn't recognized
-pid_t getCurrentPid(void); //gets the current process id, used for signal handling
 
 
 /* --in ioController.c-- */

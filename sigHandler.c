@@ -14,12 +14,12 @@ void resumeSuspended(int resumeTo){
 
     }else{
 
-        current_pid = suspendedPids[topOfTheStack]; //gets pid at the top of the suspended pids Stack
+        current_pid = suspendedPids[topOfTheStack]; //pulls pid at the top of the suspended pids Stack
 
         suspendedPids[topOfTheStack] = 0; //set previous top to nothing
         topOfTheStack--; //decrements stack top
 
-        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
+        //fprintf(stdout, "PID on resume: -- Stack top: %d\n", current_pid);
         kill(current_pid, SIGCONT);  //sends SIGCONT to resume last suspended pid
 
         //if resumed to foreground
@@ -60,7 +60,8 @@ void resumeSuspended(int resumeTo){
         }
 
         //if resumed to background
-        else if(resumeTo == 0); //doesn't wait therefore resumes in background
+        else if(resumeTo == 0) {//doesn't wait therefore resumes in background
+        }
 
     }
 
@@ -74,15 +75,7 @@ void signalHandler(int signo){
     //if SIGINT is received
     if(signo == SIGINT){
 
-        //if process to interrupt is a resumed process at the top of the stack
-        if(topOfTheStack != -1 && current_pid == suspendedPids[topOfTheStack]){
-
-            suspendedPids[topOfTheStack] = 0; //set previous top to nothing
-            topOfTheStack--; //decrements stack top
-
-        }
-
-        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
+        //fprintf(stdout, "Stack top: %d\n", topOfTheStack);
         kill(current_pid, SIGINT); //sends SIGINT to interrupt current pid
 
     }
@@ -90,9 +83,10 @@ void signalHandler(int signo){
     //if SIGTSTP is received
     else if(signo == SIGTSTP){
 
+        //fprintf(stdout, "PID on stop: %d\n", current_pid);
+        //fprintf(stdout, "PUSHED -- Stack top: %d\n", topOfTheStack);
         topOfTheStack++; //increments stack top
         suspendedPids[topOfTheStack] = current_pid; //pushes the current process id
-        fprintf(stdout, "Stack top: %d\n", topOfTheStack);
         kill(current_pid, SIGSTOP); //sends SIGTSTP to interrupt current pid
 
     }

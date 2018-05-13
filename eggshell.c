@@ -6,6 +6,14 @@ void main(){
     initShellVariables();
     checkForSignals();
 
+    char * args[MAX_ARGS] = {"top", NULL};
+    checkPipeLine(args);
+
+    signalHandler(SIGTSTP);
+
+    char * args2[MAX_ARGS] = {"fg", NULL};
+    checkCmd(args2);
+
 }*/
 
 
