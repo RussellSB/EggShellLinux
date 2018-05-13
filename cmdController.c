@@ -72,10 +72,8 @@ void execEggShell(void){
     int i; //initialized counter for looping through prompting for line input
 
     initShellVariables(); //initializes all the shell variables in vrblController.c
-
-    linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
-
     checkForSignals(); //initialized check for signals for future processes
+    linenoiseHistorySetMaxLen(MAX_HISTORY); //allows ability to access previous commands using up arrow or down
 
     //keeps looping for line input using linenoise
     while ((line = linenoise(getVarValue("$PROMPT"))) != NULL)

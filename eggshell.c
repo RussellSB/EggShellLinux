@@ -19,37 +19,21 @@ void main(){
 
 int main(void){
 
-    pid_t pidMain;  //used in forking processes, stores the process id
-    pidMain = fork(); //used for forking, to display booting up prompt before booting
+    linenoiseClearScreen(); //clears screen and sets up CTRL+L handling for lineNoise
 
-    if(pidMain == 0){
+    printf("Booting up EggShell.................................................\n");
+    printf("====================================================================}\n\n");
+    printf("   ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\n");
+    printf("   ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\n");
+    printf("   ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗\n");
+    printf("   ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝\n");
+    printf("   ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\n");
+    printf("   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═══════╝\n\n");
+    printf("====================================================================}\n");
+    printf("---------------Type commands in the prompt below!-------------------\n\n");
 
-        linenoiseClearScreen(); //clears screen and sets up CTRL+L handling for lineNoise
-
-        printf("Booting up EggShell.................................................\n");
-        printf("====================================================================}\n\n");
-        printf("   ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\n");
-        printf("   ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\n");
-        printf("   ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗\n");
-        printf("   ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝\n");
-        printf("   ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\n");
-        printf("   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═══════╝\n\n");
-        printf("====================================================================}\n");
-        printf("---------------Type commands in the prompt below!-------------------\n\n");
-
-    }else if(pidMain>0) {
-
-        int status;
-        waitpid(pidMain, &status, WUNTRACED);  //parent process waits here for child to terminate.
-
-        execEggShell(); //calls egg shell after clearing and printing prompt
-        system("clear"); //clears terminal
-
-    }else{
-
-        printf("Error: Forking unsuccessful, could not load the Egg Shell program.");
-
-    }
+    execEggShell(); //calls egg shell from cmdController.c after clearing and printing prompt
+    linenoiseClearScreen(); //clears screen after eggShell is exited
 
     return 0;
 
