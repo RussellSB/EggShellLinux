@@ -14,14 +14,14 @@ void resumeSuspended(int resumeTo){
 
     }else{
 
-        fprintf(stdout, "Process Group: : %d\n", getpgid(current_pid));
+        //fprintf(stdout, "Process Group: : %d\n", getpgid(current_pid));
 
         current_pid = suspendedPids[topOfTheStack]; //pulls pid at the top of the suspended pids Stack
 
         kill(current_pid, SIGCONT);  //sends SIGCONT to resume last suspended pid
 
-        fprintf(stdout, "Pulled Stack ID: : %d\n", topOfTheStack);
-        fprintf(stdout, "PID on resume: : %d\n", current_pid);
+        //fprintf(stdout, "Pulled Stack ID: : %d\n", topOfTheStack);
+        //fprintf(stdout, "PID on resume: : %d\n", current_pid);
 
         suspendedPids[topOfTheStack] = 0; //set previous top to nothing
         topOfTheStack--; //decrements stack top
@@ -59,7 +59,7 @@ void resumeSuspended(int resumeTo){
 
             else if(WEXITSTATUS(status)){ //if exited abnormally
 
-                printf("Exited with status %d.\n",status);
+                printf("Exited with status %d.\n",WEXITSTATUS(status));
                 return;
 
             }
@@ -93,8 +93,8 @@ void signalHandler(int signo){
         suspendedPids[topOfTheStack] = current_pid; //pushes the current process id
         kill(current_pid, SIGSTOP); //sends SIGTSTP to interrupt current pid
 
-        fprintf(stdout, "Pushed Stack ID: : %d\n", topOfTheStack);
-        fprintf(stdout, "PID on pause: : %d\n", current_pid);
+        //fprintf(stdout, "Pushed Stack ID: : %d\n", topOfTheStack);
+        //fprintf(stdout, "PID on pause: : %d\n", current_pid);
 
     }
 

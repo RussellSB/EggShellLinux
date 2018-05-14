@@ -107,7 +107,7 @@ void externalCmd(char * args[MAX_ARGS]){
         current_pid = pid; //sets current pid for signal handling
 
         //changes process group of the current, so that it is unique from the group of other possible suspended processes
-        if (setpgid(current_pid, getpgid(current_pid)) != 0) {
+        if (setpgid(current_pid, current_pid) != 0) {
             perror("setpgid() error");
         }
 
@@ -154,12 +154,12 @@ void externalCmd(char * args[MAX_ARGS]){
 
             else if(WEXITSTATUS(status)){ //if exited abnormally
 
-                printf("Exited with status %d.\n",status);
+                printf("Exited with status %d.\n",WEXITSTATUS(status));
                 return;
 
             }
 
-        }else{ //andProcessAtEnd is true (1)
+        }else{ //andOperatorAtEnd is true (1)
             //don't wait as background process
         }
 
