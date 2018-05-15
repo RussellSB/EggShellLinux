@@ -32,7 +32,7 @@ int main(void){
     printf("====================================================================}\n");
     printf("---------------Type commands in the prompt below!-------------------\n\n");
 
-    execEggShell(); //calls egg shell from cmdController.c after clearing and printing prompt
+    execEggShell(); //calls egg shell from after clearing and printing prompt
     linenoiseClearScreen(); //clears screen after eggShell is exited
 
     return 0;
@@ -85,10 +85,12 @@ void execEggShell(void){
 
         }
 
+        linenoiseFree(line); //Frees allocated memory
+
     }
 
     freeAllVar(); //Frees all shell variables including the dynamic array that stores them
-    linenoiseFree(line); //Frees allocated memory
+
 
 }
 
