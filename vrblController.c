@@ -5,8 +5,8 @@
 
 //struct for storing shellVariable with it's string name and string values
 typedef struct shellVariable {
-    char * name;
-    char * value;
+    char * name; //stores the variable name
+    char * value; //stores the variable value
 } Var;
 
 

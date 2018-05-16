@@ -6,31 +6,28 @@ void main(){
     initShellVariables();
     checkForSignals();
 
-    char * args[MAX_ARGS] = {"top", NULL};
+    char * args[MAX_ARGS] = {"VAR1=fdsonjsdf2=dsf", NULL};
     checkPipeLine(args);
 
-    signalHandler(SIGTSTP);
-
-    char * args2[MAX_ARGS] = {"fg", NULL};
-    checkCmd(args2);
+    char * args2[MAX_ARGS] = {"print","$VAR1", NULL};
+    checkPipeLine(args2);
 
 }*/
-
 
 int main(void){
 
     linenoiseClearScreen(); //clears screen and sets up CTRL+L handling for lineNoise
 
-    printf("Booting up EggShell.................................................\n");
-    printf("====================================================================}\n\n");
-    printf("   ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\n");
-    printf("   ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\n");
-    printf("   ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗\n");
-    printf("   ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝\n");
-    printf("   ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\n");
-    printf("   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═══════╝\n\n");
-    printf("====================================================================}\n");
-    printf("---------------Type commands in the prompt below!-------------------\n\n");
+    printf("\x1B[34mBooting up EggShell.................................................\x1B[0m\n");
+    printf("\x1B[33m====================================================================}\x1B[0m\n\n");
+    printf("\x1B[31m  ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\x1B[0m\n");
+    printf("\x1B[33m  ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\x1B[0m\n");
+    printf("\x1B[32m  ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗\x1B[0m\n");
+    printf("\x1B[34m  ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝\x1B[0m\n");
+    printf("\x1B[35m  ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\x1B[0m\n");
+    printf("\x1B[36m   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═══════╝\x1B[0m\n\n");
+    printf("\x1B[33m====================================================================}\x1B[0m\n");
+    printf("\x1B[34m---------------Type commands in the prompt below!-------------------\x1B[0m\n\n");
 
     execEggShell(); //calls egg shell from after clearing and printing prompt
     linenoiseClearScreen(); //clears screen after eggShell is exited

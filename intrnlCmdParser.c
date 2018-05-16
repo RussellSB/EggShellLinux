@@ -7,6 +7,8 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     char * varName = NULL; //initialized to store variable name from variable cmd
     char * varValue = NULL; //initialized to store variable value from variable cmd
 
+    args[0] = strdup(args[0]); //allocates memory so it works with strsep()
+
     varName = strsep(&args[0], "="); //gets name before first delim "="
     varValue = args[0]; //gets whole string after first delim "="
 
