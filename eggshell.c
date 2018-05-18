@@ -6,13 +6,14 @@ void main(){
     initShellVariables();
     checkForSignals();
 
-    char * args[MAX_ARGS] = {"VAR1=fdsonjsdf2=dsf", NULL};
+    char * args[MAX_ARGS] = {"sadsad=", NULL};
     checkPipeLine(args);
 
-    char * args2[MAX_ARGS] = {"print","$VAR1", NULL};
+    char * args2[MAX_ARGS] = {"all",NULL};
     checkPipeLine(args2);
 
 }*/
+
 
 int main(void){
 
@@ -90,7 +91,6 @@ void execEggShell(void){
 
 
 }
-
 
 
 

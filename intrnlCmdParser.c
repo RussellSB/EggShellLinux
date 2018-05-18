@@ -13,7 +13,7 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     varValue = args[0]; //gets whole string after first delim "="
 
     //if either of the entries before or after the "=" aren't filled, prompt an error
-    if(varName == NULL || varValue == NULL) {
+    if(strcmp(varName, "") == 0 || strcmp(varValue, "") == 0) {
 
         printf("Error: Incorrect entry of a variable declaration command. ");
         printf("Please input in the form VAR_NAME=var_value\n");
@@ -36,6 +36,10 @@ void parseVrblCmd(char * args[MAX_ARGS]){
     if(*varValue == '$'){
 
         varValue = getVarValue(varValue); //gets value of requested variable with dollar sign
+
+        if(strcmp(varValue,"(null)") == 0){
+            return; //this cancels setting the variable value as the RHS variable was not found
+        }
 
     }
 
@@ -93,7 +97,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
 
                 char * value = getVarValue(tempName);
 
-                if(strcmp(value, "404: Variable not found") == 0){
+                if(strcmp(value, "(null)") == 0){
                     return;
                 }
 
@@ -172,7 +176,7 @@ void parsePrintCmd(char * args[MAX_ARGS]){
                     else if(args[i+1]==NULL){
 
                         printf("Error: No terminating quotation mark found, please finish your quote\n");
-                        addVar("EXITCODE","-1"); //exit code to -1, as error occurred
+                        addVar("EXITCODE","-1"); //exit code tTUo -1, as error occurred
                         return;
 
                     }

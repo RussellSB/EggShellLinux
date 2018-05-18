@@ -62,7 +62,7 @@ char * getVarValue(const char * varName){
 
     printf("Error: Requested Shell Variable not found.\n");
     addVar("EXITCODE","404"); //exit code to -1, as error occurred
-    return "404: Variable not found"; //return 404 string when no match is found (variable doesn't exist)
+    return "(null)"; //return null string when no match is found (variable doesn't exist)
 
 }
 
