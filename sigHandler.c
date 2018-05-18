@@ -91,7 +91,7 @@ void signalHandler(int signo){
 
         topOfTheStack++; //increments stack top
         suspendedPids[topOfTheStack] = current_pid; //pushes the current process id
-        kill(current_pid, SIGSTOP); //sends SIGTSTP to interrupt current pid
+        kill(current_pid, SIGTSTP); //sends SIGTSTP to interrupt current pid
 
         //fprintf(stdout, "Pushed Stack ID: : %d\n", topOfTheStack);
         //fprintf(stdout, "PID on pause: : %d\n", current_pid);
@@ -110,7 +110,7 @@ void checkForSignals(void){
     sa.sa_flags = SA_RESTART; //restarts function if interrupted by handler
 
     //creates signal handlers for CTRL+C and CTRL+Z
-    if(sigaction(SIGINT, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+C\n");;
-    if(sigaction(SIGTSTP, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+Z\n");;
+    if(sigaction(SIGINT, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+C\n");
+    if(sigaction(SIGTSTP, &sa, NULL) == -1) printf("Error: Couldn't trap CTRL+Z\n");
 
 }

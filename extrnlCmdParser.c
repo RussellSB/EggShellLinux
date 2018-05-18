@@ -1,7 +1,7 @@
 #include "eggshell.h"
 
 //returns the environ pointer needed as one of the arguments for execve()
-char** getEnviron(void){
+char ** getEnviron(void){
 
     extern char **environ; // contains all the environment's variables
 
