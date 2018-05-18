@@ -16,9 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f642f13-f878-4410-a747-af1f3daed998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/EggShell" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/EggShell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extrnlCmdParser.c" beforeDir="false" afterPath="$PROJECT_DIR$/extrnlCmdParser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigHandler.c" beforeDir="false" afterPath="$PROJECT_DIR$/sigHandler.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +31,7 @@
       <file leaf-file-name="eggshell.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eggshell.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="866">
+            <state relative-caret-position="1260">
               <caret line="84" column="11" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="11" />
               <folding>
                 <element signature="e#60#78#0" expanded="true" />
@@ -46,8 +43,8 @@
       <file leaf-file-name="extrnlCmdParser.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="148" column="58" lean-forward="true" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
+            <state relative-caret-position="2220">
+              <caret line="148" column="58" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -55,8 +52,8 @@
       <file leaf-file-name="sigHandler.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sigHandler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="15">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -148,7 +145,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,6 +165,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -248,14 +245,8 @@
       <workItem from="1526549771922" duration="329000" />
       <workItem from="1526572000787" duration="9639000" />
       <workItem from="1526658953293" duration="600000" />
-      <workItem from="1526665685144" duration="11533000" />
-    </task>
-    <task id="LOCAL-00015" summary="fixed CWD variable issue">
-      <created>1525533336189</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1525533336189</updated>
+      <workItem from="1526665685144" duration="11684000" />
+      <workItem from="1526685873629" duration="14000" />
     </task>
     <task id="LOCAL-00016" summary="all shell variables initialised">
       <created>1525534820403</created>
@@ -593,11 +584,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526643734708</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Final Polish">
+      <created>1526685783628</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1526685783629</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="365204000" />
+    <option name="totallyTimeSpent" value="365369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,7 +607,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="24" width="1861" height="1056" extended-state="1" />
+    <frame x="59" y="24" width="1861" height="1056" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87288135" visible="true" weight="0.11660398" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20991561" />
@@ -618,7 +616,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
       <window_info id="Structure" order="1" sideWeight="0.12711865" side_tool="true" weight="0.13045882" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.9150994" visible="true" weight="1.0" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.9150994" weight="0.33544305" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.30063292" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -632,24 +630,24 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87288135" visible="true" weight="0.13045882" />
       <window_info id="Structure" order="1" sideWeight="0.12711865" side_tool="true" visible="true" weight="0.13045882" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.20991561" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32911393" />
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.27320674" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32911393" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.004219409" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.0" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.9150994" weight="0.12947369" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.08490059" side_tool="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.27320674" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32911393" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -663,7 +661,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Output redirection finished" />
     <MESSAGE value="Fixed source bug, updated parseCmd to IOCheck" />
     <MESSAGE value="Input redirection '&lt;' finished and tested" />
     <MESSAGE value="Redone setSV() and renamed some files" />
@@ -688,23 +685,24 @@
     <MESSAGE value="Organized some more" />
     <MESSAGE value="Added strdup to internal command Variable function, fixed glitch!" />
     <MESSAGE value="Fixed some more Variable Dec bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some more Variable Dec bugs" />
+    <MESSAGE value="Final Polish" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Polish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url />
+          <url>file://$PROJECT_DIR$/eggshell.c</url>
           <line>8</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url />
+          <url>file://$PROJECT_DIR$/cmdController.c</url>
           <line>2</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url />
+          <url>file://$PROJECT_DIR$/intrnlCmdParser.c</url>
           <line>6</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
@@ -762,6 +760,30 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/eggshell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="11" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="11" />
+          <folding>
+            <element signature="e#60#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2220">
+          <caret line="148" column="58" lean-forward="true" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigHandler.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ioController.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
@@ -927,7 +949,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eggshell.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="866">
+        <state relative-caret-position="1260">
           <caret line="84" column="11" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="11" />
           <folding>
             <element signature="e#60#78#0" expanded="true" />
@@ -944,15 +966,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/extrnlCmdParser.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="148" column="58" lean-forward="true" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
+        <state relative-caret-position="2220">
+          <caret line="148" column="58" selection-start-line="148" selection-start-column="58" selection-end-line="148" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sigHandler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="15">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>

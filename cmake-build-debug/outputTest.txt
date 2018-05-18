@@ -1,0 +1,22 @@
+     12      12     158
+
+Hey russellsb! This source command seems to be working pretty well right? 
+You know what? I'm going to have some fun 
+First I'll print all your variables! 
+
+EXITCODE=0
+PATH=/home/russellsb/bin:/home/russellsb/.local/bin:/home/russellsb/bin:/home/russellsb/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USER=russellsb
+HOME=/home/russellsb
+SHELL=/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug/EggShell
+CWD=/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug
+PROMPT=russellsb@eggShell-lineInput~/mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment/cmake-build-debug$> 
+TERMINAL=/dev/pts/1
+
+Ooo, interesting $CWD I'll take you up to the root directory now 
+it's now: /mnt/1EACD264ACD235CD/Artificial Intellige (BSc.)/2nd Semester/OS/Assignment 
+Great now that's happened, I'll set your $PROMPT to: 
+INSANELY_LEGIT_PROMPT_:)_==>_ 
+If you'd like to reset the prompt use chdir 
+Russell made it so putting chdir on its own sets it back to the initial directory and it affects the prompt! 
+

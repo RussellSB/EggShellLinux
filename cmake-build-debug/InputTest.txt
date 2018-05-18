@@ -1,0 +1,1 @@
+"One Two Three Four, this is a test for input using wc"
